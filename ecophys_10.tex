@@ -1,0 +1,703 @@
+% -*- TeX:RNW:UK -*-
+\documentclass[10pt]{beamer}
+\usetheme{metropolis}
+%\useinnertheme{rectangles}
+\setbeamercovered{%
+still covered={\opaqueness<1->{15}},
+again covered={\opaqueness<1->{40}}}
+
+\hypersetup{colorlinks,linkcolor=black,urlcolor=brown,citecolor=brown}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{unicode-math}
+
+% We set the Lucida OTF fonts as default
+\usepackage{fontspec}
+\setmainfont{Lucida Bright OT}
+\setsansfont{Lucida Sans OT}
+\setmonofont{Lucida Console DK}[Scale=MatchLowercase]
+
+\newfontfamily\typiconsfont{Typicons}[Scale=0.9]
+\newcommand\typicons[1]{{\typiconsfont\symbol{#1}}}
+\newcommand\Attention{\colorbox{yellow}{\textcolor{black}{\typicons{"E136}}}\xspace}
+\newcommand\Advanced{\colorbox{black}{\textcolor{white}{\typicons{"E04E}}}\xspace}
+
+\newfontfamily\webglyphsfont{WebHostingHub-Glyphs}[Scale=0.7]
+\newcommand\webglyphs[1]{{\webglyphsfont\symbol{#1}}}
+\newcommand\Discussion{\colorbox{white}{\textcolor{black}{\webglyphs{"F134}}}\xspace}
+\newcommand\DExamples{\colorbox{black}{\textcolor{white}{\webglyphs{"F134} examples?}}}
+\newcommand\Reading{\colorbox{black}{\textcolor{white}{\webglyphs{"F0C1}}}\xspace}
+
+\newfontfamily\meteoconsfont{Meteocons}
+\newcommand\meteocons[1]{{\meteoconsfont\symbol{#1}}}
+\newcommand\meteosun{\meteocons{"0042}}
+\newcommand\meteosuncloud{\meteocons{"0048}}
+\newcommand\meteorain{\meteocons{"0052}}
+\newcommand\meteosolidsun{\meteocons{"0031}}
+
+\newfontfamily\KRfarmfont{KR Back On The Farm}
+\newcommand\KRfarm[1]{{\KRfarmfont\symbol{#1}}}
+\newcommand\farmplant{\KRfarm{"0049}}
+
+\usepackage{polyglossia}
+\setdefaultlanguage[variant = british, ordinalmonthday = false]{english}
+
+\usepackage[style=authoryear-comp,firstinits,sortcites,maxcitenames=2,%
+    mincitenames=1,maxbibnames=10,minbibnames=10,uniquename=mininit,%
+    uniquelist=minyear,sortfirstinits=true]{biblatex}
+\addbibresource{../references/ecophys.bib}
+%\renewcommand{\bibfont}{\small}
+
+\usepackage{abbrev}
+\DeclareGraphicsExtensions{.png,.jpg,.jpeg,.pdf}
+
+\begin{document}
+
+\title{PBIO-141\\Sensory and Physiological Ecology of  Plants}
+\subtitle{10: Carbon Assimilation (A)}
+\author{Pedro J. Aphalo}
+\date{January-February 2018}
+\institute[Univ.\ of Helsinki]{M.Sc.\ in Plant Biology, University of Helsinki\\[2ex] \url{http://blogs.helsinki.fi/aphalo/}}
+
+
+  \begin{frame}
+    \maketitle
+  \end{frame}
+
+  \begin{frame}[c]
+    \begin{center}
+      \begin{small}
+        \copyright 2006-2018 by Pedro J. Aphalo\\
+       University of Helsinki, Finland.\\
+        \textcolor{blue}{\url{http://blogs.helsinki.fi/aphalo/}}\\[2ex]
+      \end{small}
+
+      \begin{footnotesize}
+        Sensory and Physiological Ecology of  Plants: `10: Carbon Assimilation (A)' by Pedro J. Aphalo is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+
+        Illustrations and text quoted from copyrighted sources is excluded from this license and their use should respect the original licenses.\\[2ex]
+      \end{footnotesize}
+
+      \includegraphics[width=6em]{../figures/copyright/by-sa}
+    \end{center}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Outline}
+    \tableofcontents
+  \end{frame}
+
+\section{Carbon assimilation}
+
+\begin{frame}{Carbon economy}
+    \begin{itemize}
+        \item Our objective is to describe and understand acclimation, adaptation
+        and responses of carbon acquisition and loss by whole
+        plants.
+        \item For understanding we need mechanistic explanations.%
+        \item So, we need to study plants at different scales.%
+        \item From biochemistry upwards.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Scale}
+    \centering
+    \includegraphics[height=0.8\textheight]{figures/OsmCho1988-1}\\
+    {\small Carbon assimilation and growth at different scales
+    \autocite[from][]{OsmCho1988}.}
+\end{frame}
+
+\begin{frame}{Forest}
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/Koli}\\
+    {\small Koli national park in summer. Growth and changes in the forest
+    can be observed over a period of years. The relaxation time after a
+    disturbance is long.}
+\end{frame}
+
+\begin{frame}{Single plant}
+    \centering
+    \includegraphics[height=0.70\textheight]{figures/Linnea-1}\\
+    {\small Twinflower (vanamo) (\species{Linnea borealis}). The relaxation time after a disturbance is
+    shorter for a single plant than for the forest.}
+\end{frame}
+
+\begin{frame}{Leaf cross-section}
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/IvyCryofractureSEM-1}\\
+    {\small Cross-section of an ivy (muratti) leaf (\species{Hedera helix}), cryofracture SEM \autocite[from][]{Aphalo1991}.}
+\end{frame}
+
+\begin{frame}{Chloroplast ultrastructure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/TaizXXChloroplastTEM-1}\\
+    {\small Chloroplast cross-section, TEM
+    \autocite[from][]{TaiZei2006}.}
+\end{frame}
+
+\begin{frame}{Carbon assimilation}
+    {Discussion: How does C assimilation take place? (Whole path from atmosphere to carbohydrate.)}
+
+    \begin{itemize}
+        \item Approximately 40\% of the plant dry mass consists of carbon.
+
+        \item Life on earth depends on photosynthesis.
+
+        \item \COtwo uptake occurs through leaf pores, the stomata, which are able
+        to rapidly change their aperture.
+
+        \item Once inside the leaf, \COtwo diffuses from the intercellular air
+        spaces to the site of carboxylation.
+
+        \item The primary processes of photosynthesis occur in the chloroplast.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Gas-exchange in a leaf}
+    \centering
+    \includegraphics[height=0.7\textheight]{figures/Heldt8-1LeafStoma}\\
+    {\small Gas-exchange through stomata in a leaf \autocite[from][]{Heldt1997}.}
+\end{frame}
+
+\begin{frame}{The leaf}
+    \begin{itemize}
+        \item In plant leaves respiration takes place at all times,
+        and photosynthesis when there is light.
+        \item The ``real'' rate of carbon fixation is called gross
+        photosynthetic rate.
+        \item The gross photosynthetic rate less respiration
+        gives the net photosynthetic rate.
+        \item When we measure the exchange of \COtwo\ between a leaf
+        and the atmosphere we measure the net photosynthetic rate.
+    \end{itemize}
+    {$$ A_N = A_G - R $$
+    where $A$ is the usual symbol for photosynthesis (=assimilation)
+    and $R$ the usual symbol for respiration.}
+\end{frame}
+
+\begin{frame}{Measuring leaf gas-exchange}
+    \centering
+    \includegraphics[height=0.7\textheight]{figures/licor}\\
+    {\small Photo source: \url{http://www.geos.ed.ac.uk/homes/s0452637/ecophys.html}}
+\end{frame}
+
+
+\section{Photosynthesis at other scales}
+
+\begin{frame}{Big leaf models}
+    \begin{itemize}
+        \item Sometimes a canopy is treated as a \emph{big leaf}.
+        \item $A$ and $R$ are measured and expressed per unit
+        \emph{ground} area.
+        \item Scaling from leaf measurements to `big leaf' values is
+        a complicated and error prone process.
+        \item The gas exchange of canopies can also be measured directly.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Eddy covariance}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/EddyCovariance_diagram_1}\\
+    {\small Representation of eddies passing a measuremnet tower. Diagram created by George Burba.}
+    {\tiny \url{http://en.wikipedia.org/wiki/File:EddyCovariance_diagram_1.jpg}}
+\end{frame}
+
+\begin{frame}{Eddy covariance}
+    \centering
+    \includegraphics[height=0.7\textheight]{figures/BobCook5_8Apr00}\\
+    {\small Tower used for eddy covariance measurements} {\tiny \url{http://www.nrel.colostate.edu/projects/kruger/Images/BobCook5_8Apr00.jpg}}
+\end{frame}
+
+\begin{frame}{Chloroplasts}
+    \begin{itemize}
+        \item Thought to have originated very long ago during
+        evolution from an endosymbiont.
+        \item Chloroplasts have their own genetic information, and
+        multiply by division.
+        \item Only a fraction of the proteins and enzymes in the
+        chloroplast are coded by chloroplast genes, the rest are
+        encoded by nuclear genes.
+        \item Plant physiologists sometimes study and do experiments
+        with isolated chloroplasts (chloroplasts separated from the
+        cells).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Biochemistry}
+    Not all plants have the same type of photosynthetic
+    metabolism.
+    \begin{description}
+        \item[C3] The first type described. The first product is
+        a molecule with three carbon atoms.
+        \item[C4] The first product is a molecule with four carbon
+        atoms. Its pathway includes a \COtwo\ concentrating stage.
+        There are several subtypes. Appeared
+        more than once during evolution of plants.
+        \item[CAM] It includes a \COtwo\ ``storage'' stage.
+        Accumulation occurs at night, reduction and synthesis of
+        carbohydrates during the day.
+    \end{description}
+\end{frame}
+
+\section{Biochemistry: C3}
+
+\begin{frame}{C3 photosynthesis}
+    \begin{itemize}
+        \item The C3 metabolism is the simplest one, and it is also a
+        component of C4 metabolism and CAM.
+        \item All the steps can happen inside a single chloroplast.
+        \item It is also the most widespread type of carbon assimilation
+        metabolism in the plant kingdom.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{C3 photosynthesis}
+    \begin{itemize}
+        \item In photosynthesis energy from light is used to
+        assimilate C from \COtwo\ in the air (or water).
+        \item C is not only fixed by carboxilation but also reduced.
+        \item Triose phosphate is produced and further used to
+        synthesize carbohydrates (sugars, starch).
+        \item The name \emph{photosynthate} is used as a generic
+        name for these products of photosynthesis.
+        \item Starch can accumulate in the chloroplasts themselves,
+        or carbohydrates may be transported away from the leaves and
+        used elsewhere in the plant as a source of building blocks
+        and energy for growth or maintenance.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{C3 photosynthesis}
+    \centering
+    \includegraphics[height=0.65\textheight]{figures/Heldt6-1PhotosynBasic}\\
+    {\small Basic scheme \autocite[from][]{Heldt1997}.}
+\end{frame}
+
+\begin{frame}{Light and carbon reactions}
+    \begin{itemize}
+        \item C3 photosynthesis can be divided into two stages:
+        \emph{light reactions} and \emph{carbon reactions}.
+        \item[$\circ$] Earlier the name \emph{dark reactions} was
+        used for what now are called carbon reactions.
+        \item Light reactions are related to capturing light energy
+        into energy rich ATP and reducing power as NADPH.
+        \item Carbon reactions are related to fixing and reducing C
+        from \COtwo. They use as substrate the products of the light
+        reactions. They can proceed in darkness if ATP and NADPH are
+        supplied.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Light and carbon reactions}
+    \centering
+    \includegraphics[width=\textwidth]{figures/Taiz8-1ChloroplastLightAndCarbonReactions}\\
+    {\small Location of light and carbon reactions in the chloroplast \autocite[from][]{TaiZei2006}.}
+\end{frame}
+
+\section{Chloroplast}
+
+\begin{frame}{Chloroplast: location of photosynthesis}
+    \centering
+    \includegraphics[width=1.1\textwidth]{figures/Taiz7-16Chloroplast}\\
+    {\small Diagram of a chloroplast \autocite[from][]{TaiZei2006}.}
+\end{frame}
+
+\section{C3: Light reactions}
+
+\begin{frame}{Photosystems}
+    \begin{itemize}
+        \item Two types of photosystems are involved in the light
+        reactions: PS I and PS II.
+        \item They play different roles, and have at their centre
+        chlorophylls that absorb light of slightly different
+        wavelengths.
+        \item Each PS is composed of many pigment molecules and
+        several proteins.
+        \item There are different regions: the antenna complexes
+        and the reaction centres.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Light reactions}
+    \begin{itemize}
+        \item Chlorophyll and accessory pigments (mainly
+        carotenoids) absorb light.
+        \item When one of these molecules absorbs a photon, it
+        becomes excited.
+        \item This excitation can be the start of a
+        photochemical reaction, or it can be transferred to another
+        molecule. (It can also be dissipated as heat or emitted as
+        light of a longer wavelength.)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Reaction centres}
+    \begin{itemize}
+        \item Chlorophyll molecules are not organized at random in
+        the chloroplast.
+        \item There are reaction centres and antenna complexes.
+        \item The excitation of chlorophyll molecules in the
+        antenna complexes does not drive directly the light
+        reactions.
+        \item The excitation is funnelled to special chlorophylls at
+        the reaction centres.
+        \item The photochemical reactions happen in these reaction
+        centres.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Light reactions}
+    \centering
+    \includegraphics[height=0.85\textheight]{figures/Heldt3-17PhotosyntChloroplast}\\
+    {\small Simplified scheme of light reactions \autocite[from][]{Heldt1997}.}
+\end{frame}
+
+\begin{frame}{Physical organization}
+    \begin{itemize}
+        \item PS I and PS II are not located side by side in the
+        membrane, they are located in different parts of the
+        lamellae.
+        \item PS I in stroma lamellae.
+        \item PS II in grana lamellae.
+        \item The electron carriers move to transfer the electrons.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Pigments}
+    \centering
+    \includegraphics[height=0.85\textheight]{figures/Heldt2-3ChlCarot}\\
+    {\small Absorption spectra and spectral (energy) irradiance\\ \autocite[from][]{Heldt1997}.}
+\end{frame}
+
+\begin{frame}{Funneling}
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/Taiz7-19Funneling}\\
+    {\small Funneling of energy into the reaction centers \autocite[from][]{TaiZei2006}.}
+\end{frame}
+
+%\begin{frame}{Electron transport chain}
+%    \begin{itemize}
+%        \item Electrons from the water molecule split at PS II are
+%        transported through the electron transport chain to the
+%        final acceptor NADP$^+$ which is reduced to NADPH.
+%        \item The chain is located in the thylakoid membrane of the
+%        chloroplasts but it is not made up of fixed directly linked
+%        components.
+%        \item Different parts of the chain are located in different
+%        regions of the membrane and some of the intermediate acceptors like
+%        plastocyanine are soluble and move between the regions transferring
+%        the electrons.
+%    \end{itemize}
+%\end{frame}
+
+%\begin{frame}{Z scheme}
+%    \vspace{-0.04\textheight}
+%    \includegraphics[width=\textwidth]{figures/Taiz7.14Zscheme}\\
+%%    \vspace{-0.02\textheight}
+%    {\small Z scheme \autocite[from][]{TaiZei2006}.}
+%\end{frame}
+
+\begin{frame}{Discussion (5 min)}
+  Can you suggest ways in which light reaction `machinery' could acclimate to shade?
+\end{frame}
+
+\section{C3: Carbon reactions}
+
+\begin{frame}{Carbon reactions}
+\begin{itemize}
+        \item In the carbon reactions ATP (adenosine triphosphate) and NADPH
+        (nicotinamide adenine dinucleotide phosphate) from the
+        light reactions are used.
+        \item The product is a triose phosphate.
+        \item A \emph{tri}ose is a three carbon monosaccharide (sugar).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Carbon reactions}
+    \centering
+    \includegraphics[height=0.85\textheight]{figures/Heldt6-2PhotosynOverall}\\
+    {\small Overall ``dark'' or carbon reaction \autocite[from][]{Heldt1997}.}
+\end{frame}
+
+\begin{frame}{Carbon reactions}
+    \begin{itemize}
+        \item Carbon reactions take place as a cycle.
+        \item This cycle is called Calvin cycle.
+        \item The key enzyme in the cycle is Rubisco.
+        \item Rubisco is a short name for ribulose 1,5-bisphosphate
+        carboxylase oxygenase.
+        \item As the name implies it can both carboxylate and oxygenate
+        its substrate. Obviously, only carboxylation leads to carbon
+        assimilation.
+        \item The double function of Rubisco means that there is
+        competition between two reactions with the partial rates
+        depending on the concentrations of \COtwo\ and O$_2$.
+        \item The affinity of Rubisco for \COtwo\ relative to O$_2$ decreases
+        with increasing temperature.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Melvin Calvin}
+    \begin{itemize}
+        \item The name \emph{Calvin cycle} is used for the
+        reductive pentose phosphate pathway.
+        \item Melvin Calvin described it and received the
+        Nobel prize in 1961. This discovery was done using $^{14}$C to trace
+        the fate of the C in \COtwo assimilated. There were other
+        people in his team contributing to the research.
+    \end{itemize}
+\end{frame}
+
+%\begin{frame}{Calvin cycle}
+%    \vspace{-0.04\textheight}
+%    \includegraphics[height=0.65\textheight]{figures/Heldt6.3CalvinOverview}\\
+%%    \vspace{-0.02\textheight}
+%    {\small Overview of Calvin cycle \autocite[from][]{Heldt1997}.}
+%\end{frame}
+%
+\begin{frame}{Calvin cycle}
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/Taiz8-2CalvinStages}\\
+    {\small The three stages of the Calvin cycle: carboxylation, reduction and regeneration \autocite[from][]{TaiZei2006}.}
+\end{frame}
+%
+%\begin{frame}{Calvin cycle: carboxylation}
+%    \begin{itemize}
+%        \item Ribulose is a pentose.
+%        \item A pentose is a five carbon monosaccharide.
+%        \item Ribulose 1,5-bisphosphate is phosphorylated at
+%        positions 1 and 5.
+%        \item After carboxylation it yields two molecules of
+%        3-P-glycerate.
+%        \item 3-P-glycerate is a three-carbon molecule.
+%        \item So we have a total of six carbon atoms, five from the
+%        ribulose and one from \COtwo.
+%%        \item<7> To get one triose phosphate as product we have to
+%%        start with three ribulose 1,5-bisphosphate molecules and
+%%        three \COtwo molecules.
+%%        \item<8> Water is an additional substrate in the carboxylation reactions.
+%    \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Calvin cycle: carboxylation}
+%    \begin{itemize}
+%        \item To get one triose phosphate as product we have to
+%        start with three ribulose 1,5-bisphosphate molecules and
+%        three \COtwo molecules.
+%        \item Water is an additional substrate in the carboxylation reactions.
+%    \end{itemize}
+%\end{frame}
+
+%\begin{frame}{Calvin cycle}
+%%    \vspace{-0.06\textheight}
+%    \twocolumn{%
+%    \includegraphics[height=\textheight]{figures/Taiz8.3Calvin}}{%
+%    \raggedright
+%    \vspace{0.9\textheight}
+%    {\small Detail of the Calvin cycle \autocite[from][]{TaiZei2006}.}}
+%\end{frame}
+%
+%\begin{frame}{Calvin cycle: reduction}
+%    \begin{itemize}
+%        \item The 3-P-glycerate is reduced to
+%        glyceraldehyde-3-phosphate.
+%        \item The reaction uses NADPH as a source of
+%        reducing power (``a source of H'') and ATP as a source of P,
+%        removing one oxygen atom from the 3-P-glycerate as PO$_4H^{2-}$
+%        (phosphate) and yielding glyceraldehyde-3-P.
+%    \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Calvin cycle: regeneration}
+%    \begin{itemize}
+%        \item This is the regeneration of three ribulose 1,5-bisphosphate
+%        molecules from five triose phosphate molecules (the sixth
+%        triose phosphate molecule is the product of going through the cycle once).
+%        \item Three ribulose phosphate molecules are first produced
+%        and then phosphorylated to bisphosphate using ATP in the
+%        process.
+%        \item[$\circ$] (The sixth triose phosphate molecule is
+%        exported to the cytosol.)
+%    \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Oxygenation}
+%    \begin{itemize}
+%        \item Rubisco catalyzes two reactions: the carboxylation of
+%        ribulose 1,5-bisphosphate or its oxygenation.
+%        \item These reactions compete, and their relative reaction
+%        rates will depend at a given temperature on the concentrations of \COtwo\ and
+%        oxygen.
+%        \item The relative affinity of Rubisco for \COtwo and O$_2$
+%        depends on temperature, with high temperatures favouring
+%        oxygenation.
+%        \item Oxygenation gives rise to photorespiration, which
+%        releases \COtwo.
+%    \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Photorespiration}
+%    \begin{itemize}
+%        \item The products of the oxygenation of ribulose
+%        1,5-bisphosphate are 1 molecule of 2-phosphoglycolate (2
+%        carbons) and 3-phosphoglycerate.
+%        \item 2-phosphoglycolate is recycled but at a rather high
+%        cost in ATP and NADPH.
+%        \item The oxygenase side reaction can cost to the plant more
+%        than one third of the captured photons.
+%    \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Photorespiration}
+%    \begin{itemize}
+%        \item The role of photorespiration is not well understood,
+%        but it reduces the efficiency of photosynthesis, especially
+%        at high temperature.
+%        \item On the other hand it could work as a safety valve
+%        when under high light and low \COtwo (closed stomata) there
+%        is an excess of ATP and NADPH produced in the light reactions.
+%        \item C4 metabolism ensures that carboxylation
+%        predominates, even at high temperature, but it has an
+%        energetic cost.
+%    \end{itemize}
+%\end{frame}
+
+%\begin{frame}{Photosystems}
+%    \begin{itemize}
+%        \item Two types of photosystems are involved in the light
+%        reactions: PS I and PS II.
+%        \item They play different roles, and have at their centre
+%        chlorophylls that absorb light of slightly different
+%        wavelengths.
+%        \item Each PS is composed of many pigment molecules and
+%        several proteins.
+%        \item There are different regions: the antenna complexes
+%        and the reaction centres.
+%    \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Light reactions}
+%    \begin{itemize}
+%        \item Chlorophyll and accessory pigments (mainly
+%        carotenoids) absorb light.
+%        \item When one of these molecules absorbs a photon, it
+%        becomes excited.
+%        \item This excitation can be the start of a
+%        photochemical reaction, or it can be transferred to another
+%        molecule. (It can also be dissipated as heat or emitted as
+%        light of a longer wavelength.)
+%    \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Reaction centres}
+%    \begin{itemize}
+%        \item Chlorophyll molecules are not organized at random in
+%        the chloroplast.
+%        \item There are reaction centres and antenna complexes.
+%        \item The excitation of chlorophyll molecules in the
+%        antenna complexes does not drive directly the light
+%        reactions.
+%        \item The excitation is funnelled to special chlorophylls at
+%        the reaction centres.
+%        \item The photochemical reactions happen in these reaction
+%        centres.
+%    \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Light reactions}
+%    \vspace{-0.07\textheight}
+%    \includegraphics[height=0.8\textheight]{figures/Heldt3.17PhotosyntChloroplast}\\
+%%    \vspace{-0.02\textheight}
+%    {\small Simplified scheme of light reactions \autocite[from][]{Heldt1997}.}
+%\end{frame}
+%
+%\begin{frame}{Physical organization}
+%    \begin{itemize}
+%        \item PS I and PS II are not located side by side in the
+%        membrane, they are located in different parts of the
+%        lamellae.
+%        \item PS I in stroma lamellae.
+%        \item PS II in grana lamellae.
+%        \item The electron carriers move to transfer the electrons.
+%    \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Chloroplast}
+%    \vspace{-0.04\textheight}
+%    \includegraphics[width=1.1\textwidth]{figures/Taiz7.16Chloroplast}\\
+%%    \vspace{-0.02\textheight}
+%    {\small Diagram of a chloroplast \autocite[from][]{TaiZei2006}.}
+%\end{frame}
+%
+%\begin{frame}{Pigments}
+%    \vspace{-0.04\textheight}
+%    \includegraphics[height=0.65\textheight]{figures/Heldt2.3ChlCarot}\\
+%%    \vspace{-0.02\textheight}
+%    {\small Absorption spectra \autocite[from][]{Heldt1997}.}
+%\end{frame}
+%
+%\begin{frame}{Funneling}
+%    \vspace{-0.04\textheight}
+%    \includegraphics[width=\textwidth]{figures/Taiz7.19Funneling}\\
+%%    \vspace{-0.02\textheight}
+%    {\small Funneling of energy into the reaction centers \autocite[from][]{TaiZei2006}.}
+%\end{frame}
+%
+%\begin{frame}{Electron transport chain}
+%    \begin{itemize}
+%        \item Electrons from the water molecule split at PS II are
+%        transported through the electron transport chain to the
+%        final acceptor NADP$^+$ which is reduced to NADPH.
+%        \item The chain is located in the thylakoid membrane of the
+%        chloroplasts but it is not made up of fixed directly linked
+%        components.
+%        \item Different parts of the chain are located in different
+%        regions of the membrane and some of the intermediate acceptors like
+%        plastocyanine are soluble and move between the regions transferring
+%        the electrons.
+%    \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Z scheme}
+%    \vspace{-0.04\textheight}
+%    \includegraphics[width=\textwidth]{figures/Taiz7.14Zscheme}\\
+%%    \vspace{-0.02\textheight}
+%    {\small Z scheme \autocite[from][]{TaiZei2006}.}
+%\end{frame}
+%
+%\begin{frame}{Next}
+%    \begin{itemize}
+%        \item C3, carbon reactions
+%        \item C4
+%        \item CAM
+%        \item[]
+%        \item Whole-leaf response curves
+%        \item Acclimation and adaptation of photosynthesis
+%    \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Carbon reactions}
+%    \begin{itemize}
+%        \item In the carbon reactions ATP and NADPH from the
+%        light reactions is used.
+%        \item The product is a triose phosphate.
+%        \item A \emph{tri}ose is a three carbon sugar.
+%    \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Carbon reactions}
+%    \vspace{-0.04\textheight}
+%    \includegraphics[height=0.65\textheight]{figures/Heldt6.2PhotosynOverall}\\
+%%    \vspace{-0.02\textheight}
+%    {\small Overall ``dark'' or carbon reaction \autocite[from][]{Heldt1997}.}
+%\end{frame}
+
+  \section{References}
+  
+  \begin{frame}[t,allowframebreaks]{References}
+    \nocite{Heldt2004}
+    \printbibliography
+  \end{frame}
+
+\end{document}
+

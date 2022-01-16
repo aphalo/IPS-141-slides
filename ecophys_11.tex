@@ -1,0 +1,490 @@
+% -*- TeX:RNW:UK -*-
+\documentclass[10pt]{beamer}
+\usetheme{metropolis}
+%\useinnertheme{rectangles}
+\setbeamercovered{%
+still covered={\opaqueness<1->{15}},
+again covered={\opaqueness<1->{40}}}
+
+\hypersetup{colorlinks,linkcolor=black,urlcolor=brown,citecolor=brown}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{unicode-math}
+
+% We set the Lucida OTF fonts as default
+\usepackage{fontspec}
+\setmainfont{Lucida Bright OT}
+\setsansfont{Lucida Sans OT}
+\setmonofont{Lucida Console DK}[Scale=MatchLowercase]
+
+\newfontfamily\typiconsfont{Typicons}[Scale=0.9]
+\newcommand\typicons[1]{{\typiconsfont\symbol{#1}}}
+\newcommand\Attention{\colorbox{yellow}{\textcolor{black}{\typicons{"E136}}}\xspace}
+\newcommand\Advanced{\colorbox{black}{\textcolor{white}{\typicons{"E04E}}}\xspace}
+
+\newfontfamily\webglyphsfont{WebHostingHub-Glyphs}[Scale=0.7]
+\newcommand\webglyphs[1]{{\webglyphsfont\symbol{#1}}}
+\newcommand\Discussion{\colorbox{white}{\textcolor{black}{\webglyphs{"F134}}}\xspace}
+\newcommand\DExamples{\colorbox{black}{\textcolor{white}{\webglyphs{"F134} examples?}}}
+\newcommand\Reading{\colorbox{black}{\textcolor{white}{\webglyphs{"F0C1}}}\xspace}
+
+\newfontfamily\meteoconsfont{Meteocons}
+\newcommand\meteocons[1]{{\meteoconsfont\symbol{#1}}}
+\newcommand\meteosun{\meteocons{"0042}}
+\newcommand\meteosuncloud{\meteocons{"0048}}
+\newcommand\meteorain{\meteocons{"0052}}
+\newcommand\meteosolidsun{\meteocons{"0031}}
+
+\newfontfamily\KRfarmfont{KR Back On The Farm}
+\newcommand\KRfarm[1]{{\KRfarmfont\symbol{#1}}}
+\newcommand\farmplant{\KRfarm{"0049}}
+
+\usepackage{polyglossia}
+\setdefaultlanguage[variant = british, ordinalmonthday = false]{english}
+
+\usepackage[style=authoryear-comp,firstinits,sortcites,maxcitenames=2,%
+    mincitenames=1,maxbibnames=10,minbibnames=10,uniquename=mininit,%
+    uniquelist=minyear,sortfirstinits=true]{biblatex}
+\addbibresource{../references/ecophys.bib}
+%\renewcommand{\bibfont}{\small}
+
+\usepackage{abbrev}
+\DeclareGraphicsExtensions{.png,.jpg,.jpeg,.pdf}
+
+\begin{document}
+
+\title{PBIO-141\\Sensory and Physiological Ecology of  Plants}
+\subtitle{11: Carbon Assimilation (B)}
+\author{Pedro J. Aphalo}
+\date{January-February 2018}
+\institute[Univ.\ of Helsinki]{M.Sc.\ in Plant Biology, University of Helsinki\\[2ex] \url{http://blogs.helsinki.fi/aphalo/}}
+
+
+  \begin{frame}
+    \maketitle
+  \end{frame}
+
+  \begin{frame}[c]
+    \begin{center}
+      \begin{small}
+        \copyright 2006-2018 by Pedro J. Aphalo\\
+       University of Helsinki, Finland.\\
+        \textcolor{blue}{\url{http://blogs.helsinki.fi/aphalo/}}\\[2ex]
+      \end{small}
+
+      \begin{footnotesize}
+        Sensory and Physiological Ecology of  Plants: `11: Carbon Assimilation (B)' by Pedro J. Aphalo is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+
+        Illustrations and text quoted from copyrighted sources is excluded from this license and their use should respect the original licenses.\\[2ex]
+      \end{footnotesize}
+
+      \includegraphics[width=6em]{../figures/copyright/by-sa}
+    \end{center}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Outline}
+    \tableofcontents
+  \end{frame}
+
+\section{Biochemistry: C4}
+
+\begin{frame}{C4 plants}
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/CornField.eps}\\
+    {\small Maize is a C4 grass. Maize field in Liechtenstein (from \url{http://en.wikipedia.org/wiki/Maize}).}
+\end{frame}
+
+\begin{frame}{Discovery}
+    The C4 pathway was discovered by M. D. Hatch and C. R. Slack, two
+    Australian researchers, in 1966, so it is sometimes called the
+    Hatch-Slack pathway.
+\end{frame}
+
+%\begin{frame}{C3 and C4 leaves}
+%    \includegraphics[width=\textwidth]{figures/Gurevitch2.10CDC3C4leaves.eps}\\
+%    {\small The anatomy of typical C4 leaves is different to that of C3 leaves
+%    \autocite[from][]{GurevitchEtAl2006}. However C4 metabolism is also possible within
+%    individual cells \autocite[for details see][latest edition only]{TaiZei2006}.}
+%\end{frame}
+%
+\begin{frame}{C4 anatomy}
+    \centering
+    \includegraphics[height=0.65\textheight]{figures/Heldt8.8C4anatomy.eps}\\
+    {\small C4 or ``kranz'' anatomy \autocite[from][]{Heldt1997}.}
+\end{frame}
+
+\begin{frame}{C3 vs.\ C4}
+    \centering
+    \includegraphics[height=0.75\textheight]{figures/Heldt8.6C3C4_CO2.eps}\\
+    {\small Overall differences \autocite[from][]{Heldt1997}.}
+\end{frame}
+
+\begin{frame}{C4 mechanism}
+   \begin{itemize}
+        \item The ``principle'' of C4 metabolism is that the
+        concentration of \COtwo\ at the place where Rubisco is
+        located is increased by ``pumping'' it either to special
+        cells or exceptionally to a particular region of a single
+        cell.
+        \item The ``pumping'' is a metabolic pathway that includes
+        carboxylation, transport and decarboxylation.
+        \item Assimilation takes place in the same way as in C3
+        plants: in the Calvin cycle.
+        \item However there is a previous carboxylation step, that
+        yields a molecule with four carbon atoms as product (that is
+        the origin of the name C4).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{C4 mechanism}
+    \centering
+    \includegraphics[width=\textwidth]{figures/Heldt8.9C4principle.eps}\\
+    {\small C4 ``principle'' \autocite[from][]{Heldt1997}.}
+\end{frame}
+
+\begin{frame}{Types of C4 metabolism}
+    The different types differ in the cell compartment where
+    decarboxylation takes place, and the enzyme involved.
+    (Carboxylation is catalyzed by PEP-carboxylase in all types.)
+    \begin{itemize}
+        \item NADP-malic enzyme type (maize, sugarcane).
+        \item NAD-malic enzyme type.
+        \item PEP-carboxykinase enzyme type.
+    \end{itemize}
+\end{frame}
+
+%\begin{frame}[toc=,bm=]{C4 mechanism}
+%%    \vspace{-0.04\textheight}
+%    \twocolumn[lcolwidth=0.57\linewidth,rcolwidth=0.37\linewidth]{
+%    \includegraphics[height=\textheight]{figures/Heldt8.11C4mechanismMalic.eps}}{%
+%    \vspace{0.8\textheight}
+%    {\small NADP-malic enzyme type\\
+%    \autocite[from][]{Heldt1997}.}}
+%\end{frame}
+%
+%\begin{frame}[toc=,bm=]{C4 mechanism}
+%%    \vspace{-0.04\textheight}
+%    \twocolumn[lcolwidth=0.67\linewidth,rcolwidth=0.27\linewidth]{
+%    \includegraphics[height=\textheight]{figures/Heldt8.14C4mechanismNADMalic.eps}}{%
+%    \raggedright \vspace{0.3\textheight}
+%    {\small NAD-malic enzyme type \autocite[from][]{Heldt1997}.}}
+%\end{frame}
+%
+%\begin{frame}[toc=,bm=]{C4 mechanism}
+%%    \vspace{-0.04\textheight}
+%    \twocolumn[lcolwidth=0.67\linewidth,rcolwidth=0.27\linewidth]{
+%    \includegraphics[height=\textheight]{figures/Heldt8.15C4mechanismPEPcarboxykinase.eps}}{%
+%    \raggedright \vspace{0.3\textheight}
+%    {\small PEP-carboxykinase enzyme type \autocite[from][]{Heldt1997}.}}
+%\end{frame}
+%
+%\begin{frame}[toc=,bm=]{C4 mechanism}
+%%    \vspace{-0.04\textheight}
+%    \includegraphics[width=\textwidth]{figures/Heldt8.15C4mechanismPEPcarboxykinaseLegend.eps}\\
+%    {\small PEP-carboxykinase enzyme type \autocite[from][]{Heldt1997}.}
+%\end{frame}
+
+\begin{frame}{Calvin cycle}
+    The reactions of the Calvin cycle occur some in mesophyll
+    chloroplasts and some in the bundle sheath chloroplasts, with
+    metabolites shuttling between these two types of cells.
+\end{frame}
+
+\begin{frame}{C4 in one cell}
+    Recently is has been discovered that C4 metabolism is also
+    possible within a single cell. The two ends of an elongated cell fulfill
+    the roles of ``mesophyll'' and ``bundle sheath'' respectively in \species{Borszczowia
+    aralocaspica} (Chenopodiaceae). In another species without elongated cells, there
+    are concentric regions.
+\end{frame}
+
+\section{Biochemistry: CAM}
+
+\begin{frame}{CAM plants}
+    \centering
+    \includegraphics[height=0.75\textheight]{figures/CAMphoto-1.eps}
+    {\small Some arid habitat plants, typically with CAM.}
+\end{frame}
+
+\begin{frame}{CAM plants}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/CrassulaPhoto-1.eps}\\
+    {\small A species of \species{Crassula}, the genus that originated the name
+    crassulacean acid metabolism (CAM).}
+\end{frame}
+
+\begin{frame}{CAM ``principle''}
+    \begin{itemize}
+        \item Initial carboxylation and assimilation are separated
+        in time.
+        \item At night carboxylation takes place and C from \COtwo is stored as
+        malic acid in the vacuole.
+        \item[+] The enzyme catalyzing this carboxylation is the
+        same as in C4 metabolism: PEP-carboxylase.
+        \item During the day decarboxylation takes place, and
+        assimilation (including another carboxylation) takes place
+        in the Calvin cycle.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{CAM mechanism}
+    \centering
+    \includegraphics[width=\textwidth]{figures/Heldt8.16CAMprinciple.eps}\\
+   {\small CAM ``principle'' \autocite[from][]{Heldt1997}.}
+\end{frame}
+
+%\section{Energy conversion}
+%
+%\begin{frame}{Energy conversion}
+%    \vspace{-0.07\textheight}
+%    \twocolumn[lcolwidth=0.57\linewidth,rcolwidth=0.37\linewidth]{
+%    \includegraphics[height=0.75\textheight]{figures/Taiz9.3EnergyConversion.eps}}{%
+%    \raggedright
+%    \vspace{0.1\textheight}
+%    {\small Only about 5\% of the energy is captured in the fixed and reduced carbon
+%    \autocite[from][]{TaiZei2006}.}}
+%\end{frame}
+
+\section{C3 vs.\ C4 metabolism}
+
+\begin{frame}{History of C4 photosynthesis}
+    \begin{itemize}
+        \item Nowadays C3 plants account for about 70\% of the world's primary
+        productivity.
+        \item C4 evolved relatively recently.
+        \item 50 million years ago \COtwo concentration in the
+        atmosphere ($C_a$) was higher than nowadays.
+        \item Much more recently, C4 photosynthesis was more prominent during the glacial periods,
+        when $C_a$ was below 200 ppm, than what it is today.
+        \item Global increase in \COtwo can be expected to be more
+        favourable for C3 than for C4 species.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Use efficiencies}
+    \begin{itemize}
+        \item C3 photosynthesis is more efficient than C4 photosynthesis in the use of
+        light.
+        \item C4 photosynthesis is more efficient in the use of
+        water and nitrogen.
+        \item \COtwo ``pumping'' in C4 requires extra ATP, that
+        needs to be produced in the light reactions.
+        \item C4 plants do not need to keep stomata so open as C3 plants, and in this way
+        they save water.
+        \item In C4 plants Rubisco works more efficiently (less
+        oxygenation) so less Rubisco is needed to attain the same
+        photosynthesis rate. (Less Rubisco means that less nitrogen
+        is needed.)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Quantum yield}
+    \centering
+    \includegraphics[height=0.8\textheight]{figures/Taiz9.9QuantumYieldC3C4.eps}
+
+    {\small Quantum yield in C3 and C4 plants as a function of
+    temperature
+    \autocite[from][]{TaiZei2006}.}
+\end{frame}
+
+\begin{frame}{Conditions}
+    \centering
+    \includegraphics[height=0.75\textheight]{figures/Taiz9.23FavoredC3C4.eps}
+
+    {\small Conditions favouring C3 and C4 photosynthesis in grasses
+    \autocite[from][]{TaiZei2006}.}
+\end{frame}
+
+\begin{frame}{Distribution of C3, C4 and CAM}
+    \begin{itemize}
+        \item Most plants from cool climates have C3 metabolism.
+        \item Most shade plants have C3 metabolism.
+        \item C4 plants are common in hot and rather dry climates.
+        \item In mountains they are more common at the lower
+        altitudes where it is warmer.
+        \item Many epiphytes are CAM plants.
+        \item CAM plants are common in extremely dry and hot
+        climates.
+        \item Many CAM plants can switch to C3 metabolism when well
+        watered.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{C4 in mountains}
+    \centering
+    \includegraphics[width=\textwidth]{figures/Crawley1.26C3C4DistribElevation.eps}\\
+
+    {\small Abundance of C4 grasses along an elevational gradient \autocite[from][]{Crawley1997}.}
+\end{frame}
+
+\begin{frame}{Net photosynthesis in C3 vs.\ C4}
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/Crawley1.25C3C4Photosyn_gs.eps}\\
+
+    {\small Net photosynthesis and transpiration as a function of leaf conductance
+     \autocite[from][]{Crawley1997}.}
+\end{frame}
+
+\begin{frame}{Types of metabolism}
+    \begin{itemize}
+        \item About 70\% of the Earth's primary production is
+        from C3 metabolism.
+        \item C4 species represent approximately 5\% of all plant
+        species, C3 species about 85\%, and CAM species 10\%.
+        \item C4 evolved nearly synchronously on different
+        continents 5 to 7 million years ago. (At the time \COtwo
+        concentration in the atmosphere decreased.)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Types of metabolism}
+    \begin{description}
+        \item[C3] \species{Triticum aestivum} (wheat), \species{Glycine max} (soybean),
+        \species{Pisum sativum} (pea), \species{Betula pendula} (silver birch),
+        \species{Pinus sylvestris} (Scots pine).
+        \item[C4 NADP-ME] \species{Zea mays} (maize), \species{Sorghum
+        sudanense} (Sudan grass), \species{Saccharum officinarum} (sugarcane).
+        \item[C4 PCK] \species{Panicum maximum}, \species{Chloris gayana},
+        \species{Sporobolus fimbriatus} (grasses).
+        \item[C4 NAD-ME] \species{Atriplex spongiosa}, \species{Portulaca
+        oleracea} (when well watered), \species{Amaranthus edulis}.
+        \item[CAM] \species{Ananas comosus} (pineapple),
+        \species{Clusia major} (a tropical tree), \species{Opuntia
+        ficus-indica} (nopal, `prickly pear', kaktusviikuna).
+        \item[note:] PCK = Phosphoenolpyruvate carboxykinase; ME = Malic enzyme.
+        \end{description}
+\end{frame}
+
+\begin{frame}{Types of metabolism}
+    \begin{description}
+        \item[C3/CAM facultative] \species{Mesembryanthemun crystrallinum} (switches to CAM under salinity),
+        \species{Clusia minor}.
+        \item[C4 NAD-ME/CAM facultative] \species{Portulaca oleracea} (switches to CAM if under drought).
+        \item[C3-C4 intermediate] \species{Flaveria floridana}.
+        (same genus but C4: \species{F. trinervia}, or C3:
+        \species{F. mcdougallii}.)
+        \item[CAM in water plants] \species{Isoetes} (fixing of
+        \COtwo released by respiration).
+    \end{description}
+    \small note: CAM and C4 metabolism have appeared several times independently
+    during evolution. (CAM also has subtypes: ME-CAM and PCK-CAM.)
+\end{frame}
+
+\begin{frame}{Environmental correlations}
+    \begin{itemize}
+        \item Environmental correlations are just correlations, they
+        do not demonstrate on their own cause and effect
+        relationships.
+        \item In addition to the correlations between high
+        temperatures and C4 species, there are correlation patterns for the
+        different types of C4 metabolism.
+        \item There is negative correlation between higher rainfall and CAM species, for
+        tropical epiphytes even at very high rainfall levels.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{C4 types and rainfall}
+    \centering
+    \includegraphics[width=\textwidth]{figures/Lambers43C4grassesAustralia.eps}\\
+
+    {\small Proportion of grasses in Australia with different types
+    of photosynthetic metabolism
+    \autocite[from][]{LambersEtAl1998}.}
+\end{frame}
+
+\begin{frame}{CAM and rainfall}
+    \centering
+    \includegraphics[height=0.65\textheight]{figures/Lambers50CAMrainfall.eps}\\
+
+    {\small Proportion of epipythic bromeliads that have CAM photosynthetic
+    metabolism
+    \autocite[from][]{LambersEtAl1998}.}
+\end{frame}
+
+
+%\begin{frame}{CAM mechanism: night}
+%%    \vspace{-0.04\textheight}
+%    \twocolumn[lcolwidth=0.67\linewidth,rcolwidth=0.27\linewidth]{
+%    \includegraphics[height=0.9\textheight]{figures/Heldt8.17CAMnight.eps}}{%
+%    \raggedright \vspace{0.8\textheight}
+%    {\small CAM mechanism at night \autocite[from][]{Heldt1997}.}}
+%\end{frame}
+%
+%\begin{frame}{CAM mechanism: day}
+%%    \vspace{-0.04\textheight}
+%    \twocolumn[lcolwidth=0.67\linewidth,rcolwidth=0.27\linewidth]{
+%    \includegraphics[height=\textheight]{figures/Heldt8.18CAMday.eps}}{%
+%    \raggedright \vspace{0.8\textheight}
+%    {\small CAM mechanism during daytime \autocite[from][]{Heldt1997}.}}
+%\end{frame}
+%
+%
+%\section{Biochemistry: CAM}
+%
+%\begin{frame}{CAM plants}
+%    \vspace{-0.04\textheight}
+%    \twocolumn[lcolwidth=0.57\linewidth,rcolwidth=0.37\linewidth]{
+%    \includegraphics[height=0.75\textheight]{figures/CAMphoto-1.eps}}{
+%%    \vspace{-0.02\textheight}
+%    {\small Some arid habitat plants, typically with CAM.}}
+%\end{frame}
+%
+%\begin{frame}[toc=,bm=]{CAM plants}
+%    \vspace{-0.04\textheight}
+%    \includegraphics[width=0.8\textwidth]{figures/CrassulaPhoto-1.eps}\\
+%%    \vspace{-0.02\textheight}
+%    {\small A species of \species{Crassula}, the genus that originated the name
+%    crassulacean acid metabolism (CAM).}
+%\end{frame}
+%
+%\begin{frame}{CAM ``principle''}
+%    \vspace{-0.04\textheight}
+%    \begin{itemize}[type=1]
+%        \item<1> Initial carboxylation and assimilation are separated
+%        in time.
+%        \item<2> At night carboxylation takes place and C from \COtwo is stored as
+%        malic acid in the vacuole.
+%        \item[+]<2> The enzyme catalyzing this carboxylation is the
+%        same as in C4 metabolism: PEP-carboxylase.
+%        \item<3> During the day decarboxylation takes place, and
+%        assimilation (including another carboxylation) takes place
+%        in the Calvin cycle.
+%    \end{itemize}
+%\end{frame}
+%
+%\begin{frame}[toc=,bm=]{CAM mechanism}
+%    \vspace{-0.06\textheight}
+%    \includegraphics[width=\textwidth]{figures/Heldt8.16CAMprinciple.eps}\\
+%    \vspace{-0.02\textheight}
+%    {\small CAM ``principle'' \autocite[from][]{Heldt1997}.}
+%\end{frame}
+%
+%\begin{frame}{CAM mechanism: night}
+%%    \vspace{-0.04\textheight}
+%    \twocolumn[lcolwidth=0.67\linewidth,rcolwidth=0.27\linewidth]{
+%    \includegraphics[height=0.9\textheight]{figures/Heldt8.17CAMnight.eps}}{%
+%    \raggedright \vspace{0.8\textheight}
+%    {\small CAM mechanism at night \autocite[from][]{Heldt1997}.}}
+%\end{frame}
+%
+%\begin{frame}{CAM mechanism: day}
+%%    \vspace{-0.04\textheight}
+%    \twocolumn[lcolwidth=0.67\linewidth,rcolwidth=0.27\linewidth]{
+%    \includegraphics[height=\textheight]{figures/Heldt8.18CAMday.eps}}{%
+%    \raggedright \vspace{0.8\textheight}
+%    {\small CAM mechanism during daytime \autocite[from][]{Heldt1997}.}}
+%\end{frame
+%}
+%
+%
+
+  \section*{References}
+  \begin{frame}[t,allowframebreaks]
+    \frametitle{References}
+    \nocite{Heldt2004}
+    \nocite{Lambers2008}
+    \printbibliography
+  \end{frame}
+
+\end{document}

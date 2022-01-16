@@ -1,0 +1,496 @@
+% -*- TeX:RNW:UK -*-
+\documentclass[10pt]{beamer}
+\usetheme{metropolis}
+%\useinnertheme{rectangles}
+\setbeamercovered{%
+still covered={\opaqueness<1->{15}},
+again covered={\opaqueness<1->{40}}}
+
+\hypersetup{colorlinks,linkcolor=black,urlcolor=brown,citecolor=brown}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{unicode-math}
+
+% We set the Lucida OTF fonts as default
+\usepackage{fontspec}
+\setmainfont{Lucida Bright OT}
+\setsansfont{Lucida Sans OT}
+\setmonofont{Lucida Console DK}[Scale=MatchLowercase]
+
+\newfontfamily\typiconsfont{Typicons}[Scale=0.9]
+\newcommand\typicons[1]{{\typiconsfont\symbol{#1}}}
+\newcommand\Attention{\colorbox{yellow}{\textcolor{black}{\typicons{"E136}}}\xspace}
+\newcommand\Advanced{\colorbox{black}{\textcolor{white}{\typicons{"E04E}}}\xspace}
+
+\newfontfamily\webglyphsfont{WebHostingHub-Glyphs}[Scale=0.7]
+\newcommand\webglyphs[1]{{\webglyphsfont\symbol{#1}}}
+\newcommand\Discussion{\colorbox{white}{\textcolor{black}{\webglyphs{"F134}}}\xspace}
+\newcommand\DExamples{\colorbox{black}{\textcolor{white}{\webglyphs{"F134} examples?}}}
+\newcommand\Reading{\colorbox{black}{\textcolor{white}{\webglyphs{"F0C1}}}\xspace}
+
+\newfontfamily\meteoconsfont{Meteocons}
+\newcommand\meteocons[1]{{\meteoconsfont\symbol{#1}}}
+\newcommand\meteosun{\meteocons{"0042}}
+\newcommand\meteosuncloud{\meteocons{"0048}}
+\newcommand\meteorain{\meteocons{"0052}}
+\newcommand\meteosolidsun{\meteocons{"0031}}
+
+\newfontfamily\KRfarmfont{KR Back On The Farm}
+\newcommand\KRfarm[1]{{\KRfarmfont\symbol{#1}}}
+\newcommand\farmplant{\KRfarm{"0049}}
+
+\usepackage{polyglossia}
+\setdefaultlanguage[variant = british, ordinalmonthday = false]{english}
+
+\usepackage[style=authoryear-comp,firstinits,sortcites,maxcitenames=2,%
+    mincitenames=1,maxbibnames=10,minbibnames=10,uniquename=mininit,%
+    uniquelist=minyear,sortfirstinits=true]{biblatex}
+\addbibresource{../references/ecophys.bib}
+%\renewcommand{\bibfont}{\small}
+
+\usepackage{abbrev}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning,fit,arrows}
+
+\tikzset{
+ a/.style
+  = {node distance=4em, text width=3.5em, minimum height=4em},
+ b/.style
+  = {rectangle, draw, fill=gray!10, node distance=4em, text width=6em,
+     text centered, rounded corners, minimum height=4em, thick},
+ c/.style
+  = {circle, draw, dashed, fill=orange!10, inner sep = 0pt, node distance=5em, thick},
+ d/.style
+  = {rectangle, draw, dashed, fill=red!10, node distance=4em, text width=6em,
+     text centered, rounded corners, minimum height=4em, thick},
+ l/.style
+  = {draw, -latex, thick},
+ lr/.style
+  = {draw, latex-latex, thick, red},
+ lb/.style
+  = {draw, -latex, thick, blue},
+  lo/.style
+  = {draw, -latex, thick, orange},
+  lg/.style
+  = {draw, -latex, thick, green},
+  mylabel/.style
+  ={text width=6.5em, text centered}
+}
+
+\newcommand*{\Px}{\ensuremath{\mathrm{P}}\xspace}
+\newcommand*{\Pxfr}{\ensuremath{\mathrm{P_{fr}}}\xspace}
+\newcommand*{\Pxr}{\ensuremath{\mathrm{P_r}}\xspace}
+\newcommand*{\Pxtot}{\ensuremath{\mathrm{P_{tot}}}\xspace}
+
+%\newcommand*{\COtwo}{\ensuremath{\textrm{CO}_2}\xspace}
+
+\newcommand*{\nEff}{{\scriptsize 0}\xspace}
+\newcommand*{\pEff}{\ensuremath{+}\xspace}
+\newcommand*{\mEff}{\ensuremath{-}\xspace}
+\newcommand*{\uEff}{?\xspace}
+
+\newcommand*{\myatop}[2]{\genfrac{}{}{0pt}{3}{#1}{#2}}
+
+
+\begin{document}
+
+<<setup, include=FALSE, cache=FALSE>>=
+library(knitr)
+opts_chunk$set(fig.path='figure/pos-', fig.align='center', fig.show='hold', size="tiny",            fig.width=9, fig.height=5, out.width='0.85\\textwidth', dev='cairo_pdf')
+
+knit_hooks$set(wrapper = function(before, options, grown) {
+sprintf('\\begin{alltt}%s\n\\end{alltt}',
+if (before) sprintf('<<%s>>=', options$params.src) else '@')
+})
+@
+
+<<packages, include=FALSE, cache=FALSE>>=
+library(ggplot2)
+library(lubridate)
+library(dplyr)
+library(reshape2)
+library(photobiology)
+library(photobiologyInOut)
+library(photobiologySun)
+library(photobiologyFilters)
+library(photobiologyWavebands)
+library(ggspectra)
+library(photobiologyPlants)
+@
+
+\title{PBIO-141\\Sensory and Physiological Ecology\\of  Plants}
+\subtitle{6: Sensory Ecology I}
+\author{Pedro J. Aphalo}
+\date{January-February 2018}
+\institute[Univ.\ of Helsinki]{M.Sc.\ in Plant Biology, University of Helsinki\\[2ex] \url{http://blogs.helsinki.fi/aphalo/}}
+
+
+  \begin{frame}
+    \maketitle
+  \end{frame}
+
+  \begin{frame}[c]
+    \begin{center}
+      \begin{small}
+        \copyright 2006-2018 by Pedro J. Aphalo\\
+       University of Helsinki, Finland.\\
+        \textcolor{blue}{\url{http://blogs.helsinki.fi/aphalo/}}\\[2ex]
+      \end{small}
+
+      \begin{footnotesize}
+        Sensory and Physiological Ecology of  Plants: `6: Sensory Ecology I' by Pedro J. Aphalo is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+
+        Illustrations and text quoted from copyrighted sources is excluded from this license and their use should respect the original licenses.\\[2ex]
+      \end{footnotesize}
+
+      \includegraphics[width=6em]{../figures/copyright/by-sa}
+    \end{center}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Outline}
+    \tableofcontents
+  \end{frame}
+
+\section{Resources vs.\ information}
+
+\begin{frame}{Resources vs.\ information: What is the difference?}
+\begin{enumerate}
+  \item Resources are consumed:
+  \begin{itemize}
+    \item if one organism takes them up ($\approx$ consumes them)
+    \item \ldots they become unavailable to other organisms \ldots
+    \item \ldots until discarded (e.g.\ senescence of leaves) \ldots
+    \item \ldots or ``stolen'' by a parasite (e.g.\ herbivore).
+  \end{itemize}
+  \item Information is acquired:
+  \begin{itemize}
+    \item if one organism acquires information by perception of cues and signals
+    \item \ldots the cues and signals remain available to other organisms.
+    \item an organism can effect other organisms through information \ldots
+    \item \ldots by emitting signals, trustworthy or not (e.g.\ cheating
+    and scrambling of other organisms' signals is a possibility).
+  \end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Information and memory}
+\centering
+\tiny
+%    \resizebox{\linewidth}{!}{%
+  \begin{tikzpicture}[auto]
+    \node [a] (environment) {\Large\meteosun\meteorain};
+    \node [b, right = of environment, fill=blue!10] (history) {Historical correlations};
+    \node [b, right = of history] (stress) {Previous conditions};
+    \node [b, right = of stress] (data) {Current conditions};
+    \node [b, below = of stress] (memory) {Epigenome (memory)};
+    \node [c, right = of memory] (info) {`Forecast'};
+    \node [b, below = of history, fill=blue!10] (genome) {Genome (memory)};
+    \node [a, below = of environment] (plant) {\Huge\farmplant};
+    \node [b, right = of info, fill=orange!10] (acclimation) {Preemptive acclimation};
+    \node [d, right = of acclimation, fill=green!10] (ready) {Ready to cope!};
+    \node [d, above = of ready] (stress2) {Future conditions};
+
+    \path [l] (stress) -- (memory) node[near start,right]{\hspace{0.4em}store};
+    \path [lb] (history) -- (genome) node[near start, right]{\hspace{0.4em}store};
+    \path [l] (data) -- (info) node[near start,right]{\hspace{0.4em}use};
+    \path [l] (memory) -- (info) node[near start,below]{\hspace{2em}retrieve};
+    \path [lb] (genome) edge [bend right=25]  node[near end, right]{\hspace{1em}retrieve} (info);
+    \path [lr] (stress2) -- (data) node[near end,below]{\hspace{7em}environmental correlation};
+    \path [lo, dotted] (info) -- (stress2) node[near end,below,rotate=25]{`infer'};
+    \path [lo] (info) -- (acclimation) node[near start,below]{\hspace{2em}`decide'};
+    \path [lo, dashed] (acclimation) -- (ready);
+\end{tikzpicture}%
+%}%
+\end{frame}
+
+\section{Sensory ecology}
+
+\begin{frame}{Behavioural questions: Synthetic approach}
+    \textbf{\color{red} From behaviour to causes}
+    \begin{itemize}
+        \item What do organisms do? (Description)
+        \item How do they do it? (Proximate causes)
+        \begin{itemize}
+            \item Developmental mechanisms
+            \item Physiological mechanisms
+            \item Behavioural mechanisms
+        \end{itemize}
+        \item Why do they do it? (Ultimate causes)
+        \begin{itemize}
+            \item Functions (Adaptive value)
+            \item Evolution (History of the species)
+        \end{itemize}
+    \end{itemize}
+    {\footnotesize \autocite{Dusenbery1992}}
+\end{frame}
+
+\begin{frame}{Behavioural questions: Analytical approach}
+    \textbf{\color{red} From problems to behaviour}
+    \begin{itemize}
+        \item What problems must organisms solve?
+        \item What strategies do they use to solve these problems?
+        \item What mechanisms are used to implement the strategies?
+    \end{itemize}
+
+    \begin{description}
+        \item[Sensory ecology] looks at behaviour from a ``bottom up'' analytical viewpoint.
+        \item[Behavioural ecology] tends to follow a ``top down'' synthetic approach.
+    \end{description}
+    {\footnotesize \autocite{Dusenbery1992}}
+\end{frame}
+
+\begin{frame}{Sensory ecology: Typical questions}
+    \begin{itemize}
+        \item What strategies are used to locate resources?
+        \item What strategies are used for survival?
+        \item What strategies are used for reproduction?
+        \item What strategies are used for dispersion?
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Sensory ecology}
+\begin{block}{Think examples \Discussion 5 + 5 min}
+    \begin{enumerate}
+        \item What information is used?
+        \item How is the information obtained?
+      \item How does information help?
+      \item Do plants acquire information from more than one signal and/or cue?
+      \item Examples\ldots?
+    \end{enumerate}
+\end{block}
+\end{frame}
+
+\begin{frame}{Sensory physiology vs.\ sensory ecology}
+    \begin{itemize}
+        \item Sensory physiologists are more interested in the mechanism of perception than in the stimuli present in the natural environment.
+        \item Sensory ecologists treat the organism almost as a ``black box'', but non-the-less take into account
+            the sensory capabilities of the organisms to determine what information is available to them.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Sensory physiology vs.\ sensory ecology}
+ \begin{block}{\Discussion 5 + 5 min}
+   \begin{enumerate}
+        \item ``How'' vs.\ "why" questions
+        \item How can understanding be improved by combining both approaches?
+        \item What is the role of ``hierarchical'' organization in understanding natural phenomena
+        \item Examples\ldots?
+    \end{enumerate}
+\end{block}
+\end{frame}
+
+\section{Organism --- environment interactions}
+
+\begin{frame}{Interactions: Physical, chemical and trophic}
+%    \begin{small}
+    \vspace{-4mm}
+    \begin{itemize}
+        \item Physical and chemical interactions
+        \begin{itemize}
+            \item Mechanical forces
+            \item Gravitational forces
+            \item Thermal energy
+            \item Electromagnetic energy
+            \item Inorganic and organic molecules and ions.
+        \end{itemize}
+        \item Trophic interactions
+        \begin{itemize}
+            \item Energy for metabolic work
+            \item Nutrients
+            \item Toxins
+        \end{itemize}
+        \item Informational interactions
+        \begin{itemize}
+            \item Genetic information
+            \item Sensory information
+        \end{itemize}
+    \end{itemize}
+%    \end{small}
+\end{frame}
+
+\begin{frame}{Genetic vs.\ sensory information}
+\begin{block}{\Discussion 5 + 5 min}
+   In each case,
+  \begin{enumerate}
+    \item How is information acquired?
+    \item How persistent is it?
+    \item How is it stored?
+  \end{enumerate}
+\end{block}
+\end{frame}
+
+\begin{frame}{Information}{Use by organisms}
+    \begin{itemize}
+        \item Most organisms obtain information about their environment.
+        \item They use this information to solve problems:
+        \begin{itemize}
+            \item maintaining an appropriate environment,
+            \item timing activities,
+            \item locating resources,
+            \item locating threats.
+        \end{itemize}
+        \item Many organisms transmit information to other individuals to persuade them to do something.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Behavior and ``control'' systems:\\Homeostasis in organisms}
+    \begin{itemize}
+        \item Maintaining a constant state.
+        \item Water: e.g.\ plants avoid dehydration by closing stomata.
+        \item Temperature: e.g.\ plants avoid overheating by moving leaves to vertical position.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Behavior: Timing}
+    \begin{itemize}
+        \item Daily: e.g.\ changes in gene expression according to internal clock, which is synchronized to the photoperiod.
+        \item Daily: e.g.\ stomatal opening readiness.
+        \item Daily: e.g.\ leaf movements.
+        \item Seasonal: e.g.\ budburst in the spring.
+        \item Seasonal: e.g.\ germination readiness.
+        \item Seasonal: e.g.\ flowering.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Behavior: Spatial orientation}
+    \begin{itemize}
+        \item Light quality: e.g.\ growth away from other plants.
+        \item Gravitational force: e.g.\ roots grow downwards, stems upwards.
+        \item Light intensity: e.g.\ shoots grow towards the light source.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Behavior: Defense}
+    \begin{itemize}
+        \item Ultraviolet radiation and strong light: e.g.\ induced synthesis of protective phenolics.
+        \item Herbivory: e.g.\ induced synthesis of deterrent compounds.
+        \item Volatile signals from attacked plants: e.g.\ induced defense before attack.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Behavior: Persuasion}
+    \begin{itemize}
+        \item Call for help (how did it start?): e.g.\ emitting volatiles that signal the enemies of the herbivores.
+        \item Recognition signals for symbionts.
+        \item Deception? False information? Mimicry: \textit{Urtica dioica} `nettle' (isonokkonen) and \textit{Lamium album} `deadnettle' (valkopeippi).
+        \item Food: (for micro-organisms) root exudates.
+        \item Food: (for insects, bats and birds) flower nectar.%
+        \item Food: (for bats, birds, and mammals) sweet, juicy, and colourful (advertising) fruits.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Behavior: Mechanical interactions}
+  \begin{itemize}
+    \item In the soil $\to$ avoiding obstacles
+    \item Wind (and brushing) $\to$ stronger support structures
+    \item Thigmomorphogenesis $\to$ finding support to climb on
+    \item Herbivores walking on leaves $\to$ defenses
+    \item Additional examples\ldots?
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Trophic interactions}
+  \begin{itemize}
+    \item ``Eating'' $\to$ energy and matter flows between organisms
+    \item Affected by `information' exchanges $\to$ ``foraging''
+    \item {\color{red} Not discussed in depth in this course}
+    \item Discussed in the Ecosystem Ecology course
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Sensory ecology: Measuring or assessing the flow of information}
+    \centering
+    \includegraphics[height=0.6\textheight]{figures/Dusenbery_observer}\\
+    {\footnotesize \autocite{Dusenbery1992}}
+\end{frame}
+
+\begin{frame}{Sensory ecology: Discussion: possible experiments}
+  \begin{enumerate}
+    \item Suggest one informational interaction between plants
+    \item How would you study it?
+    \item Hypothesis?
+    \item Test?
+  \end{enumerate}
+\end{frame}
+
+\section{Sensory photobiology}
+
+\begin{frame}{Photobiology: Principles of photochemistry}
+    Perception of light by organisms always starts with a photochemical event, obeying certain ``principles'':
+    \begin{description}
+        \item[Grotthuss-Drapper law] Only light that is actually absorbed can produce
+        a chemical change.
+        \sloppy\item[Stark-Einstein law] Each absorbed
+        quantum activates only one molecule.
+        \item[Einstein postulate] All energy of the light quantum is transferred to a
+        single electron during the absorption event.
+    \end{description}
+
+    As electrons in molecules can have only discrete energy levels, only
+    photons that provide a quantity of energy adequate for an electron
+    to `jump' to another allowed energetic state can be absorbed.
+\end{frame}
+
+\begin{frame}{Photobiology: What is photobiology?}
+    \textit{\color{red}{Photobiology}} is that
+    branch of biological science which studies the interactions of light
+    with living organisms.
+    \begin{description}
+        \item[Energy capture] Energy as a resource is acquired through photosynthesis.
+        \item[Sensing] Acquisition of information depends on light perception by means of photoreceptors.
+    \end{description}
+
+    \begin{enumerate}
+      \item Energy capture as a resource depends on ``mass pigments'' like chlorophyll which are in high concentration.
+      \item Protection from excess energy depends on ``mass pigments'' like flavonoids'' (but also on other optical properties).
+      \item Photoperception takes place through photoreceptors, which are in very low concentrations in plants.
+      \item \emph{Discussion: \Discussion} Why the difference in concentration?
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Photobiology: Pigments}
+    \begin{itemize}
+        \item Mass pigments (high concentration)
+        \begin{itemize}
+            \item Chlorophylls
+            \item Anthocyanins and flavonoids
+        \end{itemize}
+        \item Sensory pigments (photoreceptors) (low concentration)
+        \begin{itemize}
+            \item Phytochromes
+            \item Cryptochromes
+            \item Phototropins
+            \item other LOV-containing proteins
+            \item UVR8
+            \item Zeaxanthin
+            \item ?
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Photobiology: Plant photosensory biology}
+    \begin{itemize}
+        \item Plants modify their UV and VIS radiation ($\approx$ light) environment\ldots
+        \item \ldots generate cues and possibly emit signals
+        \item Plants sense properties of light in their environment\ldots
+        \item \ldots and acquire information through them
+        \item Plants ``use'' the acquired information\ldots
+        \item \ldots to adjust their growth and development
+        \begin{itemize}
+            \item at cellular level
+            \item at whole plant level
+            \item at population level
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\section*{References}
+  \begin{frame}[t,allowframebreaks]
+    \frametitle{References}
+    \printbibliography
+  \end{frame}
+
+\end{document}
+

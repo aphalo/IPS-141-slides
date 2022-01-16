@@ -1,0 +1,417 @@
+% -*- TeX:RNW:UK -*-
+\documentclass[10pt]{beamer}
+\usetheme{metropolis}
+%\useinnertheme{rectangles}
+\setbeamercovered{%
+still covered={\opaqueness<1->{15}},
+again covered={\opaqueness<1->{40}}}
+
+\hypersetup{colorlinks,linkcolor=black,urlcolor=brown,citecolor=brown}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{unicode-math}
+
+% We set the Lucida OTF fonts as default
+\usepackage{fontspec}
+\setmainfont{Lucida Bright OT}
+\setsansfont{Lucida Sans OT}
+\setmonofont{Lucida Console DK}[Scale=MatchLowercase]
+
+\newfontfamily\typiconsfont{Typicons}[Scale=0.9]
+\newcommand\typicons[1]{{\typiconsfont\symbol{#1}}}
+\newcommand\Attention{\colorbox{yellow}{\textcolor{black}{\typicons{"E136}}}\xspace}
+\newcommand\Advanced{\colorbox{black}{\textcolor{white}{\typicons{"E04E}}}\xspace}
+
+\newfontfamily\webglyphsfont{WebHostingHub-Glyphs}[Scale=0.7]
+\newcommand\webglyphs[1]{{\webglyphsfont\symbol{#1}}}
+\newcommand\Discussion{\colorbox{white}{\textcolor{black}{\webglyphs{"F134}}}\xspace}
+\newcommand\DExamples{\colorbox{black}{\textcolor{white}{\webglyphs{"F134} examples?}}}
+\newcommand\Reading{\colorbox{black}{\textcolor{white}{\webglyphs{"F0C1}}}\xspace}
+
+\newfontfamily\meteoconsfont{Meteocons}
+\newcommand\meteocons[1]{{\meteoconsfont\symbol{#1}}}
+\newcommand\meteosun{\meteocons{"0042}}
+\newcommand\meteosuncloud{\meteocons{"0048}}
+\newcommand\meteorain{\meteocons{"0052}}
+\newcommand\meteosolidsun{\meteocons{"0031}}
+
+\newfontfamily\KRfarmfont{KR Back On The Farm}
+\newcommand\KRfarm[1]{{\KRfarmfont\symbol{#1}}}
+\newcommand\farmplant{\KRfarm{"0049}}
+
+\usepackage{polyglossia}
+\setdefaultlanguage[variant = british, ordinalmonthday = false]{english}
+
+\usepackage[style=authoryear-comp,firstinits,sortcites,maxcitenames=2,%
+    mincitenames=1,maxbibnames=10,minbibnames=10,uniquename=mininit,%
+    uniquelist=minyear,sortfirstinits=true]{biblatex}
+\addbibresource{../references/ecophys.bib}
+%\renewcommand{\bibfont}{\small}
+
+\usepackage{abbrev}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning,fit,arrows}
+
+\tikzset{
+ a/.style
+  = {node distance=4em, text width=3.5em, minimum height=4em},
+ b/.style
+  = {rectangle, draw, fill=gray!10, node distance=4em, text width=6em,
+     text centered, rounded corners, minimum height=4em, thick},
+ c/.style
+  = {circle, draw, dashed, fill=orange!10, inner sep = 0pt, node distance=5em, thick},
+ d/.style
+  = {rectangle, draw, dashed, fill=red!10, node distance=4em, text width=6em,
+     text centered, rounded corners, minimum height=4em, thick},
+ l/.style
+  = {draw, -latex, thick},
+ lr/.style
+  = {draw, latex-latex, thick, red},
+ lb/.style
+  = {draw, -latex, thick, blue},
+  lo/.style
+  = {draw, -latex, thick, orange},
+  lg/.style
+  = {draw, -latex, thick, green},
+  mylabel/.style
+  ={text width=6.5em, text centered}
+}
+\begin{document}
+
+<<setup, include=FALSE, cache=FALSE>>=
+library(knitr)
+opts_chunk$set(fig.path='figure/pos-', fig.align='center', fig.show='hold', size="tiny",            fig.width=9, fig.height=5, out.width='0.85\\textwidth', dev='cairo_pdf')
+
+knit_hooks$set(wrapper = function(before, options, grown) {
+sprintf('\\begin{alltt}%s\n\\end{alltt}',
+if (before) sprintf('<<%s>>=', options$params.src) else '@')
+})
+@
+
+<<packages, include=FALSE, cache=FALSE>>=
+library(ggplot2)
+library(lubridate)
+library(dplyr)
+library(reshape2)
+library(photobiology)
+library(photobiologyInOut)
+library(photobiologySun)
+library(photobiologyFilters)
+library(photobiologyWavebands)
+library(ggspectra)
+library(photobiologyPlants)
+@
+
+\title{PBIO-141\\Sensory and Physiological Ecology\\of  Plants}
+\subtitle{5: The atmosphere and the soil}
+\author{Pedro J. Aphalo}
+\date{January-February 2018}
+\institute[Univ.\ of Helsinki]{M.Sc.\ in Plant Biology, University of Helsinki\\[2ex] \url{http://blogs.helsinki.fi/aphalo/}}
+
+
+  \begin{frame}
+    \maketitle
+  \end{frame}
+
+  \begin{frame}[c]
+    \begin{center}
+      \begin{small}
+        \copyright 2006-2018 by Pedro J. Aphalo\\
+       University of Helsinki, Finland.\\
+        \textcolor{blue}{\url{http://blogs.helsinki.fi/aphalo/}}\\[2ex]
+      \end{small}
+
+      \begin{footnotesize}
+        Sensory and Physiological Ecology of  Plants: `5: The atmosphere and the soil' by Pedro J. Aphalo is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+
+        Illustrations and text quoted from copyrighted sources is excluded from this license and their use should respect the original licenses.\\[2ex]
+      \end{footnotesize}
+
+      \includegraphics[width=6em]{../figures/copyright/by-sa}
+    \end{center}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Outline}
+    \tableofcontents
+  \end{frame}
+
+\section{Aboveground physical environment}
+
+\begin{frame}{Air in the vicinity of plant}
+    \begin{itemize}
+        \item For most terrestrial plants the atmosphere is the main
+        source of carbon for growth.
+        \item Assimilation of \COtwo\ is accompanied by a loss of
+        water vapour to the atmosphere.
+        \item Concentrations of \COtwo\ and water vapour in the
+        atmosphere are thus important to plants.
+        \item Concentration of \COtwo\ in the atmosphere has little
+        short-term variation in nature, air humidity varies widely.
+        \item The temperature of leaves is important for
+        transpiration, and it depends in part on air temperature and wind speed.
+        \item Plant integrity and gas-exchange also depend on wind
+        speed.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Temperature: Discussion \Discussion}
+  \begin{itemize}
+    \item On what does the temperature of a leaf or stem depend?
+    \item Environmental variables: \ldots
+    \item Leaf position, structure and function: \ldots
+    \item On what does the temperature of a root, rhizome or bulb depend?
+    \item Environmental variables: \ldots
+    \item Root/bulb position, structure and function: \ldots
+    \item How hot can the surface of bare soil get?
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Water: Supply and demand}
+    \begin{itemize}
+        \item With water, what is important is the ratio between
+        supply and demand.
+        \item The supply is the precipitation: rain plus snow.
+        \item The demand is measured as potential evapotranspiration.
+
+        Potential evapotranspiration (ET$_{\textrm{pot}}$) represents the
+evapotranspiration rate of a short green crop, completely shading
+the ground, of uniform height and with adequate water status in the
+soil profile.
+
+        \item Potential evapotranspiration depends on available energy and
+        wind speed and air humidity.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Plants and water: Discussion \Discussion}
+  \begin{itemize}
+    \item What is the problem when there is too little water?
+    \item How do plants cope with limited water?
+    \item How do they reduce use?
+    \item How do they increase capture?
+    \item How do they cope with temporal variability?
+    \begin{itemize}
+      \item When it is periodic.
+      \item When it is irregular.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\section{Belowground physical environment}
+
+\begin{frame}{Soil: Definition}
+    \begin{itemize}
+        \item The soil is a complex matrix of solid, liquid and
+        gaseous phases.
+        \item Plant roots interact with all of them.
+        \item In addition to plant roots, many other organisms
+        thrive in the soil and interact, directly or indirectly with
+        plants and their propagules.
+        \item Many plants overwinter under the soil as seeds, bulbs,
+        rhizomes, etc.
+        \item The soil environment controls in many circumstances
+        also the germination of seeds.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Soil: as habitat}
+    \begin{itemize}
+        \item For many plants the soil gives the physical support
+        for mechanical stability.
+        \item The soil is the main source of water for most
+        terrestrial plants.
+        \item The soil is the main source of mineral nutrients for
+        plants.
+        \begin{itemize}
+            \item Symbioses with fungi in mycorrhizas facilitate
+            uptake of some nutrients.
+            \item Symbioses with bacteria in root nodules allow some
+            species to use nitrogen fixed from the air.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Soil profile: A podzol as an example}
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/SoilProfile-1}\\
+    {\small Soil profile near Läyliäinen.}
+\end{frame}
+
+\begin{frame}{Soil temperature}{Temporal variation, near Lammi research station, 2006 field course}
+<<soil-temp, echo = FALSE>>=
+soil_temperature.data <- read.csv(file="data/linja4.csv")
+soil_temperature.data <- mutate(soil_temperature.data, time_EEST = as.POSIXct(dmy(PVM) + hms(KLO)))
+temp.data <- select(soil_temperature.data, time_EEST, 'large clearcut' = X4A, 'forest edge' = X4D, 'spruce forest' = X4G)
+soil_temp.data <- melt(temp.data, id.vars = "time_EEST", variable.name = "site", value.name = "temperature")
+ggplot(soil_temp.data, aes(time_EEST, temperature, colour = site)) + geom_line() + ylim(0, NA) +
+  labs(x = "Time (EEST)", y = "Soil temperature at 5 cm depth (C)", colour = "Site")
+@
+    {\tiny Positions: 21 m, 0 m, 15 m\\ Unpublished data of E.-L. Laiho, H. Lankia, K. Maisniemi, M. Malinen, P. J. Aphalo.}
+\end{frame}
+
+\begin{frame}{Soil: Light in the soil}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/Woolley1978_fig_1}\\
+%    \includegraphics[width=0.55\textwidth]{figures/Woolley1978_Tab_III}}
+%      If you were a seed, could you use light as a source of information? What would it tell you?
+     {\small from \autocite{Woolley1978}.}
+\end{frame}
+
+\begin{frame}{Soil: Light and germination}
+    \centering
+   \includegraphics[height=0.65\textheight]{figures/Woolley1978_Tab_III}\\
+%      If you were a seed, could you use light as a source of information? What would it tell you?
+     {\small from \autocite{Woolley1978}.}
+\end{frame}
+
+\begin{frame}{The soil atmosphere}
+    \centering
+    \includegraphics[width=\textwidth]{figures/Co2SoilProfile}\\
+    How would the profiles be in a flooded soil?\\[8mm]
+    {\small \autocite[From][]{Larcher2003}.}
+\end{frame}
+
+\section{Aboveground biotic `environment'}
+
+\begin{frame}{Organisms inside the boundary}
+  \begin{itemize}
+    \item Fungal endophytes are in many cases symbionts
+    \item Fungal pathogens
+    \item Bacterial pathogens
+    \item Gall-forming insects
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Organisms at or outside the boundary}
+  \begin{itemize}
+    \item Organisms that use plants as support
+    \item Herbivore insects
+    \item Herbivore mammals
+    \item Pollinators
+    \item Seed dispersers
+  \end{itemize}
+\end{frame}
+
+\section{Belowground biotic `environment'}
+
+\begin{frame}{Organisms within the boundary: Mycorrhizas}
+    \begin{itemize}
+        \item Most plant species form mycorrhizas.
+        \item Mycorrhizas are a symbiosis between plant roots and
+        some fungi.
+        \item There are different kinds of mycorrhizas, but they
+        usually improve nutrient uptake from the soil.
+        \item Rarely they help with water uptake from the soil.
+        \item The fungal mycelium greatly increases the volume of
+        soil explored by a plant.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Organisms within the boundary: Ectomycorrhizas (EM) in Silver birch}
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/Myco-2}\\
+    {\small Mycorrhizas of silver birch (\textit{Betula pendula}
+    and \emph{Paxillus involutus} (Pulkkosieni).}
+\end{frame}
+
+%\begin{frame}{Mycorrhizas (2)}
+%    \hspace{\stretch{1}}
+%    \includegraphics[height=0.55\textheight]{figures/Myco-1}
+%    \hspace{\stretch{1}}
+%
+%    {\small Mycorrhizas of silver birch (\textit{Betula pendula})
+%    and \emph{Paxillus involutus} (Pulkkosieni).
+%    Hyphae crossing over the plastic barrier.}
+%\end{frame}
+
+\begin{frame}{Organisms within the boundary: N fixing bacteria}
+    \begin{itemize}
+        \item Legumes form symbioses with \species{Rhizobium}
+        bacteria.
+        \item Nodules are formed in roots, and in these nodules
+        nitrogen fixation takes place.
+        \item Alder trees (\species{Alnus}) form symbioses with
+        \species{Frankia}.
+        \item Also in this case nodules are formed in roots, where
+        nitrogen fixation takes place.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Organisms at the boundary: Rhizosphere bacteria}
+    \begin{itemize}
+        \item Depend on root exudates
+        \item To a great extent the population of bacteria is dependent on the plant activity
+        \item Bacteria can be beneficial to the plant
+        \item Bacteria can interact with mycorrhizal fungi
+        \item Root pathogens and parasites
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Organisms outside the boundary: Decomposers}
+    \begin{itemize}
+        \item Fungi and bacteria using detritus as source of energy
+        \item Soil fauna
+        \item Predators of the above-listed organisms
+        \item Root herbivores
+    \end{itemize}
+\end{frame}
+
+%\begin{frame}{Herbivores}
+%    \begin{itemize}
+%        \item Plants have defence mechanisms, both chemical and
+%        mechanical.
+%        \item Thorns, hard leaves, serrated leaf edges, etc.
+%        \item Anti-feeding compounds: bad taste compounds, toxins,
+%        etc.
+%        \item \ldots but some specialist herbivores use these same
+%        compounds for their own benefit (sometimes for their own defence, sometimes to
+%        find or identify the host plant).
+%        \item ``Alarm'' signals for predators, maybe also signals to
+%        other plants, but certainly signals within the plant.
+%        \item Defence has usually a cost for the plant.
+%    \end{itemize}
+%\end{frame}
+
+\section{Photos for discussion}
+
+\begin{frame}{Herbivores}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/caterpillar}\\
+    {\small Caterpillar eating \species{Epilobium}.}
+\end{frame}
+
+\begin{frame}{Impala}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/Impala}\\
+    {\small \emph{Aepyceros melampus} Impala. Photo by Hans Hillewaert, taken at South Luangwa National Park, Zambia in 2005.
+    (wikipedia)}
+\end{frame}
+
+\begin{frame}{Pathogens}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/PowderyMildew}\\
+   {\small Powdery mildew. (wikipedia)}
+\end{frame}
+
+\begin{frame}{Pathogens}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/Symptom_potato_late_blight}\\
+   {\small Symptom of potato late blight. Taken by Fk. Date:August, 2000?. Place: Japan. (wikipedia)}
+\end{frame}
+
+\begin{frame}{Nematode}
+    \centering
+    \includegraphics[height=0.7\textheight]{figures/nematode}\\
+   {\small A juvenile root-knot nematode (Meloidogyne incognita) penetrates a tomato root. Photo by William Wergin and Richard Sayre. Colorized by Stephen Ausmus. U.S. Department of Agriculture, (Wikipedia)}
+\end{frame}
+
+
+  \section*{References}
+  \begin{frame}[t,allowframebreaks]
+    \frametitle{References}
+    \printbibliography
+  \end{frame}
+
+\end{document}

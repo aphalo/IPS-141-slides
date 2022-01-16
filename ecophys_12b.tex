@@ -1,0 +1,440 @@
+% -*- TeX:UK -*-
+\documentclass[10pt]{beamer}
+\usetheme{metropolis}
+%\useinnertheme{rectangles}'
+\setbeamercovered{%
+still covered={\opaqueness<1->{15}},
+again covered={\opaqueness<1->{40}}}
+
+\hypersetup{colorlinks,linkcolor=black,urlcolor=brown,citecolor=brown}
+
+\usepackage{wasysym}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{unicode-math}
+
+% We set the Lucida OTF fonts as default
+\usepackage{fontspec}
+\setmainfont{Lucida Bright OT}
+\setsansfont{Lucida Sans OT}
+\setmonofont{Lucida Console DK}[Scale=MatchLowercase]
+
+\newfontfamily\typiconsfont{Typicons}[Scale=0.9]
+\newcommand\typicons[1]{{\typiconsfont\symbol{#1}}}
+\newcommand\Attention{\colorbox{yellow}{\textcolor{black}{\typicons{"E136}}}\xspace}
+\newcommand\Advanced{\colorbox{black}{\textcolor{white}{\typicons{"E04E}}}\xspace}
+
+\newfontfamily\webglyphsfont{WebHostingHub-Glyphs}[Scale=0.7]
+\newcommand\webglyphs[1]{{\webglyphsfont\symbol{#1}}}
+\newcommand\Discussion{\colorbox{white}{\textcolor{black}{\webglyphs{"F134}}}\xspace}
+\newcommand\DExamples{\colorbox{black}{\textcolor{white}{\webglyphs{"F134} examples?}}}
+\newcommand\Reading{\colorbox{black}{\textcolor{white}{\webglyphs{"F0C1}}}\xspace}
+
+\newfontfamily\meteoconsfont{Meteocons}
+\newcommand\meteocons[1]{{\meteoconsfont\symbol{#1}}}
+\newcommand\meteosun{\meteocons{"0042}}
+\newcommand\meteosuncloud{\meteocons{"0048}}
+\newcommand\meteorain{\meteocons{"0052}}
+\newcommand\meteosolidsun{\meteocons{"0031}}
+
+\newfontfamily\KRfarmfont{KR Back On The Farm}
+\newcommand\KRfarm[1]{{\KRfarmfont\symbol{#1}}}
+\newcommand\farmplant{\KRfarm{"0049}}
+
+\usepackage{polyglossia}
+\setdefaultlanguage[variant = british, ordinalmonthday = false]{english}
+
+\usepackage[style=authoryear-comp,firstinits,sortcites,maxcitenames=2,%
+    mincitenames=1,maxbibnames=10,minbibnames=10,uniquename=mininit,%
+    uniquelist=minyear,sortfirstinits=true]{biblatex}
+\addbibresource{../references/ecophys.bib}
+%\renewcommand{\bibfont}{\small}
+
+\usepackage{abbrev}
+\DeclareGraphicsExtensions{.png,.jpg,.jpeg,.eps,.pdf}
+
+\begin{document}
+
+\title{PBIO-141\\Sensory and Physiological Ecology of  Plants}
+\subtitle{12b: Carbon Assimilation (E)}
+\author{Pedro J. Aphalo}
+\date{January-February 2018}
+\institute[Univ.\ of Helsinki]{M.Sc.\ in Plant Biology, University of Helsinki\\[2ex] \url{http://blogs.helsinki.fi/aphalo/}}
+
+  \begin{frame}
+    \maketitle
+  \end{frame}
+
+  \begin{frame}[c]
+    \begin{center}
+      \begin{small}
+        \copyright 2006-2018 by Pedro J. Aphalo\\
+       University of Helsinki, Finland.\\
+        \textcolor{blue}{\url{http://blogs.helsinki.fi/aphalo/}}\\[2ex]
+      \end{small}
+
+      \begin{footnotesize}
+        Sensory and Physiological Ecology of  Plants: `12b: Carbon Assimilation (E)' by Pedro J. Aphalo is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+
+        Illustrations and text quoted from copyrighted sources is excluded from this license and their use should respect the original licenses.\\[2ex]
+      \end{footnotesize}
+
+      \centering\includegraphics[width=6em]{../figures/copyright/by-sa}
+    \end{center}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Outline}
+    \tableofcontents
+  \end{frame}
+
+\section{Canopy photosynthesis}
+
+\begin{frame}{Canopy photosynthesis}
+    \begin{itemize}
+        \item If we use the big leaf analogy to express
+        photosynthesis of a canopy we can compare the light
+        response of a leaf to that of a canopy.%
+        \item In a canopy even when upper leaves are light saturated
+        (photosynthesizing at maximum rate ($A_{max}$) other lower
+        leaves can still increase $A$ if irradiance above the canopy
+        increases.
+        \item Consequently canopy photosynthesis ($\mathcal{A}$)
+        saturates at higher irradiances that $A$ of individual
+        leaves.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Needle, shoot and canopy}
+    \centering
+    \includegraphics[height=0.75\textheight]{figures/Taiz9.11LightResponseNeedleShootCanopy.eps}\\
+    {\small The shape of the light response and light saturation
+    depends on the scale at which we study the forest
+    \autocite[from][]{TaiZei2006}.}
+\end{frame}
+
+\begin{frame}{LAI}
+    \begin{itemize}
+        \item Canopy photosynthesis not only depends on leaf
+        photosynthesis.
+        \item It depends on leaf area index (LAI), up to a limit the higher the LAI,
+        the more light is absorbed.
+        \item It depends also on how the leaves are displayed:
+        more or less horizontal or vertical.
+        \item LAI will depend on environmental conditions.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Soil water affects LAI}
+    \centering
+    \includegraphics[width=\textwidth]{figures/Crawley1.21LAISoilWater.eps}\\
+    {\small Leaf area index (LAI) and site water balance \autocite[from][]{Crawley1997}.}
+\end{frame}
+
+\section{Gas-exchange measurement}
+
+\begin{frame}{Gas exchange}
+    \begin{itemize}
+        \item ``Gas exchange between a leaf and the atmosphere'' is
+        the name used to refer to the fluxes of \COtwo and water
+        vapour between a leaf and the air surrounding it.
+        \item Almost always the flux of water vapour is outwards
+        from the leaf and towards the atmosphere. We call it
+        \emph{transpiration}.
+        \item The flux of \COtwo is in C3 and C4 plants from the
+        atmosphere into the leaf during daytime
+        (\emph{net photosynthesis}) and from the leaf towards the
+        atmosphere (\emph{respiration}) at night. Generic names encompasing them both are:
+        \COtwo flux, assimilation, and net carbon exchange (negative for respiration).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Gas-exchange chamber}
+    \centering
+    \includegraphics[height=0.6\textheight]{figures/leaf_in_chamber.eps}\\
+    {\small A leaf or shoot is enclosed in a chamber.\\
+    Gas-exchange is now between air in chamber and leaf.}
+\end{frame}
+
+\begin{frame}{Closed gas-exchange system}
+    \begin{footnotesize}
+        \begin{center}
+            \fbox{\parbox{3.1cm}{\sf%
+            LEAF CHAMBER}}%
+            $\makebox[3cm]{\rightarrowfill} \atop
+            \makebox[3cm]{%
+            \leftarrowfill}$
+            \fbox{\parbox{2.2cm}{\sf%
+            MEASURING\\ EQUIPMENT}}%
+        \end{center}
+    \end{footnotesize}
+    \begin{itemize}
+        \item Some simple gas-exchange systems used for measuring photosynthesis
+        are closed systems were there is no air flow through the chamber
+        where the leaf in enclosed, except for a loop though instrumentation.
+
+        \item The duration of the measuring period and the differences in concentration
+        of \COtwo and water vapour in the chamber air between the beginning and end of
+        this measuring period are used to calculate the flows.
+
+        \item From the flows of \COtwo and water and the enclosed leaf area the
+        mean \COtwo and water fluxes per unit leaf area can be calculated.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Open gas-exchange system}
+\begin{footnotesize}
+\begin{center}
+\makebox[2cm]{{\sf%
+air, \COtwo}%
+\rightarrowfill}
+\fbox{\parbox{2.3cm}{\sf%
+AIR\\ CONDITIONING}}%
+$\makebox[3.1cm]{\rightarrowfill} \atop
+\makebox[3.1cm]{%
+\rightarrowfill
+\fbox{\parbox{2.1cm}{\sf%
+LEAF CHAMBER}}%
+\rightarrowfill}$
+\fbox{\parbox{1.8cm}{\sf%
+MEASURING\\ EQUIPMENT}}%
+\end{center}
+\end{footnotesize}
+    \begin{itemize}
+        \item Most current gas-exchange systems used for measuring photosynthesis
+        are open systems in which air flows at a constant rate through a chamber
+        where a leaf in enclosed.
+
+        \item The flow rates and the differences in concentration of \COtwo and
+        water vapour between the air entering the chamber and that coming
+        out of the chamber are used to calculate the flows in or out of the leaf.
+
+        \item From the flows of \COtwo and water in or out of the leaf, and the enclosed leaf area, the
+        \COtwo and water fluxes per unit leaf area can be calculated.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Open vs.\ closed systems}
+    \begin{description}
+        \item[Open system:] Environmental conditions in the chamber do not
+        vary during measurement.
+        \item[Closed system:] Environmental conditions in the chamber change during measurement.
+        With transpiration humidity increases, with photosynthesis \COtwo
+        concentration decreases.
+    \end{description}
+\end{frame}
+
+\begin{frame}{Units}
+    \begin{itemize}
+        \item Modern: using moles
+            \begin{description}
+                \item[\COtwo] \umol
+                \item[Water vapour] \mmol
+            \end{description}
+        \item Old: mass
+            \begin{description}
+                \item[\COtwo] mg cm$^{-2}$ min$^{-1}$ etc.
+                \item[Water vapour] g cm$^{-2}$ min$^{-1}$ etc.
+            \end{description}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Gas-exchange system}
+    \centering
+    \includegraphics[height=0.7\textheight]{figures/WalzGFS-3000.eps}\\
+    {\small GFS-3000 (Walz, Germany) (\url{http://www.walz.com/}).}
+\end{frame}
+
+\begin{frame}{Measuring}
+    \centering
+    \includegraphics[height=0.7\textheight]{figures/CFS-3000_1big.eps}\\
+    {\small from \url{http://www.walz.com/}.}
+\end{frame}
+
+\begin{frame}{Measuring}
+    \centering
+    \includegraphics[height=0.7\textheight]{figures/CFS-3000_6big.eps}\\
+    {\small from \url{http://www.walz.com/}.}
+\end{frame}
+
+\begin{frame}{Chamber}
+    \centering
+    \includegraphics[height=0.7\textheight]{figures/GFS-3000_3big.eps}\\
+    {\small from \url{http://www.walz.com/}.}
+\end{frame}
+
+\begin{frame}{Chamber (measuring)}
+    \centering
+    \includegraphics[height=0.7\textheight]{figures/CFS-3000_4big.eps}\\
+    {\small from \url{http://www.walz.com/}.}
+\end{frame}
+
+\begin{frame}{Standard and conifer chambers}
+    \centering
+    \includegraphics[height=0.5\textheight]{figures/standard.eps}%
+    \includegraphics[height=0.5\textheight]{figures/conifer.eps}\\
+    {\small Standard chamber (for flat leaves) and conifer chamber (for twigs)
+     for the LI-6400 gas-exchange system\\
+     (Li-Cor, USA) (from \url{http://www.licor.com/}).}
+\end{frame}
+
+\section{Chlorophyll fluorescence}
+
+\begin{frame}{Fluorescence}
+    \begin{itemize}
+        \item When PAR is absorbed by chlorophyll in a leaf some of
+        it is re-emitted as light of a longer wavelength.
+        \item This is called fluorescence, and in the case of
+        chlorophyll in a leaf fluorescence occurs in the range 680
+        nm to 760 nm.
+        \item This is the same phenomenon as that on which
+        fluorescent tubes are based. The basic emission of mercury
+        vapour occurs in the ultraviolet. This radiation is absorbed
+        by the coating of the lamp glass tube, and this coating
+        fluoresces (at longer wavelengths than the UV)
+        and we see this white light.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Fluorescence}
+    \begin{itemize}
+        \item Not all the energy absorbed by chlorophyll is
+        emitted as fluorescence, some is dissipated as heat, as some
+        is used in the photochemical reactions of photosynthesis.
+        \item We can measure fluorescence under different
+        conditions.
+        \item At room temperature, in intact leaves most of the
+        fluorescence comes from chlorophyll $a$ in PS II.
+        \item Consequently by measuring fluorescence at room
+        temperature, even in the field we can gather information on
+        the functioning of photosynthesis.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Quantum yield}
+    \begin{itemize}
+        \item In a dark ``adapted'' leaf most PS II reaction centres are
+        open (ready to receive excitation), so when measuring
+        fluorescence with low intensity light, fluorescence is at a
+        minimum ($F_0$).
+        \item Under this conditions if we give a high intensity
+        light pulse fluorescence is at its maximum ($F_m$), because reaction
+        centres quickly close as the electron transport chain is not
+        very active.
+        \item From these two values the maximum quantum yield of PS II
+        ($\phi_{IIm}$) can be calculated as:
+        $$\phi_{IIm} = \frac{F_m - F_0}{F_m} = \frac{F_v}{F_m}$$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Chlorophyll fluorescence parameters}
+    \centering
+    \includegraphics[height=0.7\textheight]{figures/LambersBox4.1Fluorescence.eps}\\
+    {\small \autocite[from][]{LambersEtAl1998}.}
+\end{frame}
+
+\begin{frame}{$F_v/F_m$ and quantum yield}
+    \centering
+    \includegraphics[width=\textwidth]{figures/LambersBox4.2FvFmQYield.eps}\\
+    {\small \autocite[from][]{LambersEtAl1998}.}
+\end{frame}
+
+\begin{frame}{In the light}
+    \begin{itemize}
+        \item A quantum yield of PS II in the light ($\phi_{II}$)
+        can be calculated from fluorescence measured in light
+        ``adapted'' (some minutes) leaves as:
+        $$\phi_{II} = \frac{\Delta F}{F_m^\prime}$$
+        \item In this case $\phi_{II} < \phi_{IIm}$.
+        \item The electron transport rate ($J_F$) can also be calculated, if
+        the absorbed radiation is available (e.g. calculated from irradiance
+        and leaf absorptance).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Fluorescence and assimilation}
+    \centering
+    \includegraphics[height=0.75\textheight]{figures/LambersBox4.3FluoAssim.eps}\\
+    {\small \autocite[from][]{LambersEtAl1998}.}
+\end{frame}
+
+\begin{frame}{Fluorescence results}
+    \centering
+    \includegraphics[height=0.7\textheight]{figures/Huang2006Fig3LightUtilizationSoybean.eps}\\
+    {\small Light utilization on a sunny day \autocite[from][]{HuangEtAl2006}.}
+\end{frame}
+
+\begin{frame}{Uses}
+    \begin{itemize}
+        \item The biophysical details of fluorescence in leaves
+        are not well understood yet.
+        \item However, fluorescence based measurements are very
+        useful as they are non-destructive and can, at least at
+        ambient temperature, be done in the field with portable
+        instruments.
+        \item More sophisticated and bulky instruments can be
+        used in the laboratory.
+    \end{itemize}
+\end{frame}
+
+\section{Measuring fluorescence}
+
+\begin{frame}{MINI-PAM}
+    \centering
+    \includegraphics[height=0.65\textheight]{figures/WalzMINI-PAM.eps}\\
+    {\small Instrument to measure chlorophyll fluorescence parameters
+    in the field (Walz, Germany) (from \url{http://www.walz.com/}).}
+\end{frame}
+
+\begin{frame}{Imaging}
+    \begin{itemize}
+        \item A more recent development are instruments for
+        imaging fluorescence measurements and the parameters derived
+        from these measurements (in real time).
+        \item For example we may get an image of a leaf where
+        different colours indicate the value of $F_v/F_m$ in
+        different parts of the leaf.
+        \item Such imaging is available from whole leaves to
+        tissues observed under the microscope.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Imaging of Chl fluorescence params.}
+    \centering
+    \includegraphics[height=0.7\textheight]{figures/WalzImagingPAM-2.eps}\\
+    {\small  from \url{http://www.walz.com/}.}
+\end{frame}
+
+\begin{frame}{\ldots also at macro and micro scales}
+    \centering
+    \includegraphics[height=0.7\textheight]{figures/WalzImagingPAM-1.eps}\\
+    {\small  from \url{http://www.walz.com/}.}
+\end{frame}
+
+\begin{frame}{Mix and match}
+    \begin{itemize}
+        \item Nowadays it is possible to mount a fiber optic probe
+        on the window of a leaf chamber of a gas-exchange system,
+        and measure simultaneously fluorescence and gas-exchange of
+        a leaf.
+        \item This allows a better description of the state of
+        the photosynthetic ``machinery'' in a leaf.
+        \item For example for diagnosing photoinhibition in a
+        shade plant suddenly exposed to full sunlight, or
+        limitations to assimilation in a plant under drought.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Gas-exchange chamber + fluorometer}
+    \centering
+    \includegraphics[height=0.7\textheight]{figures/WalzGFS-3000fluo.eps}\\
+    {\small from \url{http://www.walz.com/}.}
+\end{frame}
+
+  \section*{References}
+  \begin{frame}[t,allowframebreaks]
+    \frametitle{References}
+    \printbibliography
+  \end{frame}
+
+\end{document}
+

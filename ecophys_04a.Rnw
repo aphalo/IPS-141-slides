@@ -1,0 +1,525 @@
+% -*- TeX:RNW:UK -*-
+\documentclass[10pt]{beamer}
+\usetheme{metropolis}
+%\useinnertheme{rectangles}
+\setbeamercovered{%
+still covered={\opaqueness<1->{15}},
+again covered={\opaqueness<1->{40}}}
+
+\hypersetup{colorlinks,linkcolor=black,urlcolor=brown,citecolor=brown}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{unicode-math}
+
+% We set the Lucida OTF fonts as default
+\usepackage{fontspec}
+\setmainfont{Lucida Bright OT}
+\setsansfont{Lucida Sans OT}
+\setmonofont{Lucida Console DK}[Scale=MatchLowercase]
+
+\newfontfamily\typiconsfont{Typicons}[Scale=0.9]
+\newcommand\typicons[1]{{\typiconsfont\symbol{#1}}}
+\newcommand\Attention{\colorbox{yellow}{\textcolor{black}{\typicons{"E136}}}\xspace}
+\newcommand\Advanced{\colorbox{black}{\textcolor{white}{\typicons{"E04E}}}\xspace}
+
+\newfontfamily\webglyphsfont{WebHostingHub-Glyphs}[Scale=0.7]
+\newcommand\webglyphs[1]{{\webglyphsfont\symbol{#1}}}
+\newcommand\Discussion{\colorbox{white}{\textcolor{black}{\webglyphs{"F134}}}\xspace}
+\newcommand\DExamples{\colorbox{black}{\textcolor{white}{\webglyphs{"F134} examples?}}}
+\newcommand\Reading{\colorbox{black}{\textcolor{white}{\webglyphs{"F0C1}}}\xspace}
+
+\newfontfamily\meteoconsfont{Meteocons}
+\newcommand\meteocons[1]{{\meteoconsfont\symbol{#1}}}
+\newcommand\meteosun{\meteocons{"0042}}
+\newcommand\meteosuncloud{\meteocons{"0048}}
+\newcommand\meteorain{\meteocons{"0052}}
+\newcommand\meteosolidsun{\meteocons{"0031}}
+
+\newfontfamily\KRfarmfont{KR Back On The Farm}
+\newcommand\KRfarm[1]{{\KRfarmfont\symbol{#1}}}
+\newcommand\farmplant{\KRfarm{"0049}}
+
+\usepackage{polyglossia}
+\setdefaultlanguage[variant = british, ordinalmonthday = false]{english}
+
+\usepackage[style=authoryear-comp,firstinits,sortcites,maxcitenames=2,%
+    mincitenames=1,maxbibnames=10,minbibnames=10,uniquename=mininit,%
+    uniquelist=minyear,sortfirstinits=true]{biblatex}
+\addbibresource{../references/ecophys.bib}
+%\renewcommand{\bibfont}{\small}
+
+\usepackage{abbrev}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning,fit,arrows}
+
+\tikzset{
+ a/.style
+  = {node distance=4em, text width=3.5em, minimum height=4em},
+ b/.style
+  = {rectangle, draw, fill=gray!10, node distance=4em, text width=6em,
+     text centered, rounded corners, minimum height=4em, thick},
+ c/.style
+  = {circle, draw, dashed, fill=orange!10, inner sep = 0pt, node distance=5em, thick},
+ d/.style
+  = {rectangle, draw, dashed, fill=red!10, node distance=4em, text width=6em,
+     text centered, rounded corners, minimum height=4em, thick},
+ l/.style
+  = {draw, -latex, thick},
+ lr/.style
+  = {draw, latex-latex, thick, red},
+ lb/.style
+  = {draw, -latex, thick, blue},
+  lo/.style
+  = {draw, -latex, thick, orange},
+  lg/.style
+  = {draw, -latex, thick, green},
+  mylabel/.style
+  ={text width=6.5em, text centered}
+}
+
+\begin{document}
+
+<<setup, include=FALSE, cache=FALSE>>=
+library(knitr)
+opts_chunk$set(fig.path='figure/pos-', fig.align='center', fig.show='hold', size="tiny",            fig.width=7, fig.height=4.2, out.width='0.97\\textwidth', dev='cairo_pdf')
+
+knit_hooks$set(wrapper = function(before, options, grown) {
+sprintf('\\begin{alltt}%s\n\\end{alltt}',
+if (before) sprintf('<<%s>>=', options$params.src) else '@')
+})
+@
+
+<<packages, include=FALSE, cache=FALSE>>=
+library(ggplot2)
+library(lubridate)
+library(photobiology)
+library(photobiologyInOut)
+library(photobiologySun)
+library(photobiologyFilters)
+library(photobiologyWavebands)
+library(ggspectra)
+library(photobiologyPlants)
+@
+
+\title{PBIO-141\\Sensory and Physiological Ecology of  Plants}
+\subtitle{4: The Light Environment}
+\author{Pedro J. Aphalo}
+\date{January-February 2018}
+\institute[Univ.\ of Helsinki]{M.Sc.\ in Plant Biology, University of Helsinki\\[2ex] \url{http://blogs.helsinki.fi/aphalo/}}
+
+
+  \begin{frame}
+    \maketitle
+  \end{frame}
+
+  \begin{frame}[c]
+    \begin{center}
+      \begin{small}
+        \copyright 2006-2018 by Pedro J. Aphalo\\
+       University of Helsinki, Finland.\\
+        \textcolor{blue}{\url{http://blogs.helsinki.fi/aphalo/}}\\[2ex]
+      \end{small}
+
+      \begin{footnotesize}
+        Sensory and Physiological Ecology of  Plants: `4: The Light Environment' by Pedro J. Aphalo is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+
+        Illustrations and text quoted from copyrighted sources is excluded from this license and their use should respect the original licenses.\\[2ex]
+      \end{footnotesize}
+
+      \includegraphics[width=6em]{../figures/copyright/by-sa}
+    \end{center}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Outline}
+    \tableofcontents
+  \end{frame}
+
+\section{System and environment}
+
+\begin{frame}{Setting the boundary}
+    \begin{itemize}[type=1]
+        \item<1> \emph{System} under study is the object whose response
+        and behaviour we are interested in. It will depend on the
+        objective of our research, but in physiological plant
+        ecology it is almost always the individual plant.
+        \item<2> \emph{Environment} is what is outside the system that
+        we are studying, but affects it. The system (= plant), in the time
+        scale considered, does not affect significantly its own
+        environment.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{What is the environment of a plant?}
+    \begin{itemize}
+        \item Anything that affects a plant, but which is outside
+        the plant is part of its environment.
+        \item The soil, the atmosphere, animals, bacteria, fungi,
+        other plants\ldots
+        \item Examples of environmental variables: air temperature,
+        soil temperature, air water content, soil water content,
+        soil fauna activity, density and species of herbivores,
+        presence or absence of pathogens, soil nutrient
+        availability, soil acidity, light (irradiance = quantity, and spectral
+        quality = colour), daylength ( = photoperiod)\ldots
+    \end{itemize}
+\end{frame}
+
+\section{Solar radiation}
+
+\begin{frame}{Radiation: properties}
+    \begin{itemize}
+        \item Wavelength ($\lambda$), perceived by humans as `colours'.
+        \item Direction: one direction (`collimated'), many directions (`diffuse').
+        \begin{itemize}
+            \item Direct solar radiation: radiation arriving directly from the
+            sun.
+            \item Diffuse solar radiation: solar radiation scattered by the
+            atmosphere or reflected by clouds.
+            \item Global radiation: direct radiation + diffuse radiation.
+        \end{itemize}
+        \item Duration: `length of time' (e.g.\ day length, or sunfleck frequency).
+        \item Other: polarization, etc.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Radiation: quantities and units}
+    \begin{description}
+        \item[Irradiance:] flux of radiation received at a flat
+        surface.
+        \item[Energy irradiance:] irradiance expressed as energy per
+        unit area and unit time. Units: J s$^{-1}$ m$^{-2}$ = W m$^{-2}$.
+        \item[Photon irradiance:] irradiance expressed as number of
+        photons per unit area and unit time. Units: mol s$^{-1}$ m$^{-2}$.
+        \item[Spectral photon irradiance:] Irradiance measured over a
+        narrow band, expressed as number of photons per unit area
+        and unit time and waveband. Units: mol s$^{-1}$ m$^{-2}$ nm$^{-1}$.
+%        \item[Photosynthetic photon flux density (PPFD):]<5> Another name
+%        for PAR photon irradiance.
+    \end{description}
+\end{frame}
+
+\begin{frame}{Radiation: Cosine law}
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/cosine_arrows}
+
+    {\small Irradiance on a surface depends on the angle of incidence
+    \autocite[from][]{Aphalo2012}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Solar radiation (PAR, 400 nm to 700 nm)}
+
+  \textbf{In Viikki, in late summer}
+
+  <<solar-irrad-Viiki, echo=FALSE>>=
+  load("data/hourly_irrad.series.rda")
+  hourly_irrad.series <- subset(hourly_irrad.series, time_EET > ymd_hms("2015-08-20 00:00:00 EET") & time_EET < ymd_hms("2015-08-28 00:00:00 EET"))
+  ggplot(hourly_irrad.series, aes(time_EET, PAR_BF_tot_Avg)) +
+  geom_area(colour = "tomato", alpha = 0.4, fill = "orange") +
+  labs(x = "Time EEST", y = expression(Mean~~hourly~~photon~~irradiance~~(mu*mol~s^{-1}~m^{-2})))
+@
+\end{frame}
+
+\begin{frame}
+  \frametitle{Solar radiation (PAR)}
+
+  \textbf{In Viikki, in late summer, no clouds}
+
+  <<solar-irrad-Viiki-sunny, echo=FALSE>>=
+  load("data/minute_irrad.series.rda")
+  sunny.day.data <- subset(ppfd.LICOR.data, time_EET > ymd_hms("2015-08-20 00:00:00 EET") & time_EET < ymd_hms("2015-08-21 00:00:00 EET"))
+
+  ggplot(sunny.day.data, aes(x = time_EET, y = PAR_Den_Max)) +
+  geom_area(colour = "tomato", alpha = 0.4, fill = "orange") +
+#  geom_line() +
+#  geom_line(aes(y = PAR_Den_Min), colour = "blue") +
+#  geom_line(aes(y = PAR_Den_Max), colour = "red") +
+   ylim(-5, 1600) +
+  labs(x = "Time EEST", y = expression(Photon~~irradiance~~(mu*mol~s^{-1}~m^{-2})))
+@
+\end{frame}
+
+\begin{frame}
+  \frametitle{Solar radiation: total, and diffuse (PAR)}
+
+  \textbf{In Viikki, in late summer, no clouds.}
+
+  <<solar-irrad-Viiki-sunny-BF, echo=FALSE>>=
+  cloudy.day.data <- subset(ppfd.BF.data, time_EET > ymd_hms("2015-08-20 00:00:00 EET") & time_EET < ymd_hms("2015-08-21 00:00:00 EET"))
+
+  ggplot(cloudy.day.data, aes(x = time_EET, y = PAR_BF_tot_Avg)) +
+  geom_area(colour = "tomato", alpha = 0.4, fill = "orange") +
+   ylim(-5, 1600) +
+   geom_area(aes(y = PAR_BF_diff_Avg), colour = "blue", alpha = 0.2, fill = "blue") +
+#  geom_line(aes(y = PAR_Den_Max), colour = "red") +
+  labs(x = "Time EEST", y = expression(Photon~~irradiance~~(mu*mol~s^{-1}~m^{-2})))
+@
+\end{frame}
+
+\begin{frame}
+  \frametitle{Solar radiation (PAR)}
+
+  \textbf{In Viikki, in late summer, overcast in the morning, broken clouds later on.}
+
+  <<solar-irrad-Viiki-cloudy, echo=FALSE>>=
+  cloudy.day.data <- subset(ppfd.LICOR.data, time_EET > ymd_hms("2015-08-26 00:00:00 EET") & time_EET < ymd_hms("2015-08-27 00:00:00 EET"))
+
+  ggplot(cloudy.day.data, aes(x = time_EET, y = PAR_Den_Max)) +
+  geom_area(colour = "tomato", alpha = 0.4, fill = "orange") +
+#  geom_line() +
+   ylim(-5, 1600) +
+  labs(x = "Time EEST", y = expression(Photon~~irradiance~~(mu*mol~s^{-1}~m^{-2})))
+@
+\end{frame}
+
+\begin{frame}
+  \frametitle{Solar radiation: total, and diffuse (PAR)}
+
+   \textbf{In Viikki, in late summer, overcast in the morning, broken clouds later on.}
+
+  <<solar-irrad-Viiki-cloudy-BF, echo=FALSE>>=
+  cloudy.day.data <- subset(ppfd.BF.data, time_EET > ymd_hms("2015-08-26 00:00:00 EET") & time_EET < ymd_hms("2015-08-27 00:00:00 EET"))
+
+  ggplot(cloudy.day.data, aes(x = time_EET, y = PAR_BF_tot_Avg)) +
+  geom_area(colour = "tomato", alpha = 0.4, fill = "orange") +
+   ylim(-5, 1600) +
+   geom_area(aes(y = PAR_BF_diff_Avg), colour = "blue", alpha = 0.2, fill = "blue") +
+#  geom_line(aes(y = PAR_Den_Max), colour = "red") +
+  labs(x = "Time EEST", y = expression(Photon~~irradiance~~(mu*mol~s^{-1}~m^{-2})))
+@
+\end{frame}
+
+\begin{frame}{Radiation: wavelength limits `colours'}
+    \begin{description}
+        \item[Shortwave radiation] $\lambda <$ 4\,000 nm (4 $\mymu$m).
+        \item[Longwave radiation] $\lambda >$ 4\,000 nm (4 $\mymu$m).
+        \item[Ultraviolet radiation] 100 nm $ < \lambda <$ 400 nm.
+        \begin{description}
+            \item[UV-C] 100 nm $< \lambda <$ 280 nm.
+            \item[UV-B] 280 nm $< \lambda <$ 315 nm.
+            \item[UV-A] 315 nm $< \lambda <$ 400 nm.
+        \end{description}
+        \item[VIS] light, `visible to humans' 380 nm $< \lambda <$ 760~nm.
+        \item[PAR] `useful for photosynthesis' 400 nm $< \lambda <$ 700 nm.
+        \item[Far red (FR)] 700 nm $< \lambda <$ 750--800 nm.
+        \item[Infrared (IR)] `thermal' approx.\ 750 nm $< \lambda <$ 1 mm.
+    \end{description}
+    \small{$\lambda$: wavelength.}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Solar radiation spectrum: energy units}
+
+  \textbf{In Viikki, midsummer day, noon, partly cloudy.}
+
+  <<solar-spectrum-e, echo=FALSE>>=
+  plot(sun.spct)
+@
+\end{frame}
+
+\begin{frame}
+  \frametitle{Solar radiation spectrum: photon units}
+
+  \textbf{In Viikki, midsummer day, noon, partly cloudy.}
+
+  <<solar-spectrum-q, echo=FALSE>>=
+  plot(sun.spct, unit.out = "photon")
+@
+\end{frame}
+
+\begin{frame}{Light environment \Discussion}
+\begin{block}{How does it change? \Discussion 5 + 5 min}
+    \begin{itemize}
+      \item Which properties of sunlight change with weather conditions?
+      \item Which properties of sunlight change through a day?
+      \item Which properties of sunlight change with seasons?
+      \item Which properties of sunlight change with latitude?
+      \item Which properties of sunlight change with pollution?
+      \item Do plants modify light properties?
+      \item Which ones?
+    \end{itemize}
+\end{block}
+
+\end{frame}
+
+\section{Radiation and leaves}
+
+\begin{frame}{Light and plant leaves}{Attenuation (process)}
+
+    We use the word \emph{attenuation} to mean the process by which irradiance decreases when light travels through any object.
+    \vspace{1ex}
+
+    In green leaves, light attenuation depends on:\\
+    \begin{itemize}
+        \item chlorophyll concentration,
+        \item cuticle waxes,
+        \item pubescence (trichomes or ``hairs''),
+        \item mass pigments like anthocyanins, flavonoids, and other phenolics, and carotenoids,
+        \item angle between the leaf and the direction of radiation.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Transmittance, reflectance and absorptance (quantities)}
+
+Solidago from upper canopy, light incident on adaxial (upper) epidermis.
+
+<<leaf-optics,echo=FALSE,cache=FALSE>>=
+fig.solidago <-
+plot(Solidago_altissima.mspct$upper_adax, annotations = c("color.guide", "segments", "labels"))
+print(fig.solidago)
+@
+
+\end{frame}
+
+\begin{frame}{Light and plant leaves}{Absorption of light}
+    \begin{itemize}
+        \item The absorptance of leaves for light depends on the
+        wavelength.
+        \item In the visible part of the spectrum they reflect and
+        transmit more green light than other colours of light.
+        \item A little further towards longer wavelengths, they
+        reflect and transmit most of the radiation.
+        \item Later in the course we will see how plants perceive
+        this ratio through photoreceptors called phytochromes.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Looking at reflected far-red radiation}
+%{Photographs in visible and far-red radiation ($\lambda > 715$\,nm)}
+    \centering
+    \includegraphics[width=0.45\textwidth]{photos/visible}\ %
+    \includegraphics[width=0.45\textwidth]{photos/far-red-1}\\[0.5ex]
+    \includegraphics[height=0.45\textheight]{photos/far-red-2}\ %
+    \includegraphics[height=0.45\textheight]{photos/far-red-3}
+
+\end{frame}
+
+\begin{frame}{Flower patterns in ultraviolet-A}
+%{Photographs in visible and far-red radiation ($\lambda > 715$\,nm)}
+    \centering
+    \includegraphics[width=0.45\textwidth]{photos/taraxacum-vis}\ %
+    \includegraphics[width=0.45\textwidth]{photos/taraxacum-uva}\\
+
+\end{frame}
+
+\section{Radiation in plant canopies}
+
+\begin{frame}{Light in plant canopies}{Attenuation (process)}
+
+    We use the word \emph{attenuation} to mean the decrease in
+    irradiance that occurs when light travels through any object.
+    \vspace{0.04\textheight}
+
+    In the case of canopies, light attenuation depends on:\\
+    \begin{itemize}
+        \item area of foliage,
+        \item grouping of the leaves,
+        \item angle between leaves and the direction of radiation.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Solar radiation: shade}
+
+  \textbf{In Lammi, 29-06-2006, Norway spruce shade vs.\ clearcut.}
+
+  <<solar-irrad-Lammi, echo=FALSE, fig.width=11, fig.height=5, out.width='0.95\\textwidth'>>=
+  clearcut.spct <- read_licor_prn("data/SUN1.PRN")
+  shade.spct <- read_licor_prn("data/IG.PRN")
+  clearcut_rfr <- R_FR(clearcut.spct)
+  shade_rfr <- R_FR(shade.spct)
+  multiplot(
+  plot(clearcut.spct, w.band = list(Red("Smith20"), Far_red("Smith20")), unit.out = "photon") + labs(title = "Clearcut") +
+  annotate(x = 450, y = 7, label = paste("R:FR photon ratio:", format(clearcut_rfr, digits = 2, nsmall = 2)), geom = "text"),
+  plot(shade.spct, w.band = list(Red("Smith20"), Far_red("Smith20")), unit.out = "photon") + labs(title = "Shade") +
+  annotate(x = 450, y = 0.75, label = paste("R:FR photon ratio:", format(shade_rfr, digits = 2, nsmall = 2)), geom = "text"),
+  cols = 2)
+@
+\end{frame}
+
+\begin{frame}{Light in plant canopies}{Describing the foliage}
+    \begin{itemize}
+        \item LAI = $\frac{\textrm{leaf area}}{\textrm{ground
+        area}}$
+        \item LAI: leaf area index.
+        \item Leaf area refers to the sum of the projected area of
+        all the leaves. (Projected area for flat leaves means area of one side.)
+        \item Empirical indexes can be used to describe clumping.
+        \item (A clump is a thick group or bunch. Leaves grouped
+        like for example on pines.)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Light in plant canopies}{A simple model}
+    \begin{itemize}
+        \item Borrowed from chemistry\ldots\\
+        we use the Lambert-Beer extinction law\ldots\\
+        replacing concentration of solute by ``concentration'' of
+        leaves, measured as LAI.
+        \item the equation as modified by Monsi and Saeki is:
+        $$I_z = I_0\ \mathrm{e}^{-k\, \mathrm{LAI}},$$
+        where $k$ is the extinction coefficient, $I_0$ is the
+        irradiance above the canopy, and $I_z$ the irradiance below
+        the canopy.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Light in plant canopies}{Discussion on the equation}
+    How can a plant adjust $k$ so as maximize energy capture? (light as resource)\\
+    What signals could it use as a source of information?\\
+    What would be an example of adaptation?\\
+    What would be an example of acclimation?
+\end{frame}
+
+\begin{frame}{Maize field}
+    \centering
+    \includegraphics[height=0.65\textheight]{figures/maize}\\
+    {\small Maize field in the Pampas, Argentina.}
+\end{frame}
+
+\begin{frame}{Pine forest}
+    \centering
+    \includegraphics[height=0.65\textheight]{figures/PineForestJoensuu}\\
+    {\small Scots pine forest in Joensuu.}
+\end{frame}
+
+\begin{frame}{Forest canopy}
+
+    \textbf{Looking upwards, circular `fish-eye' objective (180$^\circ$).}
+
+    \centering
+    \includegraphics[width=0.45\textwidth]{figures/forest_canopy1}\
+    \includegraphics[width=0.45\textwidth]{figures/forest_canopy2}
+
+    {\small Photos: T. M. Robson and S. Hartikainen.}
+\end{frame}
+
+\section{Radiation climatology}
+
+\begin{frame}{Solar radiation as a resource}{Plant productivity and available radiation}
+    \begin{itemize}
+        \item Solar radiation is the source of energy for photosynthesis, but only
+        absorbed light can be used.
+        \item The yearly total of radiation depends on latitude and
+        cloudiness.
+        \item Arid regions tend to receive more sunlight, but there
+        is little vegetation to use it because of lack of water.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Solar radiation as a resource}{Geographical variation in mean annual radiaition}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/GlobalRadiationMap}\\
+    {\small \autocite[From][]{Larcher2003}.}
+\end{frame}
+
+
+  \section*{References}
+  \begin{frame}[t,allowframebreaks]
+    \frametitle{References}
+    \printbibliography
+  \end{frame}
+
+\end{document}

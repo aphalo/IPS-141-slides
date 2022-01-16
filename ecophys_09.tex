@@ -1,0 +1,370 @@
+% -*- TeX:RNW:UK -*-
+\documentclass[10pt]{beamer}
+\usetheme{metropolis}
+%\useinnertheme{rectangles}
+\setbeamercovered{%
+still covered={\opaqueness<1->{15}},
+again covered={\opaqueness<1->{40}}}
+
+\hypersetup{colorlinks,linkcolor=black,urlcolor=brown,citecolor=brown}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{unicode-math}
+
+% We set the Lucida OTF fonts as default
+\usepackage{fontspec}
+\setmainfont{Lucida Bright OT}
+\setsansfont{Lucida Sans OT}
+\setmonofont{Lucida Console DK}[Scale=MatchLowercase]
+
+\newfontfamily\typiconsfont{Typicons}[Scale=0.9]
+\newcommand\typicons[1]{{\typiconsfont\symbol{#1}}}
+\newcommand\Attention{\colorbox{yellow}{\textcolor{black}{\typicons{"E136}}}\xspace}
+\newcommand\Advanced{\colorbox{black}{\textcolor{white}{\typicons{"E04E}}}\xspace}
+
+\newfontfamily\webglyphsfont{WebHostingHub-Glyphs}[Scale=0.7]
+\newcommand\webglyphs[1]{{\webglyphsfont\symbol{#1}}}
+\newcommand\Discussion{\colorbox{white}{\textcolor{black}{\webglyphs{"F134}}}\xspace}
+\newcommand\DExamples{\colorbox{black}{\textcolor{white}{\webglyphs{"F134} examples?}}}
+\newcommand\Reading{\colorbox{black}{\textcolor{white}{\webglyphs{"F0C1}}}\xspace}
+
+\newfontfamily\meteoconsfont{Meteocons}
+\newcommand\meteocons[1]{{\meteoconsfont\symbol{#1}}}
+\newcommand\meteosun{\meteocons{"0042}}
+\newcommand\meteosuncloud{\meteocons{"0048}}
+\newcommand\meteorain{\meteocons{"0052}}
+\newcommand\meteosolidsun{\meteocons{"0031}}
+
+\newfontfamily\KRfarmfont{KR Back On The Farm}
+\newcommand\KRfarm[1]{{\KRfarmfont\symbol{#1}}}
+\newcommand\farmplant{\KRfarm{"0049}}
+
+\usepackage{polyglossia}
+\setdefaultlanguage[variant = british, ordinalmonthday = false]{english}
+
+\usepackage[style=authoryear-comp,firstinits,sortcites,maxcitenames=2,%
+    mincitenames=1,maxbibnames=10,minbibnames=10,uniquename=mininit,%
+    uniquelist=minyear,sortfirstinits=true]{biblatex}
+\addbibresource{../references/ecophys.bib}
+%\renewcommand{\bibfont}{\small}
+
+\usepackage{abbrev}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning,fit,arrows}
+
+\tikzset{
+ a/.style
+  = {node distance=4em, text width=3.5em, minimum height=4em},
+ b/.style
+  = {rectangle, draw, fill=gray!10, node distance=4em, text width=6em,
+     text centered, rounded corners, minimum height=4em, thick},
+ c/.style
+  = {circle, draw, dashed, fill=orange!10, inner sep = 0pt, node distance=5em, thick},
+ d/.style
+  = {rectangle, draw, dashed, fill=red!10, node distance=4em, text width=6em,
+     text centered, rounded corners, minimum height=4em, thick},
+ l/.style
+  = {draw, -latex, thick},
+ lr/.style
+  = {draw, latex-latex, thick, red},
+ lb/.style
+  = {draw, -latex, thick, blue},
+  lo/.style
+  = {draw, -latex, thick, orange},
+  lg/.style
+  = {draw, -latex, thick, green},
+  mylabel/.style
+  ={text width=6.5em, text centered}
+}
+
+\newcommand*{\Px}{\ensuremath{\mathrm{P}}\xspace}
+\newcommand*{\Pxfr}{\ensuremath{\mathrm{P_{fr}}}\xspace}
+\newcommand*{\Pxr}{\ensuremath{\mathrm{P_r}}\xspace}
+\newcommand*{\Pxtot}{\ensuremath{\mathrm{P_{tot}}}\xspace}
+
+%\newcommand*{\COtwo}{\ensuremath{\textrm{CO}_2}\xspace}
+
+\newcommand*{\nEff}{{\scriptsize 0}\xspace}
+\newcommand*{\pEff}{\ensuremath{+}\xspace}
+\newcommand*{\mEff}{\ensuremath{-}\xspace}
+\newcommand*{\uEff}{?\xspace}
+
+\newcommand*{\myatop}[2]{\genfrac{}{}{0pt}{3}{#1}{#2}}
+
+\begin{document}
+
+\title{PBIO-141\\Sensory and Physiological Ecology of  Plants}
+\subtitle{9: Roots}
+\author{Pedro J. Aphalo}
+\date{January-February 2018}
+\institute[Univ.\ of Helsinki]{M.Sc.\ in Plant Biology, University of Helsinki\\[2ex] \url{http://blogs.helsinki.fi/aphalo/}}
+
+
+  \begin{frame}
+    \maketitle
+  \end{frame}
+
+  \begin{frame}[c]
+    \begin{center}
+      \begin{small}
+        \copyright 2006-2018 by Pedro J. Aphalo\\
+       University of Helsinki, Finland.\\
+        \textcolor{blue}{\url{http://blogs.helsinki.fi/aphalo/}}\\[2ex]
+      \end{small}
+
+      \begin{footnotesize}
+        Sensory and Physiological Ecology of  Plants: `9: Roots' by Pedro J. Aphalo is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+
+        Illustrations and text quoted from copyrighted sources is excluded from this license and their use should respect the original licenses.\\[2ex]
+      \end{footnotesize}
+
+      \includegraphics[width=6em]{../figures/copyright/by-sa}
+    \end{center}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Outline}
+    \tableofcontents
+  \end{frame}
+
+\section{Avoidance by roots}
+
+\begin{frame}{Avoidance of obstacles}
+    \begin{itemize}
+        \item Recent research with pea at Ariel Novoplansky's lab in Israel has shown that roots also change their morphology in response to obstacles and neighbours.
+        \item We do not yet know if these responses are widespread in plant species in general or not.
+        \item The mechanism for avoidance of obstacles seems to be perception of own root exudates and their accumulation.
+        \item The nature of the molecules involved is unknown, although it is probably not ethylene.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Avoidance of obstacles}
+    \begin{itemize}
+        \item In a series of experiments nylon strings were used as obstacles for root growth.
+        \item Roots grew less and even died when approaching the obstacle, but before getting in contact with it.
+        \item Adding a sleave of an oxidant chemical, assumed to destroy the exudate, nullified the effect of the obstacle.
+        \item Also activated charcoal was not perceived as an obstacle, while non-activated charcoal was perceived as an obstacle.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Avoidance of obstacles}
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/Falik1string}\\
+    {\small \autocite[from][]{Falik2005}.}
+\end{frame}
+
+\begin{frame}{Avoidance of obstacles}
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/Falik2string}\\
+    {\small \autocite[from][]{Falik2005}.}
+\end{frame}
+
+%\begin{frame}{Avoidance of obstacles}
+%    \vspace{-0.06\textheight}
+%    \includegraphics[height=0.6\textheight]{figures/Falik3string.eps}\\
+%    \vspace{-0.01\textheight}
+%    {\small \autocite[from][]{Falik2005}.}
+%\end{frame}
+
+\begin{frame}{Avoidance of obstacles}
+    \centering
+    \includegraphics[height=0.72\textheight]{figures/Falik4string}\\
+    {\small \autocite[from][]{Falik2005}.}
+\end{frame}
+
+\begin{frame}{Avoidance of obstacles}
+    \centering
+    \includegraphics[width=\textwidth]{figures/Falik5string}\\
+    {\small \autocite[from][]{Falik2005}.}
+\end{frame}
+
+\begin{frame}{Self avoidance by roots}
+    \begin{itemize}
+        \item Also at Ariel Novoplansky's lab, a series of experiments with pea was done to investigate if roots avoid other roots of the same plant.
+        \item As an adaptation, it would function by competing more strongly with other plants' roots than with own roots. The reason behind this would be that this behaviour would allow plants to use resources more efficiently by not letting other neighbours acquire resources from the soil.
+        \item The results showed that in fact a plant's roots avoid growing near other roots of the same plant.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Self avoidance by roots}
+    \begin{itemize}
+        \item The effect does not depend on the genotype of the plants, as split plants after a few days are distinguished as different.
+        \item The mechanism is unknown and it has been suggested that it may depend in electrical oscillations and/or of hormones which would be in phase only for different parts of the same individual.
+        \item It has been observed earlier that electrical potentials in the soil near roots can be affected by plants.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Self avoidance by roots}
+    \centering
+    \includegraphics[height=0.72\textheight]{figures/Falik2self}\\
+    {\small \autocite[from][]{Falik2003}.}
+\end{frame}
+
+\begin{frame}{Self avoidance by roots}
+    \centering
+    \includegraphics[height=0.72\textheight]{figures/Falik3self}\\
+    {\small \autocite[from][]{Falik2003}.}
+\end{frame}
+
+\begin{frame}{Self avoidance by roots}
+    \centering
+    \includegraphics[width=\textwidth]{figures/Falik4self}\\
+    {\small \autocite[from][]{Falik2003}.}
+\end{frame}
+
+\section{Communication and herbivory}
+
+\begin{frame}{Secondary metabolites}
+    \begin{itemize}
+        \item When the term `secondary metabolites' was coined they were assumed to be mainly waste products of normal metabolism (either inevitable byproducts, or surplus metabolites).
+        \item Since then roles have been identified for many of them.
+        \item Many are involved in interactions among organisms like herbivory, pathogenesis, symbioses, etc.
+        \item Many behave as carriers of information, but others are for example toxic to herbivores or pathogens.
+        \item Sometimes they fulfill either role depending on the species involved.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Plant volatiles}
+    \begin{itemize}
+        \item Plants emit many volatile compounds: carbon dioxide, oxygen, water vapour, and ethylene.
+        \item Ethylene is a plant hormone, affecting plant metabolism in many ways.
+        \item More recently it has been observed that plants emit numerous organic compounds at lower concentrations: methanol, acetone, formaldehyde, other short chain carbonyl groups, plus a wide variety of terpenes, phenylpropanoids, benzenoids, and fatty-acid derivatives.
+        \item These compounds contribute to signalling within plants, among plants, and among plants and animals.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Herbivory and alarm signals}
+    \centering
+    \includegraphics[width=\textwidth]{figures/Gershenzon1volatiles}\\
+    {\small \autocite[from][]{Gershenzon2007}.}
+\end{frame}
+
+
+\section{Maternal effects}
+
+\begin{frame}{What are maternal effects}
+    \begin{itemize}
+        \item The behaviour or performance of plants obtained from seeds depends on the growing conditions of the mother plants producing the seeds independently of change in genotype.
+        \item Possible mechanisms are various:
+        \begin{itemize}
+           \item Size of seeds.
+           \item Mineral nutrient store in seeds depends on nutrient availability to mother plant.
+           \item State of phytochrome in seeds affected by light environment of fruit.
+           \item Epigenetic effects.
+        \end{itemize}
+        \item At least some maternal effects have been demonstrated to have adaptive value.
+    \end{itemize}
+    Discussion: When does ``memory'' increase fitness?
+\end{frame}
+
+\begin{frame}{Phytochrome}
+    \begin{itemize}
+        \item The state of phytochrome in mature seeds (proportion of Pfr) depends on the light environment inside the fruit, and this in turn depends to some extent on the light environment to which the fruit is exposed.
+        \item In those species where seed germination depends on phytochrome, germination in darkness can be affected the the R:FR experienced by the mother plant or green fruit.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Nutrient store and seed size}
+    \begin{itemize}
+        \item Seeds produced by mother plants under stress, may smaller (and fewer).
+        \item Seedlings from smaller seeds may have slower initial growth.
+        \item Seed from plants deficient in a mineral nutrient may have a reduced content of this nutrient.
+        \item Under limited nutrient supply seedlings originated from seeds with a reduced store of the given nutrient might grow less vigorously.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Epigenetic effects}
+    \begin{itemize}
+        \item These depend on DNA methylation and changes in chromatin.
+        \item In many cases they are reset at the start of a new generation as in vernalization (changes dependent on cold temperatures, e.g.\ during winter).
+        \item However, sometimes these epigenetic changes in DNA are not reset between generations.
+        \item The effects of stresses like UV-C on gene expression can persist for several generations.
+    \end{itemize}
+\end{frame}
+
+%\begin{frame}{Epigenetics}
+%    \vspace{-0.06\textheight}
+%    \includegraphics[height=0.7\textheight]{figures/Bond1epigenetics_maize.eps}\\
+%    \vspace{-0.01\textheight}
+%    {\tiny Legend in next frame.}
+%\end{frame}
+%
+%\begin{frame}{Epigenetics}
+%    \vspace{-0.06\textheight}
+%    {\tiny Figure 1. The molecular basis for paramutation at the maize b1 locus. (a) Paramutation of the b1 locus has been linked to an 853 bp sequence
+%located 100 Kb upstream of the transcription start; there are seven copies of this sequence in tandem array (green arrows) in alleles involved in paramutation [14]. The
+%paramutagenic B0 and paramutable B-I alleles are identical in sequence and DNA methylation around the promoter, but B-I is more highly expressed than B0 [indicated by the
+%number of purple balls (RNA polymerases) at each allele]. B-I plants are deeply pigmented whereas B0 plants are a pale purple. B0 is stable and causes paramutation of B-I to B0*
+%whenever the two alleles are present in the same nucleus, indicated here as an oval. The expression of B0 and B0* is identical; the * indicates that this allele entered
+%the heterozygote as a high expressing B-I allele, and was converted by B0 to become B0*, which is stably transmitted to the F2 progeny, which are all pale purple. In the low
+%expressing B0, the repeated sequences are both more densely methylated (M. Stam and co-workers, personal communication) and the associated chromatin is more
+%compact (indicated by arrow head) compared with the highly expressing B-I where the sequence is present in open chromatin (indicated by the arrow). In both B0 and B-I the
+%repeated sequences are transcribed from both strands and the corresponding siRNAs (not shown) are present in both alleles (M. Arteaga-Vasquez and V. Chandler, personal communication). Mop1, an RNA-dependent RNA polymerase, plays a role in both the initiation and maintenance of the paramutated state [9].}
+%    {\footnotesize \autocite[from][]{Bond2007}.}
+%\end{frame}
+%
+%\begin{frame}{Epigenetics}
+%    \vspace{-0.06\textheight}
+%    \includegraphics[height=0.6\textheight]{figures/Bond2Arabidopsis.eps}\\
+%    \vspace{-0.01\textheight}
+%    {\small \autocite[from][]{Bond2007}.}
+%\end{frame}
+%
+%\begin{frame}{Epigenetics}
+%    \vspace{-0.06\textheight}
+%    {\tiny Figure 2. Somatic homologous recombination is enhanced in the progeny of UV-C- and flg22-treated Arabidopsis plants. (a) One of the recombination substrates used to
+%visualize somatic homologous recombination in response to UV-C or flg-22 [11]. The homologous region of the construct is shaded light blue; plants carrying this construct
+%are coloured light blue, which also represents the background level of recombination. Upon stimulation with UV-C or flg-22, homologous recombination produces a
+%functional copy of the GUS gene (dark blue). Plants showing an elevated frequency of somatic homologous recombination are shown with dark-blue spots on a pale-blue
+%background. The red lightening bolt indicates an applied stimulus, UV-C or flg-22. Abbreviations: GUS, b-glucuronidase gene; Hpt, hygromycin-resistance gene; 35S, 35S
+%promoter; T, terminator sequence; RB and LB, right and left borders of construct. (b) The colour scheme of the Arabidopsis plants and additional features are the same as
+%described in (a). A: control cross between two non-stressed transgenic plants that produce off-spring with the same background frequency of homologous recombination.
+%B: cross between two stressed transgenic plants producing offspring with an increased level of homologous recombination that is similar to the level in selfed S1 from a
+%treated parent. C: treated transgenic plant crossed with a non-treated transgenic plant. D: treated transgenic plant crossed with a non-treated wild type (white Arabidopsis
+%plants). E: non-treated transgenic plant crossed with a treated wild-type plant. Progeny from the crosses described for C, D and E have a comparable frequency of
+%homologous recombination as the progeny from B and selfed S1 from a treated parent. The level of homologous recombination is independent of whether the male or
+%female germline carries the transgene or is stressed.}
+%    {\small \autocite[from][]{Bond2007}.}
+%\end{frame}
+
+
+\begin{frame}{Maternal effects}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/Galloway1Science}\\
+    {\small \autocite[from][]{Galloway2007}.}
+\end{frame}
+
+\begin{frame}{Maternal effects}
+    \centering
+    \includegraphics[width=\textwidth]{figures/Galloway2Science}\\
+    {\small \autocite[from][]{Galloway2007}.}
+\end{frame}
+
+\begin{frame}{Maternal effects}
+    \centering
+    \includegraphics[width=\textwidth]{figures/GallowayTab1Science}\\
+    {\small \autocite[from][]{Galloway2007}.}
+\end{frame}
+
+\begin{frame}{Discussion \Discussion 10 + 5 min}
+  After listening to the last eight lectures, what would you think if someone told you that:
+  \begin{itemize}
+    \item plants display behaviour?
+    \item plants can learn?
+    \item plants can perceive their environment?
+    \item plants can solve problems?
+    \item plants have intelligence?
+  \end{itemize}
+  \emph{We will discuss this again at the end of this series of lectures after learning about resources and after each of you has read an original research paper.}
+\end{frame}
+
+
+  \section*{References}
+  \begin{frame}[t,allowframebreaks]
+    \frametitle{References}
+    \printbibliography
+  \end{frame}
+
+\end{document}
+

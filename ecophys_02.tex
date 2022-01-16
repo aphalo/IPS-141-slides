@@ -1,0 +1,267 @@
+% -*- TeX:UK -*-
+\documentclass[10pt]{beamer}
+\usetheme{metropolis}
+%\useinnertheme{rectangles}
+\setbeamercovered{%
+still covered={\opaqueness<1->{15}},
+again covered={\opaqueness<1->{40}}}
+
+\hypersetup{colorlinks,linkcolor=black,urlcolor=brown,citecolor=brown}
+
+\include{set-up-fonts-and-icons}
+
+\begin{document}
+
+\title{PBIO-141\\Sensory and Physiological Ecology\\of  Plants}
+\subtitle{2: Terminology and viewpoint}
+\author{Pedro J. Aphalo}
+\date{January--February 2022}
+\institute[Univ.\ of Helsinki]{M.Sc.\ in Plant Biology, University of Helsinki\\[2ex] \url{http://blogs.helsinki.fi/aphalo/}\\[2ex] \url{mailto:pedro.aphalo@helsinki.fi}}
+
+\begin{frame}
+\maketitle
+\end{frame}
+
+\include{copyright-frame}
+
+\begin{frame}
+    \frametitle{Outline}
+    \tableofcontents
+\end{frame}
+
+\section{Experiments and surveys}
+
+\begin{frame}{Types of experiments (refresher)}
+\begin{small}
+    \begin{description}[type=1]
+        \item[Manipulative experiments.]<1,5> With manipulative experiments it
+        is possible to \emph{directly} demonstrate cause-effect relationships.
+
+        \item[Observational experiments.]<2,5> When manipulative experiments
+        are not possible, direct demonstration of cause-effect
+        relationships can be very difficult.
+
+        \item[Impossible experiments.]<3,5> In many situations
+        manipulative experiments are physically or ethically
+        impossible to carry out.
+
+        \item[Simulations.]<4,5> When we do experiments with models
+        instead of the real system we call them simulations.
+
+        \item[\DExamples]<5>
+
+    \end{description}
+\end{small}
+\end{frame}
+
+\begin{frame}{Experiments and causality}
+\begin{itemize}
+\item<1,4> Demonstration of causes. In manipulative experiments we (attempt to) keep
+everything equal among treatments except for the experimental
+variable whose effect we want to test.
+
+\item<2,4> In observational studies we cannot be sure of which things
+are different among the different situations (``treatments''), so we
+can make guesses about causes, but can seldom directly demonstrate them.
+
+\item<3,4> In observational studies we can use path analysis to indirectly strengthen the evidence for causation (we add an additional dimension, usually time).
+
+\item<4> \DExamples
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Cause vs.\ correlation}
+
+Tight correlation does not demonstrate causality, two responses may
+be dependent on a third variable and be correlated without one being
+the cause of the other. \vspace{5mm} \pause
+
+\emph{Example:} correlation between number of swimmers drowning in
+lakes, and sales of ice cream. Both peak in the summer, but there is
+no cause-effect relationship between them.
+
+\emph{Possible way out:} path analysis. E.g.\ have dead swimmers eaten
+ice cream just before drowning? (more strictly, \ldots more frequently than survivors).
+
+\end{frame}
+
+\section{Systems theory}
+
+\section{Hierarchy}
+
+\begin{frame}
+  \frametitle{What is hierarchy? \Discussion}
+  \begin{alertblock}{Hierarchies in biology \Discussion 5 + 5 min}
+    \begin{itemize}
+      \item Think examples of the application of the concept of \emph{hierarchy} in biology.
+    \end{itemize}
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Hierarchy I}
+
+The term \textit{hierarchy} is frequently used in an intuitive way,
+but Allen and Starr (1982) have developed a theory, mainly focused
+on ecological systems.
+
+\begin{quotation}
+By \textit{hierarchy} we understand a system of behaviour
+relationships where upper levels limit and control the lower levels
+in a greater or smaller measure depending on the \textbf{time
+constants} of their behaviour.
+\end{quotation}
+
+\end{frame}
+
+\begin{frame}{Hierarchy II}
+\begin{itemize}
+\item<1> Where \textit{time constant} of a response is the length of time
+between when a response to a stimulus starts to be observable until
+it reaches a certain level close to the maximum that the given
+stimulus will induce. It is a measure of the speed of change of a
+response to an instantaneous stimulus.
+
+\item<2> In contrast \textit{lag} is the delay between the application of
+the stimulus and the start of an observable response.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Hierarchy III}
+
+The degree of control, that is the asymmetry of the relationship,
+depends on the time constants of the behaviour.
+
+\vspace{\stretch{1}} \center{\fbox{\parbox{0.8\textwidth}{When we
+study the mechanism of a system at one level, we can ignore what changes more slowly
+(has a larger time constant).}}} \vspace{\stretch{1}}
+
+\vspace{\stretch{1}} \DExamples\vspace{\stretch{1}}
+
+\end{frame}
+
+\begin{frame}{Hierarchy IV: examples}
+\begin{itemize}
+\item For example if we study the evolution of plants on Earth we can
+ignore the big bang and the expansion of the universe (and many
+other things).
+
+\item If we are interested \emph{only} (narrowly?) in the response of photosynthesis to light
+in Arabidopsis, we can ignore the evolution of plant species.
+
+\item If we are interested only in the primary reactions of photosynthesis
+we can use in our experiments isolated chloroplasts and ignore the
+plant.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Levels of organization}
+An example of a hierarchy is the hierarchy of levels of organization
+
+Ecosystem $\rightarrow$\\
+\hspace{.5cm}Community $\rightarrow$\\
+\hspace{1cm}Population $\rightarrow$\\
+\hspace{1.5cm}Individual $\rightarrow$\\
+\hspace{2cm}Organ $\rightarrow$\\
+\hspace{2.5cm}Tissue $\rightarrow$\\
+\hspace{3cm}Cell $\rightarrow$\\
+\hspace{3.5cm}Organelle $\rightarrow$\\
+\hspace{4cm}Molecule $\rightarrow$\\
+\hspace{4.5cm}Atom $\rightarrow$\\
+\hspace{5cm}Subatomic particle
+
+\end{frame}
+
+\section{Scale}
+
+\begin{frame}{Scale}
+    \begin{description}[type=1]
+        \item[Temporal scale]<1> Fast physiological
+        responses, acclimation, and adaptation happen at
+        different temporal scales. The processes involved are
+        different.
+        \item[Spatial scale]<2> For example when
+        studying transpiration, we can do it at different
+        scales: the leaf, the tree crown, the forest, etc.
+        The main controlling environmental variables may
+        be different.
+    \end{description}
+\end{frame}
+
+\begin{frame}{Mechanism and `reason' (=justification)}
+    \begin{itemize}
+        \item<1> We achieve a \emph{mechanistic explanation} for an
+        observed phenomenon by studying the levels below.
+        e.g. We study whole plant growth in two different habitats.
+        We build a mechanistic
+        explanation from the growth and responses of individual
+        organs: leaves, stems, roots. This mostly answers ``how''
+        questions.
+
+        \item<2> We build a \emph{narrative explanation} for the phenomenon
+        by looking at the levels above.
+        e.g. In this example we find a reason or justification for
+        the differences based on natural selection, but we do not study
+        the evolutionary process itself. This mostly answers ``why''
+        questions.
+
+        \item<3> Of course we can set the focus at any level in the hierarchy and what is mechanism or narrative explanation will move along.~\DExamples
+    \end{itemize}
+\end{frame}
+
+\section{}
+
+\begin{frame}{Examples are just examples I}
+
+  \begin{alertblock}{Understanding vs.\ memorization}
+    \begin{itemize}
+      \item The role of examples (in this course and elsewhere) is to make a concept tangible\ldots
+      \item \ldots easier to grasp than a purely abstract idea.
+      \item When studying focus on the concepts\ldots
+      \item \ldots once you grasp a concept, learn the idea\ldots
+      \item \ldots you will be able to find or make up another suitable example when needed.
+    \end{itemize}
+  \end{alertblock}
+
+\end{frame}
+
+\begin{frame}{Examples are just examples II}
+
+\begin{itemize}
+  \item I will use examples from both wild species and cultivated species. Mostly higher plants from terrestrial environments.
+  \item In recent years physiological research has made frequent use of \emph{Arabidopsis thaliana}.
+  \item \emph{Arabidopsis thaliana} is a useful model, but the variation in the plant kingdom is enormous: in size, shape, function, growth rate, and lifespan.
+  \item This variation is the result, at least in part, of variation in past and current growth environments.
+  \item Natural selection is constrained by evolutionary history.
+  \item Random events also play a role, especially in small populations.
+\end{itemize}
+
+\end{frame}
+
+\section{A video for discussion}
+
+\begin{frame}{Talk by Ariel Novoplansky \Video}
+  
+  \includegraphics[width=0.25\linewidth]{}
+  
+\end{frame}
+
+
+\begin{frame}{Next steps \Discussion}
+\begin{itemize}
+  \item By now I expect both you and me to share enough of a language and frame of mind to discuss without misunderstandings.
+  \item If some ideas remain unclear, do ask at any time.
+  \item I have put in Moodle a Video of a TEDx talk by Prof.\ Ariel Novoplansky (15 min). If we have enough time we will watch today if not please watch it at home. Discuss about it in the corresponding forum before Monday. Remember that discussion can include what implications the phenomena described may have in a question of your interest, how watching the talk may have changed your views about plants, questions about something that you did not understand, or something that you would like to criticize.
+\end{itemize}
+
+\end{frame}
+
+  \section*{References}
+  \nocite{Ballare2009}
+  \begin{frame}[t,allowframebreaks]
+    \frametitle{References}
+    \printbibliography
+  \end{frame}
+
+\end{document}
+

@@ -1,0 +1,556 @@
+% -*- TeX:RNW:UK -*-
+\documentclass[10pt]{beamer}
+\usetheme{metropolis}
+%\useinnertheme{rectangles}
+\setbeamercovered{%
+still covered={\opaqueness<1->{15}},
+again covered={\opaqueness<1->{40}}}
+
+\hypersetup{colorlinks,linkcolor=black,urlcolor=brown,citecolor=brown}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{unicode-math}
+
+% We set the Lucida OTF fonts as default
+\usepackage{fontspec}
+\setmainfont{Lucida Bright OT}
+\setsansfont{Lucida Sans OT}
+\setmonofont{Lucida Console DK}[Scale=MatchLowercase]
+
+\newfontfamily\typiconsfont{Typicons}[Scale=0.9]
+\newcommand\typicons[1]{{\typiconsfont\symbol{#1}}}
+\newcommand\Attention{\colorbox{yellow}{\textcolor{black}{\typicons{"E136}}}\xspace}
+\newcommand\Advanced{\colorbox{black}{\textcolor{white}{\typicons{"E04E}}}\xspace}
+
+\newfontfamily\webglyphsfont{WebHostingHub-Glyphs}[Scale=0.7]
+\newcommand\webglyphs[1]{{\webglyphsfont\symbol{#1}}}
+\newcommand\Discussion{\colorbox{white}{\textcolor{black}{\webglyphs{"F134}}}\xspace}
+\newcommand\DExamples{\colorbox{black}{\textcolor{white}{\webglyphs{"F134} examples?}}}
+\newcommand\Reading{\colorbox{black}{\textcolor{white}{\webglyphs{"F0C1}}}\xspace}
+
+\newfontfamily\meteoconsfont{Meteocons}
+\newcommand\meteocons[1]{{\meteoconsfont\symbol{#1}}}
+\newcommand\meteosun{\meteocons{"0042}}
+\newcommand\meteosuncloud{\meteocons{"0048}}
+\newcommand\meteorain{\meteocons{"0052}}
+\newcommand\meteosolidsun{\meteocons{"0031}}
+
+\newfontfamily\KRfarmfont{KR Back On The Farm}
+\newcommand\KRfarm[1]{{\KRfarmfont\symbol{#1}}}
+\newcommand\farmplant{\KRfarm{"0049}}
+
+\usepackage{polyglossia}
+\setdefaultlanguage[variant = british, ordinalmonthday = false]{english}
+
+\usepackage[style=authoryear-comp,firstinits,sortcites,maxcitenames=2,%
+    mincitenames=1,maxbibnames=10,minbibnames=10,uniquename=mininit,%
+    uniquelist=minyear,sortfirstinits=true]{biblatex}
+\addbibresource{../references/ecophys.bib}
+%\renewcommand{\bibfont}{\footnotesize}
+
+\usepackage{abbrev}
+\DeclareGraphicsExtensions{.png,.jpg,.jpeg,.pdf}
+
+\begin{document}
+
+\title{PBIO-141\\Sensory and Physiological Ecology of  Plants}
+\subtitle{12: Carbon Assimilation (C)}
+\author{Pedro J. Aphalo}
+\date{January-February 2018}
+\institute[Univ.\ of Helsinki]{M.Sc.\ in Plant Biology, University of Helsinki\\[2ex] \url{http://blogs.helsinki.fi/aphalo/}}
+
+
+  \begin{frame}
+    \maketitle
+  \end{frame}
+
+  \begin{frame}[c]
+    \begin{center}
+      \begin{small}
+        \copyright 2006-2018 by Pedro J. Aphalo\\
+       University of Helsinki, Finland.\\
+        \textcolor{blue}{\url{http://blogs.helsinki.fi/aphalo/}}\\[2ex]
+      \end{small}
+
+      \begin{footnotesize}
+        Sensory and Physiological Ecology of  Plants: `11: Carbon Assimilation (C)' by Pedro J. Aphalo is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+
+        Illustrations and text quoted from copyrighted sources is excluded from this license and their use should respect the original licenses.\\[2ex]
+      \end{footnotesize}
+
+      \includegraphics[width=6em]{../figures/copyright/by-sa}
+    \end{center}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Outline}
+    \tableofcontents
+  \end{frame}
+
+
+\section{Response curves}
+
+\begin{frame}{Light response curve}
+    \begin{itemize}
+        \item A light response curve is a plot of $A$
+        (net photosynthetic rate = \emph{a}ssimilation rate) against
+        $I$ (irradiance).%
+        \item $A$ is usually expressed in moles of C per unit leaf
+        area and unit time (\umol, for example).%
+        \item $I$ is usually incident PAR photon irradiance (\umol) also called PPFD.
+        \item less frequently absorbed light (\umol) is used instead of irradiance.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Photosynthesis limitation}
+    \centering
+    \includegraphics[height=0.8\textheight]{figures/Taiz9.7LightCO2LimitationRegions.eps}\\
+    {\footnotesize Limitation of carbon assimilation by \COtwo or light
+    supply
+    \autocite[from][]{TaiZei2006}.}
+\end{frame}
+
+\begin{frame}{\COtwo response curve}
+    \begin{itemize}
+        \item A \COtwo response curve is a plot of $A$
+        (photosynthetic rate = \emph{a}ssimilation rate) against
+        $C_a$ (ambient \COtwo concentration) or $C_i$ (intercellular
+        \COtwo concentration, the concentration in the air space of the leaf).
+        \item $A$ is usually expressed in moles of C per unit leaf
+        area and unit time (\umol, for example).%
+        \item $C_a$ or $C_i$ is usually expressed as a molar fraction (\ppm), or less
+        frequently as volume fraction (ppm) or partial pressure (Pa).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{\COtwo response curve}
+    \centering
+    \includegraphics[height=0.75\textheight]{figures/Taiz9.22CO2ResponseC3C4.eps}\\
+    {\footnotesize \COtwo response of $A$ in C3 and C4 plants
+    \autocite[from][]{TaiZei2006}.}
+\end{frame}
+
+\section{Response to temperature}
+
+\begin{frame}{Adaptation and acclimation}
+    \begin{itemize}
+        \item Under equal growing conditions, different species have
+        different optimal temperatures for photosynthesis
+        (adaptation).
+        \item The optimal temperature for photosynthesis on the same
+        plant can shift with seasons or growing conditions ---i.e. different ambient
+        temperatures (acclimation).
+        \item The capacity to acclimate may be different in
+        different species, or in different populations of the same
+        species.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Temperature optima}
+    \centering
+    \includegraphics[width=\textwidth]{figures/Crawley1.9PhotosynTemperatureSpecies.eps}\\
+    {\footnotesize Adaptation of temperature optima \autocite[from][]{Crawley1997}.}
+\end{frame}
+
+\begin{frame}{Temperature optima}
+    \centering
+   \includegraphics[width=\textwidth]{figures/Crawley1.10PhotosynTemperatureSeasons.eps}\\
+    {\footnotesize Acclimation of temperature optima \autocite[from][]{Crawley1997}.}
+\end{frame}
+
+\begin{frame}{A vs.\ temperature}
+    \centering
+    \includegraphics[width=\textwidth]{figures/Lambers36PhotosynTemperature.eps}\\
+    {\footnotesize Acclimation and adaptation of photosynthesis optimal
+    temperature to growing temperature
+    \autocite[from][]{LambersEtAl1998}.}
+\end{frame}
+
+\section{Water stress}
+
+\begin{frame}{Water stress}
+    \begin{itemize}
+        \item When water is in short supply in the soil, or when there is low
+        humidity in the air, stomata close, $C_i$ decreases, and $A$ decreases.
+        \item If water stress persists for several days the
+        ``photosynthetic machinery'' gets affected and even if we
+        artificially increase $C_i$ by increasing $C_a$, $A$ does
+        not return to the rate it had before the stress.
+        \item If we water the plant, there may be an after effect
+        lasting up to a few days. This effect is seen as partially
+        closed stomata and lower $A$ than before the stress started.
+        \item[-] (We will return to the effects of water stress when we
+        study water relations.)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{A vs.\ C$_i$}
+    \centering
+    \includegraphics[height=0.8\textheight]{figures/Lambers29PhotosynCi.eps}\\
+    {\footnotesize \COtwo-response curves of photosynthesis for plants under drought
+    \autocite[from][]{LambersEtAl1998}.}
+\end{frame}
+
+\section{Acclimation and adaptation to shade}
+
+\begin{frame}{Sun and shade}
+    \begin{itemize}
+        \item There are shade and sun adapted species.
+        \item In many species plants acclimate to the growing light
+        environment.
+        \item Some tree species produce very distinct sun and shade
+        leaves on different part of the crown.
+        \item When grown in controlled environments we call them
+        high light (HL) and low light (LL) plants. (same light quality.)
+        \item Natural shadelight differs in quality (colour) from
+        sunlight, and also in irradiance (quantity).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Adaptation vs. acclimation to shade \Discussion 5 + 2 min}
+    \centering
+    \includegraphics[height=0.75\textheight]{figures/Taiz9.8LightResponseSunShadeSpecies.eps}
+    \includegraphics[height=0.75\textheight]{figures/Taiz9.10LightResponseSunShadeGrowth.eps}\\
+    {\footnotesize Adaptation and acclimation to shade in different species (look also at the start of the curves
+    at low irradiances).
+    \autocite[from][]{TaiZei2006}.}
+\end{frame}
+
+%\begin{frame}{Acclimation to low light}
+%    \centering
+%    \includegraphics[height=0.75\textheight]{figures/Taiz9.10LightResponseSunShadeGrowth.eps}\\
+%    {\footnotesize Acclimation happens in response to growth conditions
+%    \autocite[from][]{TaiZei2006}.}
+%\end{frame}
+%
+%\begin{frame}{Growth irradiance}
+%    \centering
+%    \includegraphics[width=\textwidth]{figures/Crawley1.5HLLLAtriplexPhotosyn.eps}\\
+%    {\footnotesize Acclimation to growth irradiance \autocite[from][]{Crawley1997}.}
+%\end{frame}
+%
+\begin{frame}{Acclimation to light \Discussion 5 + 5 min}
+    What understanding do we get from these three plots?\\
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/Givnish1988-2.eps}\\
+    {\footnotesize Photosynthesis expressed on different bases: area, mass, or protein \autocite[from][]{Givnish1988}.}
+\end{frame}
+
+\begin{frame}{Growth irradiance: morphology and anatomy}
+    \centering
+    \includegraphics[height=0.6\textheight]{figures/HLLLplants-1.eps}\ 
+    \includegraphics[height=0.4\textheight]{figures/HLLLleaves-1.eps}\\
+    {\footnotesize Acclimation to growth irradiance in radish
+    (\species{Raphanus sativus})
+    \autocite[from][]{Lichtenthaler1985}.}
+\end{frame}
+
+\begin{frame}{Growth irradiance}
+    \centering
+    \includegraphics[height=0.85\textheight]{figures/HLLLphotosynFuchsia-1.eps}\\
+    {\footnotesize Acclimation to growth irradiance in \species{Fuchsia
+    magellanica} (one clone)
+    \autocite[from][]{AphaloEtAl1991}.}
+\end{frame}
+
+\begin{frame}{}
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/Fuchsia_HL_photo.eps}\\
+    \includegraphics[width=0.75\textwidth]{figures/Fuchsia_LL_photo.eps}
+\end{frame}
+
+\begin{frame}{Sun and shade leaves}
+    \includegraphics[width=0.55\textwidth]{figures/SunShadeLeaves-1.eps}
+    \includegraphics[height=0.4\textheight]{figures/SunShadeLeaves-2.eps}\\
+    {\footnotesize Sun and shade leaves from different parts
+    of the crown of the same beech (\species{Fagus sylvatica}) tree
+    \autocite[from][]{Lichtenthaler1985}.}
+\end{frame}
+
+\begin{frame}{Sun and shade leaves}
+    \centering
+   \includegraphics[width=0.9\textwidth]{figures/SunShadeLeaves-3.eps}\\
+   {\footnotesize Shape can also be different in sun and shade leaves, e.g. in oak \autocite[from][]{Purves1995}.}
+\end{frame}
+
+
+\begin{frame}{\species{Thermopsis}}
+    \centering
+    \includegraphics[height=0.70\textheight]{figures/ThermopsisPhoto-1.eps}\\
+    {\footnotesize False lupin plants (\species{Thermopsis})}
+    {\tiny (from \url{http://linnaeus.nrm.se/flora/di/faba/therm/thermon.html}).}
+\end{frame}
+
+\begin{frame}{Sun and shade plants}
+    \centering
+    \includegraphics[width=\textwidth]{figures/SunShadeLeafThermopsis-1.eps}\\
+    {\footnotesize Acclimation of high and low light in \species{Thermopsis} \autocite[from][]{TaiZei2002}.}
+\end{frame}
+
+\begin{frame}{Plant structure in sun and shade}
+    \centering
+    \includegraphics[height=0.75\textheight]{figures/ValPea1998-3.eps}\\
+    {\footnotesize Structure of sun and shade plants of \species{Heteromeles arbutifolia}
+    \autocite[from][]{ValPea1998}.}
+\end{frame}
+
+\begin{frame}{Sun and shade}
+    \begin{itemize}
+        \item Shade plants may contain four or five times more chlorophyll per
+        unit volume of chloroplast and have a higher $a/b$ ratio than
+        sun plants because the light-harvesting complex increases.
+        \item Both
+        PS I and PS II decrease in shade, but the ratio of antenna Chl to
+        reaction centre increases.
+        \item Light capture capacity is increased but
+        electron transfer components decrease very much in the shade.
+        \item This is because under low light transport is limited by the
+        low number of photons falling on the leaf, rather than by
+        electron transport capacity.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Facultative and obligate shade plants}
+    \begin{description}
+        \item[Obligate shade plants:] Usually can grow in deep
+        shade but die in full sunlight. Under high light there may
+        be photodamage to the photosynthetic ``machinery''.
+        \item[Facultative shade plants:] Can grow in shade (but
+        usually not in very deep shade) and also in full sunlight.
+        They acclimate.
+        \item[Obligate sun plants:] tolerate only a little shade.
+        Their capacity to acclimate is rather small.
+    \end{description}
+    \footnotesize This classification is rather artificial as there is a continuum
+    of plant species adapted to different levels of shading, and
+    also variability in the extent to which they can acclimate to
+    different light levels.
+\end{frame}
+
+\begin{frame}{$A$ during a sunfleck \Discussion 5 + 2 mín}
+    How does this response relate to light and carbon reactions?\\[1.5ex]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/Lambers2008_22_Sunfleck_A.eps}\\
+    {\footnotesize \autocite[from][]{Lambers2008}.}
+\end{frame}
+
+%%% to be moved %%%
+
+%\begin{frame}{Soil water}
+%    \vspace{-0.04\textheight}
+%    \includegraphics[width=\textwidth]{figures/Crawley1.12StomataSoilWater.eps}\\
+%%    \vspace{-0.02\textheight}
+%    {\footnotesize Acclimation of stomata to soil water availability \autocite[from][]{Crawley1997}.}
+%\end{frame}
+%
+%\section{Stomata}
+%
+%\begin{frame}{Stomata}
+%    \vspace{-0.06\textheight}
+%    \includegraphics[width=0.8\textwidth]{figures/IvyAbaxStomataSEM-1.eps}\\
+%    \vspace{-0.02\textheight}
+%    {\footnotesize Stomata on the abaxial epidermis of ivy (\species{Hedera helix}), SEM \autocite[from][]{Aphalo1991}.}
+%\end{frame}
+%
+%\begin{frame}{Leaf cross-section}
+%    \vspace{-0.06\textheight}
+%    \includegraphics[width=0.8\textwidth]{figures/IvyCryofractureSEM-1.eps}\\
+%    \vspace{-0.02\textheight}
+%    {\footnotesize Cross-section of an ivy (muratti) leaf (\species{Hedera helix}), cryofracture SEM \autocite[from][]{Aphalo1991}.}
+%\end{frame}
+%
+%\begin{frame}{Stoma}
+%    \vspace{-0.06\textheight}
+%    \includegraphics[width=0.8\textwidth]{figures/IvyStomaSEM-1.eps}\\
+%    \vspace{-0.02\textheight}
+%    {\footnotesize A stoma from ivy (\species{Hedera helix}), SEM \autocite[from][]{Aphalo1991}.}
+%\end{frame}
+%
+%\begin{frame}{Stoma}
+%    \vspace{-0.06\textheight}
+%    \includegraphics[width=0.8\textwidth]{figures/IvyStomaFracture-1.eps}\\
+%    \vspace{-0.02\textheight}
+%    {\footnotesize Cross-section of a stoma from ivy  (\species{Hedera helix}), cryofracture SEM \autocite[from][]{Aphalo1991}.}
+%\end{frame}
+%
+%\section{Canopy photosynthesis}
+%
+%\begin{frame}{Canopy photosynthesis}
+%    \begin{itemize}
+%        \item If we use the big leaf analogy to express
+%        photosynthesis of a canopy we can compare the light
+%        response of a leaf to that of a canopy.
+%        \item In a canopy even when upper leaves are light saturated
+%        (photosynthesizing at maximum rate ($A_{max}$) other lower
+%        leaves can still increase $A$ if irradiance above the canopy
+%        increases.
+%        \item Consequently canopy photosynthesis ($\mathcal{A}$)
+%        saturates at higher irradiances that $A$ of individual
+%        leaves.
+%    \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Needle, shoot and canopy}
+%    \vspace{-0.07\textheight}
+%    \twocolumn[lcolwidth=0.57\linewidth,rcolwidth=0.37\linewidth]{
+%    \includegraphics[height=0.75\textheight]{figures/Taiz9.11LightResponseNeedleShootCanopy.eps}}{%
+%    \raggedright
+%    \vspace{0.1\textheight}
+%    {\footnotesize The shape of the light response and light saturation
+%    depends on the scale at which we study the forest
+%    \autocite[from][]{TaiZei2006}.}}
+%\end{frame}
+%
+%\begin{frame}{LAI}
+%    \begin{itemize}
+%        \item Canopy photosynthesis not only depends on leaf
+%        photosynthesis.
+%        \item It depends on leaf area index (LAI), up to a limit the higher the LAI,
+%        the more light is absorbed.
+%        \item It depends also on how the leaves are displayed:
+%        more or less horizontal or vertical.
+%        \item LAI will depend on environmental conditions.
+%    \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Soil water affects LAI}
+%    \vspace{-0.04\textheight}
+%    \includegraphics[width=\textwidth]{figures/Crawley1.21LAISoilWater.eps}\\
+%%    \vspace{-0.02\textheight}
+%    {\footnotesize Leaf area index (LAI) and site water balance \autocite[from][]{Crawley1997}.}
+%\end{frame}
+%
+
+%\section{Acclimation and adaptation to shade}
+%
+%\begin{frame}{Sun and shade}
+%    \begin{itemize}
+%        \item There are shade and sun adapted species.
+%        \item In many species plants acclimate to the growing light
+%        environment.
+%        \item Some tree species produce very distinct sun and shade
+%        leaves on different part of the crown.
+%        \item When grown in controlled environments we call them
+%        high light (HL) and low light (LL) plants. (same light quality.)
+%        \item Natural shadelight differs in quality (colour) from
+%        sunlight, and also in irradiance (quantity).
+%    \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Adaptation to shade}
+%    \vspace{-0.07\textheight}
+%    \twocolumn[lcolwidth=0.57\linewidth,rcolwidth=0.37\linewidth]{
+%    \includegraphics[height=0.75\textheight]{figures/Taiz9.8LightResponseSunShadeSpecies.eps}}{%
+%    \raggedright
+%    \vspace{0.1\textheight}
+%    {\footnotesize Adaptation to shade in different species (look also at the start of the curves
+%    at low irradiances).
+%    \autocite[from][]{TaiZei2006}.}}
+%\end{frame}
+%
+%\begin{frame}{Acclimation to low light}
+%    \vspace{-0.07\textheight}
+%    \twocolumn[lcolwidth=0.57\linewidth,rcolwidth=0.37\linewidth]{
+%    \includegraphics[height=0.75\textheight]{figures/Taiz9.10LightResponseSunShadeGrowth.eps}}{%
+%    \raggedright
+%    \vspace{0.1\textheight}
+%    {\footnotesize Acclimation happens in response to growth conditions
+%    \autocite[from][]{TaiZei2006}.}}
+%\end{frame}
+%
+%\begin{frame}{Growth irradiance}
+%    \vspace{-0.04\textheight}
+%    \includegraphics[width=\textwidth]{figures/Crawley1.5HLLLAtriplexPhotosyn.eps}\\
+%%    \vspace{-0.02\textheight}
+%    {\footnotesize Acclimation to growth irradiance \autocite[from][]{Crawley1997}.}
+%\end{frame}
+%
+%\begin{frame}{Acclimation to light}
+%    \vspace{-0.04\textheight}
+%    \includegraphics[width=\textwidth]{figures/Givnish1988-2.eps}\\
+%%    \vspace{-0.02\textheight}
+%    {\footnotesize Photosynthesis expressed on different bases: area, mass, or protein \autocite[from][]{Givnish1988}.}
+%\end{frame}
+%
+%\begin{frame}{Growth irradiance}
+%%    \vspace{-0.04\textheight}
+%    \twocolumn[lcolwidth=0.57\linewidth,rcolwidth=0.37\linewidth]{
+%    \includegraphics[height=0.6\textheight]{figures/HLLLplants-1.eps}}{%
+%%    \vspace{-0.02\textheight}
+%    \includegraphics[height=0.4\textheight]{figures/HLLLleaves-1.eps}}{%
+%    \raggedright {\footnotesize Acclimation to growth irradiance in radish
+%    (\species{Raphanus sativus})
+%    \autocite[from][]{Lichtenthaler1985}.}}
+%\end{frame}
+%
+%\begin{frame}{Growth irradiance}
+%%    \vspace{-0.07\textheight}
+%    \twocolumn[lcolwidth=0.70\linewidth,rcolwidth=0.24\linewidth]{
+%    \includegraphics[height=\textheight]{figures/HLLLphotosynFuchsia-1.eps}}{%
+%    \vspace{0.2\textheight}
+%    \raggedright {\footnotesize Acclimation to growth irradiance in \species{Fuchsia
+%    magellanica} (one clone)
+%    \autocite[from][]{AphaloEtAl1991}.}}
+%\end{frame}
+%
+%\begin{frame}{}
+%    \includegraphics[width=\textwidth]{figures/Fuchsia_HL_photo.eps}\\
+%    \includegraphics[width=\textwidth]{figures/Fuchsia_LL_photo.eps}
+%\end{frame}
+%
+%\begin{frame}{Sun and shade leaves}
+%%    \vspace{-0.04\textheight}
+%    \twocolumn[lcolwidth=0.57\linewidth,rcolwidth=0.37\linewidth]{
+%    \includegraphics[width=\textwidth]{figures/SunShadeLeaves-1.eps}}{%
+%%    \vspace{-0.02\textheight}
+%    \includegraphics[height=0.4\textheight]{figures/SunShadeLeaves-2.eps}}{%
+%    \raggedright {\footnotesize Sun and shade leaves from different parts
+%    of the crown of the same beech
+%    (\species{Fagus sylvatica}) tree
+%    \autocite[from][]{Lichtenthaler1985}.}}
+%\end{frame}
+%
+%\begin{frame}{Sun and shade leaves}
+%    \vspace{-0.04\textheight}
+%    \includegraphics[width=0.9\textwidth]{figures/SunShadeLeaves-3.eps}\\
+%    \vspace{-0.03\textheight}
+%    {\footnotesize Shape can also be different in sun and shade leaves, e.g. in oak \autocite[from][]{}.}
+%\end{frame}
+%
+%
+%\begin{frame}{\species{Thermopsis}}
+%    \vspace{-0.07\textheight}
+%    \twocolumn[lcolwidth=0.47\linewidth,rcolwidth=0.47\linewidth]{
+%    \includegraphics[height=0.70\textheight]{figures/ThermopsisPhoto-1.eps}}{%
+%    \raggedright
+%    \vspace{0.1\textheight}
+%    {\footnotesize False lupin plants (\species{Thermopsis})}}
+%    {\tiny (from \url{http://linnaeus.nrm.se/flora/di/faba/therm/thermon.html}).}
+%\end{frame}
+%
+%\begin{frame}{Sun and shade plants}
+%    \vspace{-0.04\textheight}
+%    \includegraphics[width=\textwidth]{figures/SunShadeLeafThermopsis-1.eps}\\
+%%    \vspace{-0.02\textheight}
+%    {\footnotesize Acclimation of high and low light in \species{Thermopsis} \autocite[from][]{TaiZei2002}.}
+%\end{frame}
+%
+%\begin{frame}{Plant structure in sun and shade}
+%    \vspace{-0.07\textheight}
+%    \twocolumn[lcolwidth=0.57\linewidth,rcolwidth=0.37\linewidth]{
+%    \includegraphics[height=0.75\textheight]{figures/ValPea1998-3.eps}}{%
+%    \raggedright
+%    \vspace{0.1\textheight}
+%    {\footnotesize Structure of sun and shade plants of \species{Heteromeles arbutifolia}
+%    \autocite[from][]{ValPea1998}.}}
+%\end{frame}
+
+  \section*{References}
+  \begin{frame}[t,allowframebreaks]
+    \frametitle{References}
+    \nocite{Taiz2014}
+    \printbibliography
+  \end{frame}
+
+
+\end{document}

@@ -1,0 +1,358 @@
+% -*- TeX:UK -*-
+\documentclass[10pt]{beamer}
+\usetheme{metropolis}
+%\useinnertheme{rectangles}'
+\setbeamercovered{%
+still covered={\opaqueness<1->{15}},
+again covered={\opaqueness<1->{40}}}
+
+\hypersetup{colorlinks,linkcolor=black,urlcolor=brown,citecolor=brown}
+
+\usepackage{wasysym}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{unicode-math}
+
+% We set the Lucida OTF fonts as default
+\usepackage{fontspec}
+\setmainfont{Lucida Bright OT}
+\setsansfont{Lucida Sans OT}
+\setmonofont{Lucida Console DK}[Scale=MatchLowercase]
+
+\newfontfamily\typiconsfont{Typicons}[Scale=0.9]
+\newcommand\typicons[1]{{\typiconsfont\symbol{#1}}}
+\newcommand\Attention{\colorbox{yellow}{\textcolor{black}{\typicons{"E136}}}\xspace}
+\newcommand\Advanced{\colorbox{black}{\textcolor{white}{\typicons{"E04E}}}\xspace}
+
+\newfontfamily\webglyphsfont{WebHostingHub-Glyphs}[Scale=0.7]
+\newcommand\webglyphs[1]{{\webglyphsfont\symbol{#1}}}
+\newcommand\Discussion{\colorbox{white}{\textcolor{black}{\webglyphs{"F134}}}\xspace}
+\newcommand\DExamples{\colorbox{black}{\textcolor{white}{\webglyphs{"F134} examples?}}}
+\newcommand\Reading{\colorbox{black}{\textcolor{white}{\webglyphs{"F0C1}}}\xspace}
+
+\newfontfamily\meteoconsfont{Meteocons}
+\newcommand\meteocons[1]{{\meteoconsfont\symbol{#1}}}
+\newcommand\meteosun{\meteocons{"0042}}
+\newcommand\meteosuncloud{\meteocons{"0048}}
+\newcommand\meteorain{\meteocons{"0052}}
+\newcommand\meteosolidsun{\meteocons{"0031}}
+
+\newfontfamily\KRfarmfont{KR Back On The Farm}
+\newcommand\KRfarm[1]{{\KRfarmfont\symbol{#1}}}
+\newcommand\farmplant{\KRfarm{"0049}}
+
+\usepackage{polyglossia}
+\setdefaultlanguage[variant = british, ordinalmonthday = false]{english}
+
+\usepackage[style=authoryear-comp,firstinits,sortcites,maxcitenames=2,%
+    mincitenames=1,maxbibnames=10,minbibnames=10,uniquename=mininit,%
+    uniquelist=minyear,sortfirstinits=true]{biblatex}
+\addbibresource{../references/ecophys.bib}
+%\renewcommand{\bibfont}{\small}
+
+\usepackage{abbrev}
+\DeclareGraphicsExtensions{.png,.jpg,.jpeg,.eps,.pdf}
+
+\begin{document}
+
+\title{PBIO-141\\Sensory and Physiological Ecology of  Plants}
+\subtitle{12a: Carbon Assimilation (D)}
+\author{Pedro J. Aphalo}
+\date{January-February 2018}
+\institute[Univ.\ of Helsinki]{M.Sc.\ in Plant Biology, University of Helsinki\\[2ex] \url{http://blogs.helsinki.fi/aphalo/}}
+
+  \begin{frame}
+    \maketitle
+  \end{frame}
+
+  \begin{frame}[c]
+    \begin{center}
+      \begin{small}
+        \copyright 2006-2018 by Pedro J. Aphalo\\
+       University of Helsinki, Finland.\\
+        \textcolor{blue}{\url{http://blogs.helsinki.fi/aphalo/}}\\[2ex]
+      \end{small}
+
+      \begin{footnotesize}
+        Sensory and Physiological Ecology of  Plants: `12a: Carbon Assimilation (D)' by Pedro J. Aphalo is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+
+        Illustrations and text quoted from copyrighted sources is excluded from this license and their use should respect the original licenses.\\[2ex]
+      \end{footnotesize}
+
+      \centering\includegraphics[width=6em]{../figures/copyright/by-sa}
+    \end{center}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Outline}
+    \tableofcontents
+  \end{frame}
+
+\section{Leaf age and C assimilation}
+
+\begin{frame}{\COtwo\ in the leaf}
+    \centering
+    \includegraphics[height=0.70\textheight]{figures/Niinemets3_A_vs_Cc_Ci.eps}\\
+    {\small \autocite[from][]{Niinemets2005b}.}
+\end{frame}
+
+\begin{frame}{A \textit{vs.}\ leaf age}
+    \centering
+    \includegraphics[height=0.85\textheight]{figures/Niinemets4_A_vs_Leaf_age.eps}\\
+    {\small \autocite[from][]{Niinemets2005b}.}
+\end{frame}
+
+\begin{frame}{Rubisco and N \textit{vs.}\ growth irradiance}
+    \centering
+    \includegraphics[height=0.85\textheight]{figures/NiinemetsB4_RubiscoNMass_vs_Leaf_age.eps}\\
+    {\small \autocite[from][]{Niinemets2007c}.}
+\end{frame}
+
+\begin{frame}{Mesophyll conductance and irradiance}
+    \centering
+    \includegraphics[height=0.70\textheight]{figures/NiinemetsB8_gm_vs_I_and_Leaf_age.eps}\\
+    {\small \autocite[from][]{Niinemets2007c}.}
+\end{frame}
+
+
+\section{Stable isotopes of carbon}
+
+\begin{frame}{Isotopes of C}
+    \begin{description}
+        \item[$^{11}$C] radioactive, half-life: 20.3 min
+        \item[$^{12}$C] stable, natural abundance: 98.9\%
+        \item[$^{13}$C] stable, natural abundance:  1.1\%
+        \item[$^{14}$C] radioactive, half-life: 5730 years
+        \item There are also other shorter lived isotopes.
+    \end{description}
+\end{frame}
+
+\begin{frame}{Radioactive isotopes of C}
+    \begin{itemize}
+        \item Used to trace the fate of the products of photosynthesis and photosynthetic pathways by looking how long after pulse labelling with $^{14}$\COtwo the $^{14}$C appears in different metabolites.
+        \item Used to trace metabolic routes.
+        \item Used to trace degradation of metabolites.
+        \item Earlier used to measure photosynthetic rate.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Stable isotopes of C}
+    \begin{itemize}
+        \item As all isotopes they differ in their atomic mass (and size)
+        \item This affects diffusion rates and also affinity to enzymes
+        \item The selectivity is a property of each enzyme
+        \item Final effect will depend also on concentrations
+        \item Isotope discrimination in C3 plants depends on $C_i$
+        \item Isotope discrimination is different in C3 and C4 plants
+        \item Metabolites and other compounds containing different isotopes can
+        be quantified by mass spectroscopy (MS).
+        \item Even location of the isotope within molecules can be usually
+        detected (in fragments).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Magnitude of fractionation}
+    \begin{itemize}
+        \item PEP carboxylase: 2.2 \permil
+        \item Rubisco: 30 \permil\ at 25\,C
+        \item[]
+        \item Rubisco discriminates against $^{13}$CO$_2$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Isotope composition vs.\ fractionation}
+    \begin{itemize}
+        \item Composition:\\
+        $\delta ^{13}$C(\permil)$ = (R_\mathrm{sample}/R_\mathrm{standard} - 1) \times 1000$
+        \item Fractionation:\\
+        $\Delta = \delta_\mathrm{source} - \delta_\mathrm{plant}$
+        \item $\delta_\mathrm{air} \approx -8$\permil; seasonal variation in 1982: -8.0 to -7.2 \permil; in 2008: -8.7 to -7.8 \permil; in addition $\delta_\mathrm{air}$ also varies within canopies.
+        \item $R$ ratio between $^{13}$C and $^{12}$C
+        \item $R_\mathrm{air} \approx 0.011147$ and it is decreasing because of fossil fuel use
+        \item $R_\mathrm{standard} = 0.0112372$ in Pee Dee Belemnite or (PDB) calcareous marine fossil
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Carbon isotope ratio, C3 and C4}
+    \centering
+    \includegraphics[height=0.85\textheight]{figures/Ehleringer13_4delta13CC3C4.eps}\\
+    {\small \autocite[from][]{EhlOsm1991}.}
+\end{frame}
+
+\begin{frame}{C isotope ratio and $C_i$ (C3 species)}
+    \centering
+    \includegraphics[height=0.85\textheight]{figures/Ehleringer13_7delta13CCi.eps}\\
+    {\small \autocite[from][]{EhlOsm1991}.}
+\end{frame}
+
+\begin{frame}{Carbon isotope ratio and $C_i$}
+    \centering
+    \includegraphics[height=0.80\textheight]{figures/Lambers1Delta13CCiC3C4.eps}\\
+    {\small \autocite[from][]{LambersEtAl1998}.}
+\end{frame}
+
+\begin{frame}{Carbon isotope ratio and irradiance}
+    \centering
+    \includegraphics[height=0.8\textheight]{figures/Ehleringer13_3delta13CPAR.eps}\\
+    {\small \autocite[from][]{EhlOsm1991}.}
+\end{frame}
+
+\begin{frame}{Revisiting the mountain}
+    \centering
+    \includegraphics[height=0.85\textheight]{figures/Ehleringer13_6delta13CMountain.eps}\\
+    {\small \autocite[from][]{EhlOsm1991}.}
+\end{frame}
+
+\begin{frame}{Carbon isotope ratio and seasons}
+    \centering
+    \includegraphics[height=0.85\textheight]{figures/Ehleringer13_9delta13CMonths.eps}\\
+    {\small \autocite[from][]{EhlOsm1991}.}
+\end{frame}
+
+\section{Respiration}
+
+\begin{frame}{Respiration}
+    \begin{itemize}
+        \item Respiration is essentially the reverse of
+        photosynthesis.
+        \item In photosynthesis C from \COtwo is reduced to
+        carbohydrates, releasing O$_2$, and using energy from
+        sunlight.
+        \item In respiration C from carbohydrates is oxidized to
+        \COtwo, releasing energy, and using O$_2$ as final acceptor
+        of the electrons.
+        \item In respiration about 50\% of the energy stored in
+        the carbohydrates is conserved as high energy bonds in ATP.
+        \item This is assuming that all C in sucrose is oxidized,
+        in practice many intermediate metabolites are the start of
+        biosynthetic routes.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Respiration: the fuel}
+    \begin{itemize}
+        \item Although respiration is most frequently described
+        as starting from sucrose in plants and glucose in animals,
+        it is a much more flexible process than that.
+        \item Products from starch hydrolysis in plastids can
+        enter the respiratory pathway.
+        \item Organic acids can enter at later stages, or even
+        products of the degradation of lipids.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Respiration: carbon skeletons}
+    \begin{itemize}
+        \item Quite often the intermediate metabolites of the
+        respiratory pathway are
+        used as substrates (``carbon skeletons'') in other biosynthetic pathways.
+        \item Different metabolic pathways do not exist in
+        isolation in the cell, although compartmentalization in
+        organelles provides some degree of separation.
+        \item In different cell types these connections between pathways
+        will differ in their importance.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Respiration: metabolism}
+    \begin{itemize}
+        \item Glycolysis: sugars $\rightarrow$ organic acids (+ ATP).
+        \item Pentose phosphate pathway: hexose-P $\rightarrow$
+        triose-P (+ \COtwo + NADPH).
+        \item Citric acid cycle: organic acids $\rightarrow$
+        (\COtwo + NADH + FADH$_2$).
+        \item Oxidative phosphorylation: NADH, FADH$_2$, O$_2$
+        $\rightarrow$ ATP.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Respiration: metabolism}
+    \centering
+    \includegraphics[height=0.9\textheight]{figures/Taiz11.1Respiration.eps}\\
+    {\small \autocite[from][]{TaiZei2006}.}
+\end{frame}
+
+\begin{frame}{Energy metabolism}
+    \centering
+    \includegraphics[height=0.8\textheight]{figures/Heldt5.1MitochondrialEnergyMetabolism.eps}\\
+    {\small \autocite[from][]{Heldt1997}.}
+\end{frame}
+
+\begin{frame}{Oxidative phosphorylation}
+    \begin{itemize}
+        \item It is a controlled oxidation through an electron
+        transport chain.
+        \item Electron transport is accompanied by the pumping of
+        protons (H$^+$) from the mitochondrial matrix into the intermembrane
+        space of the mitochondrion.
+        \item The proton gradient then drives ATP synthesis on
+        the matrix side of the inner membrane (1 ATP for each 3
+        protons ``returning'' to the matrix).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Alternative oxidase}
+    \begin{itemize}
+        \item In the mitochondrial membrane there is an
+        alternative path for electron transport.
+        \item The alternative oxidase accepts electrons from ubiquinone
+        without pumping of protons.
+        \item This partly decouples electron transport from ATP
+        synthesis, generating much less ATP and more heat as a
+        result.
+        \item Its activity is regulated by the reduction level of the ubiquinone
+        pool and by pyruvate. Transcription is induced by various stress factors.
+        \item Metabolic heat generation is rare in plants, but exists in
+        the flowers of some species.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Heat production}
+    \centering
+    \includegraphics[height=0.85\textheight]{figures/Lambers10TemperatureAndRespirationLotus.eps}\\
+    {\small \autocite[from][]{LambersEtAl1998}.}
+\end{frame}
+
+\begin{frame}{Respiration: acclimation}
+    \centering
+    \includegraphics[height=0.8\textheight]{figures/Lambers17RespirationvsTVaccinium.eps}\\
+    {\small \autocite[from][]{LambersEtAl1998}.}
+\end{frame}
+
+\begin{frame}{Photosynthate fraction respired}
+    \centering
+    \includegraphics[width=\textwidth]{figures/Lambers20PhotosynthateFractionRespired.eps}\\
+    {\small \autocite[from][]{LambersEtAl1998}.}
+\end{frame}
+
+\begin{frame}{Construction costs}
+    \centering
+    \includegraphics[height=0.8\textheight]{figures/Lambers21ConstructionCosts.eps}\\
+    {\small \autocite[from][]{LambersEtAl1998}.}
+\end{frame}
+
+\begin{frame}{Construction costs}
+    \centering
+    \includegraphics[height=0.8\textheight]{figures/Lambers24ConstructionCosts.eps}\\
+    {\small \autocite[from][]{LambersEtAl1998}.}
+\end{frame}
+
+\begin{frame}{Construction and maintenance}
+    \centering
+    \includegraphics[height=0.65\textheight]{figures/Lambers25AnnualCUse.eps}\\
+    {\small \autocite[from][]{LambersEtAl1998}.}
+\end{frame}
+
+\begin{frame}{Fate of carbon}
+    \centering
+    \includegraphics[height=0.8\textheight]{figures/Lambers22FateOfCarbon.eps}\\
+    {\small \autocite[from][]{LambersEtAl1998}.}
+\end{frame}
+
+  \section*{References}
+  \begin{frame}[t,allowframebreaks]
+    \frametitle{References}
+    \printbibliography
+  \end{frame}
+
+\end{document}
+
