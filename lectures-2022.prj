@@ -3,38 +3,41 @@
 0
 0
 1
-ecophys_02.tex
+ecophys_03a.tex
 77
-5
-2
+7
+3
 
 ecophys_01.tex
 TeX:UK
-17838075 1 -1 2128 -1 2155 156 156 1061 686 1 1 134 456 -1 -1 0 0 271 -1 -1 271 1 0 2155 -1  0 -1 0
-copyright-frame.tex
-TeX
-1060859 0 -1 449 -1 521 176 176 1644 1073 0 1 1017 312 -1 -1 0 0 18 -1 -1 18 1 0 521 -1  0 -1 0
+17838075 1 -1 9923 -1 9938 156 156 1061 686 1 1 134 432 -1 -1 0 0 271 -1 -1 271 1 0 9938 -1  0 -1 0
 ecophys_02.tex
 TeX:UK
-420491259 0 -1 8792 -1 8805 182 182 1087 712 0 1 639 744 -1 -1 0 0 624 -1 -1 624 1 0 8805 -1  0 -1 0
-set-up-fonts-and-icons.tex
-TeX
-1060859 1 -1 818 -1 812 132 132 1600 1029 0 1 204 408 -1 -1 0 0 35 -1 -1 35 1 0 812 -1  0 0 0
+17838075 1 -1 273 -1 320 182 182 1087 712 1 1 134 288 -1 -1 0 0 635 -1 -1 635 1 0 320 -1  0 -1 0
+ecophys_03.tex
+TeX:UK
+17838075 0 -1 648 -1 648 208 208 1113 738 0 1 50 -1119 -1 -1 0 0 736 -1 -1 736 1 0 648 -1  0 -1 0
+ecophys_03a.tex
+TeX:UK
+420491259 0 -1 22865 -1 22865 208 208 1113 738 0 1 50 1176 -1 -1 0 0 2149 -1 -1 2149 1 0 22865 -1  0 -1 0
 references\ecophys.bib
 BibTeX
-1049586 0 1651 1 1651 1 26 26 937 405 1 1 134 696 -1 -1 0 0 43 0 0 43 1 0 1 1651  0 -1 0
-students-list\e-mails-2022-01-16.txt
-ASCII
-273688443 0 0 1 0 1 220 220 1688 1117 1 0 114 0 -1 -1 0 0 -1 -1 -1 -1 1 0 1 0  0 0 0
+1049586 0 1794 1 1794 1 26 26 937 405 1 1 134 963 -1 -1 0 0 43 0 0 43 1 0 1 1794  0 -1 0
+shared-tex\copyright-frame.tex
+TeX
+1060859 0 -1 0 -1 0 308 308 1776 1205 0 1 50 0 -1 -1 0 0 -1 -1 -1 -1 1 0 0 -1  0 -1 0
+shared-tex\set-up-fonts-and-icons.tex
+TeX
+1060859 0 -1 2668 -1 2469 352 352 1820 1249 0 1 50 1152 -1 -1 0 0 -1 -1 -1 -1 1 0 2469 -1  0 0 0
+:\Users\Aphalo\Documents\Own_manuscripts\Articles\forecasting\info_model_paper.tex
+TeX
+269496315 1 -1 57353 -1 58367 220 220 1688 1117 0 1 568 22584 -1 -1 0 0 65 -1 -1 65 1 0 58367 -1  0 -1 0
+:\Users\Aphalo\Documents\Own_manuscripts\Articles\forecasting\set-up-tikz.tex
+TeX
+269496315 0 -1 0 -1 1 176 176 1644 1073 0 1 64 0 -1 -1 0 0 30 -1 -1 30 1 0 1 -1  0 0 0
 :\Users\Aphalo\Documents\Own_teaching\HY\courses\ecosystem_eco\lecture_1\ecosystem_bmr_1.pdf
 DATA
 273678578 0 0 1 0 1 220 220 1688 1117 1 0 114 0 -1 -1 0 0 -1 -1 -1 -1 1 0 1 0  0 0 0
-:\Users\Aphalo\Documents\Own_manuscripts\Articles\forecasting\info_model_paper.tex
-TeX
-269496315 1 -1 27065 -1 27177 220 220 1688 1117 0 1 1086 336 -1 -1 0 0 65 -1 -1 65 1 0 27177 -1  0 -1 0
-:\Users\Aphalo\Documents\Own_manuscripts\Articles\forecasting\set-up-tikz.tex
-TeX
-269496315 0 -1 0 -1 1 176 176 1644 1073 0 1 64 0 -1 -1 0 0 -1 -1 -1 -1 1 0 1 -1  0 0 0
 ecophys_04a.Rnw
 TeX:RNW:UK
 286273531 1 -1 0 -1 275 0 0 931 471 0 1 41 136 -1 -1 0 0 20 -1 -1 20 1 0 275 -1  0 -1 0
@@ -167,9 +170,6 @@ DATA:UNIX
 :\aphalo\Documents\texmf.user\tex\latex\mtheme\beamerfontthememetropolis.sty
 TeX:STY
 269496306 6 95 1 94 1 26 26 957 497 0 0 25 1504 -1 -1 0 0 -1 -1 -1 -1 1 0 1 94  0 0 0
-ecophys_03.tex
-TeX:UK
-286273531 1 -1 0 -1 18 208 208 1113 738 0 1 41 16 -1 -1 0 0 575 -1 -1 575 1 0 18 -1  0 -1 0
 TeXAux\ecophys_04.vrb
 DATA
 273678578 8 8 1 7 1 182 182 1087 715 1 0 73 112 -1 -1 0 0 108 0 0 108 1 0 1 7  0 0 0
@@ -240,11 +240,11 @@ TeX
 BibTeX
 269485042 1 166 1 189 1 0 0 1316 518 0 -1 25 525 -1 -1 0 0 18 0 0 18 1 0 1 189  0 0 0
 
-*ecophys_02.tex
+*ecophys_03a.tex
 >
-*set-up-fonts-and-icons
+*shared-tex/set-up-fonts-and-icons
 >
 *../references/ecophys.bib
 <
-*copyright-frame
+*shared-tex/copyright-frame
 <

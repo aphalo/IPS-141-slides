@@ -8,7 +8,7 @@ again covered={\opaqueness<1->{40}}}
 
 \hypersetup{colorlinks,linkcolor=black,urlcolor=brown,citecolor=brown}
 
-\include{set-up-fonts-and-icons}
+\include{shared-tex/set-up-fonts-and-icons}
 
 \usepackage{tikz}
 \usetikzlibrary{positioning,fit,arrows}
@@ -68,7 +68,7 @@ again covered={\opaqueness<1->{40}}}
     \maketitle
   \end{frame}
 
-\include{copyright-frame}
+\include{shared-tex/copyright-frame}
 
   \begin{frame}
     \frametitle{Outline}
@@ -100,7 +100,7 @@ again covered={\opaqueness<1->{40}}}
 \end{itemize}
 \end{frame}
 
-\section{Motivation: scaling up or down}
+\section{Motivation}
 
 \begin{frame}{\emph{Vicia faba} and ``drought'' $\times$ genotype}
   \includegraphics[width=0.40\linewidth]{photos/v-faba-WS-before}\hfil
@@ -117,6 +117,7 @@ again covered={\opaqueness<1->{40}}}
 \end{frame}
 
 \begin{frame}{A systems view of the living world}
+  \nocite{Capra2019}
   \begin{itemize}
     \item Many interactions $\Rightarrow$ structural complexity
     \item Many feedback loops $\Rightarrow$ complex dynamics
@@ -143,7 +144,7 @@ again covered={\opaqueness<1->{40}}}
 \end{frame}
 
 \section{Why \emph{sensory and physiological ecology}?}
-
+\nocite{Dusenbery1992,Taiz2014}
 \begin{frame}{Changing perspective in Biology + \Discussion}
   \begin{description}
     \item[Era: Industrial revolution] Organisms studied as mechanical machines. Chemistry and Physics provide mechanisms.
@@ -167,24 +168,8 @@ again covered={\opaqueness<1->{40}}}
     \\  \vspace{\stretch{1}}
 \end{frame}
 
-\begin{frame}{Ecology's subdisciplines}
-    \Attention Boundaries can be fuzzy!
-
-    \begin{itemize}
-        \item[$\blacktriangleright$] \emph{Physiological ecology} and
-        Behavioural ecology examine adaptations of the individual
-        to its environment.
-        \item[$\blacktriangleright$] \emph{Sensory ecology} studies how individuals acquire, process, and respond to information from their environment.
-        \item[$\blacktriangleright$] \emph{Evolutionary ecology} explicitly considers the evolutionary histories of species.
-        \item[$\vartriangleright$] \emph{Population ecology (or autecology)} studies the dynamics of populations of a single species.
-        \item[$\vartriangleright$] \emph{Community ecology (or synecology)} focuses on the interactions between species within a community.
-        \item[$\vartriangleright$] \emph{Ecosystem ecology} studies the flows of energy and matter through the biotic and abiotic components of ecosystems.
-        \item[$\vartriangleright$] \emph{Landscape ecology} examines processes and relationships across multiple ecosystems or very large geographic areas.
-    \end{itemize}
-
-\end{frame}
-
 \begin{frame}{Physiological ecology/Stress physiology}
+    \nocite{Lambers2008,Lambers2019}
     \begin{itemize}
         \item Viewpoint: plants as ``victims'' of the environment.
         \item \emph{Physiological ecology $\approx$ ecophysiology} seeks to describe the
@@ -223,35 +208,7 @@ again covered={\opaqueness<1->{40}}}
        These functions include both sensing leading to development ``decisions'' and regulation of metabolism and growth supporting reproduction and/or multiplication, and thus fitness.
 \end{frame}
 
-\begin{frame}{Cause and effect in Biology \Discussion 10 + 5 min}
-
-\begin{centering}
-$\to$ \emph{fitness} $\to$ genome $\to$  epigenome $\to$ phenome $\to$ \emph{fitness} $\to \cdots$
-\vspace{3ex}
-\end{centering}
-
-\begin{description}
-%  \item[time sequence] .
-  \item[\DiscussionI] Which transitions, shown as $\to$, depend directly on the environment?
-  \item[\DiscussionI] ``Evolution determines physiology'' or ``Physiology determines fitness''?
-  \item[\Attention] The course of evolution is not the result of natural selection alone!
-\end{description}
-\pause
-\Attention \emph{Multiple viewpoints are possible, and not necessarily contradictory!}
-\end{frame}
-
-\begin{frame}{Natural and artificial selection \Discussion}
-  \begin{alertblock}{Crop breeding \DiscussionI 10 + 5 min}
-    \begin{itemize}
-      \item What is the role of artificial selection in crop breeding?
-      \item What is the role of natural selection in crop breeding?
-      \item Chose a crop you are familiar to explain your answers.
-    \end{itemize}
-  \end{alertblock}
-Discuss this topic in groups of 2 or 3 students (10 min). Take notes while discussing and have them ready for general discussion (5 min).
-\end{frame}
-
-\begin{frame}{Wild plants vs.\ weeds vs.\ crops \Discussion}
+\begin{frame}{Wild plants vs.\ weeds vs.\ crops \Discussion 10 + 5 min}
     \begin{itemize}
 
         \item<1,4> Most \textbf{crops} have been under artificial selection for a
@@ -271,7 +228,7 @@ Discuss this topic in groups of 2 or 3 students (10 min). Take notes while discu
 \end{frame}
 
 \begin{frame}{Adaptation vs.\ acclimation}
-
+\nocite{Aphalo2021a}
 \begin{description}
 \item[Adaptation] Genetic variation + natural selection. It takes place
 over more than one generation. \textit{There is change in the
@@ -379,6 +336,7 @@ Mobility & sessile & mobile\\
 Structure & modular & fixed\\
 Growth & indeterminate & determinate\\
 Energy source & light & organic substances\\
+Nervous system & no & yes\\
 \hline
 \end{tabular}
 %\vspace{5mm}
@@ -403,7 +361,7 @@ Learning & `yes' & yes\\
 \end{tabular}
 \end{frame}
 
-\begin{frame}{Challenges for research + \Discussion}
+\begin{frame}{Challenges of plant research + \Discussion}
 
 \begin{itemize}
     \item<1-2> We need to recognize very different ways of behaving, communicating, and perceiving compared to our own.
@@ -428,98 +386,14 @@ Learning & `yes' & yes\\
 \end{enumerate}
 \end{frame}
 
-\section{Contents and organization of the course}
+\nocite{Chamovitz2017,Denison2012,Karban2015,Keddy2017,Manetas2012}
+\nocite{Sadras2021,Sadras2014a}
+\section*{References}
+  \begin{frame}[t,allowframebreaks]
+    \frametitle{References}
+    \printbibliography
+  \end{frame}
 
-\begin{frame}{Learning objectives (in brief)}
-    Are that at the end of this course:
-    \begin{itemize}
-    \item Learn the language of sensory and physiological ecology of plants.
-    \item Learn the basic "workings" of plants and how they have adapted and how they can acclimate to environment.
-    \item Learn concepts and a way of looking at plants based on the current scientific ideas.
-    \item Learn how to find answers to questions about acclimation and adaptation of plants through experiments.
-    \item Learn how to find, interpret and use information to solve problems and answer questions related to plant ecology.
-    \item However, you will \textbf{not} have to memorize detailed information that is available in books, journals or the internet.
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Contents of the course}
-More details available in Moodle. All the points listed below are discussed emphasising acclimation and adaptation.
-\begin{itemize}
-   \item Introduction
-   \item The shared environment of plants
-   \item Sensory biology
-   \item Adaptation and acclimation of carbon and energy metabolism
-   \item Adaptation and acclimation of water uptake and loss
-   \item Adaptation and acclimation to mineral nutrient supply
-   \item Adaption and acclimation of morphology and anatomy
-   \item Plasticity in a changing or artificial habitat
-\end{itemize}
-\end{frame}
-
-%\begin{frame}{Books specially suitable for this course \Reading}
-%These two easy to read books deal with subjects that I emphasise, but which have not yet made their way into traditional textbooks.
-%\begin{itemize}
-%    \item \citetitle{Chamovitz2013}. An excellent and accessible introduction to current understanding of the role of information in plant life \autocite{Chamovitz2013,Chamovitz2017}.
-%
-%    \item \citetitle{Denison2012}. An excellent and accessible discussion on the connections between evolution and agriculture, including both crop management and breeding \autocite{Denison2012}.
-%\end{itemize}
-%
-%\end{frame}
-%
-%\begin{frame}{Books specially suitable for this course \Reading}
-%A more advanced book emphasises subjects in this course that have not yet made their way into traditional textbooks.
-%\begin{itemize}
-%    \item \citetitle{Karban2015}. A thorough and balanced review of the subject. Rather advanced but still accessible \autocite{Karban2015}.
-%\end{itemize}
-%
-%\end{frame}
-%
-%\begin{frame}{Books: the good ones \Reading}
-%\centering
-%\includegraphics[width=0.292\linewidth]{figures/Chamovitz.jpg}\hspace{0.5em}%
-%\includegraphics[width=0.31\linewidth]{figures/Karban2015.jpg}\hspace{0.5em}%
-%\includegraphics[width=0.31\linewidth]{figures/Denison2012.jpg}
-%\end{frame}
-%
-%\begin{frame}{Books: the bad one \Attention}
-%\centering
-%Unscientific!\\ \emph{''Evidence'' given was not obtained scientifically, and results in most cases could never be independently validated.}\\ Human-like characteristics are attributed to plants.\\ \includegraphics[width=0.25\linewidth]{figures/Tompkins.jpg}
-%\end{frame}
-%
-%\begin{frame}{Further reading in Physiological Ecology\Advanced}
-%I recommend the following books for complementary reading. They are all good, but approach and focus varies significantly:
-%\begin{itemize}
-%  \item \citetitle{Scott2008}. Strong focus on plant-animal interactions, specially pollination \autocite{Scott2008}.
-%  \item \citetitle{Lambers2008}. Book that goes in depth into physiological ecology \autocite{Lambers2008,Lambers2019}.
-%  \item \citetitle{Keddy2017}. Book on plant ecology with examples from around the world \autocite{Keddy2017}.
-%  \item \citetitle{Taiz2014}. Book on physiology but connections to ecology and agriculture are mentioned \autocite{Taiz2014,Taiz2018}.
-%\end{itemize}
-%
-%\end{frame}
-%
-%\begin{frame}{Further reading}
-%There is a book titled \citetitle{Manetas2012} \autocite{Manetas2012}, that gives a light-hearted but insightful introduction to the biology of plants. I recommend reading it to students not doing a major in plant biology.
-%\end{frame}
-%
-%\begin{frame}{Book covers I \Advanced}
-%\centering
-%\includegraphics[width=0.42\linewidth]{figures/Gurevitch.jpg}\hspace{3em}%
-%\includegraphics[width=0.38\linewidth]{figures/Lambers2008.jpg}
-%\end{frame}
-%
-%\begin{frame}{Book covers II \Advanced}
-%\centering
-%\includegraphics[width=0.37\linewidth]{figures/Larcher.jpg}\hspace{3em}%
-%\includegraphics[width=0.45\linewidth]{figures/Taiz2014.jpg}
-%\end{frame}
-
-%\section*{References}
-%  \nocite{Ballare2009}
-%  \begin{frame}[t,allowframebreaks]
-%    \frametitle{References}
-%    \printbibliography
-%  \end{frame}
-%
 \end{document}
 
 

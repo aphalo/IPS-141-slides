@@ -264,4 +264,8 @@ TSWLatexianTemp*
 # standalone packages
 *.sta
 
-figures/
+# knitr-generated figures 
+figure
+
+# mostly unused figures
+figures-old/

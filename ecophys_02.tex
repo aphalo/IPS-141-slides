@@ -8,7 +8,7 @@ again covered={\opaqueness<1->{40}}}
 
 \hypersetup{colorlinks,linkcolor=black,urlcolor=brown,citecolor=brown}
 
-\include{set-up-fonts-and-icons}
+\include{shared-tex/set-up-fonts-and-icons}
 
 \begin{document}
 
@@ -22,77 +22,95 @@ again covered={\opaqueness<1->{40}}}
 \maketitle
 \end{frame}
 
-\include{copyright-frame}
+\include{shared-tex/copyright-frame}
 
 \begin{frame}
     \frametitle{Outline}
     \tableofcontents
 \end{frame}
 
-\section{Experiments and surveys}
+\section{About the course}
 
-\begin{frame}{Types of experiments (refresher)}
-\begin{small}
-    \begin{description}[type=1]
-        \item[Manipulative experiments.]<1,5> With manipulative experiments it
-        is possible to \emph{directly} demonstrate cause-effect relationships.
-
-        \item[Observational experiments.]<2,5> When manipulative experiments
-        are not possible, direct demonstration of cause-effect
-        relationships can be very difficult.
-
-        \item[Impossible experiments.]<3,5> In many situations
-        manipulative experiments are physically or ethically
-        impossible to carry out.
-
-        \item[Simulations.]<4,5> When we do experiments with models
-        instead of the real system we call them simulations.
-
-        \item[\DExamples]<5>
-
-    \end{description}
-\end{small}
+\begin{frame}{Learning objectives (in brief)}
+    Are that at the end of this course:
+    \begin{itemize}
+    \item Learn the language of sensory and physiological ecology of plants.
+    \item Learn the basic "workings" of plants and how they have adapted and how they can acclimate to environment.
+    \item Learn concepts and a way of looking at plants based on the current scientific ideas.
+    \item Learn how to find answers to questions about acclimation and adaptation of plants through experiments.
+    \item Learn how to find, interpret and use information to solve problems and answer questions related to plant ecology.
+    \item However, you will \textbf{not} have to memorize detailed information that is available in books, journals or the internet.
+    \end{itemize}
 \end{frame}
 
-\begin{frame}{Experiments and causality}
+\begin{frame}{Contents of the course}
+More details available in Moodle. All the points listed below are discussed emphasising acclimation and adaptation.
 \begin{itemize}
-\item<1,4> Demonstration of causes. In manipulative experiments we (attempt to) keep
-everything equal among treatments except for the experimental
-variable whose effect we want to test.
-
-\item<2,4> In observational studies we cannot be sure of which things
-are different among the different situations (``treatments''), so we
-can make guesses about causes, but can seldom directly demonstrate them.
-
-\item<3,4> In observational studies we can use path analysis to indirectly strengthen the evidence for causation (we add an additional dimension, usually time).
-
-\item<4> \DExamples
-
+   \item Introduction
+   \item The shared environment of plants
+   \item Sensory biology
+   \item Adaptation and acclimation of carbon and energy metabolism
+   \item Adaptation and acclimation of water uptake and loss
+   \item Adaptation and acclimation to mineral nutrient supply
+   \item Adaption and acclimation of morphology and anatomy
+   \item Plasticity in a changing or artificial habitat
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Cause vs.\ correlation}
+\begin{frame}{Understanding vs.\ memorization}
 
-Tight correlation does not demonstrate causality, two responses may
-be dependent on a third variable and be correlated without one being
-the cause of the other. \vspace{5mm} \pause
-
-\emph{Example:} correlation between number of swimmers drowning in
-lakes, and sales of ice cream. Both peak in the summer, but there is
-no cause-effect relationship between them.
-
-\emph{Possible way out:} path analysis. E.g.\ have dead swimmers eaten
-ice cream just before drowning? (more strictly, \ldots more frequently than survivors).
+  \begin{alertblock}{Teaching and learning}
+    \begin{itemize}
+      \item The role of examples (in this course and elsewhere) is to make a concept tangible\ldots
+      \item \ldots easier to grasp than a purely abstract idea.
+      \item When studying focus on the concepts\ldots
+      \item \ldots once you grasp a concept, or learn the idea\ldots
+      \item \ldots you will be able to find or make up another suitable example when needed.
+    \end{itemize}
+  \end{alertblock}
 
 \end{frame}
 
-\section{Systems theory}
+\begin{frame}{Examples}
 
-\section{Hierarchy}
+\begin{itemize}
+  \item I will use examples from both wild species and cultivated species. Mostly higher plants from terrestrial environments.
+  \item In recent years physiological research has made frequent use of \emph{Arabidopsis thaliana}.
+  \item \emph{Arabidopsis thaliana} is a useful model, but the variation in the plant kingdom is enormous: in size, shape, function, growth rate, and lifespan.
+  \item This variation is the result, at least in part, of variation in past and current growth environments.
+  \item Natural selection is constrained by evolutionary history.
+  \item Random events also play a role, especially in small populations.
+\end{itemize}
 
-\begin{frame}
-  \frametitle{What is hierarchy? \Discussion}
-  \begin{alertblock}{Hierarchies in biology \Discussion 5 + 5 min}
+\end{frame}\section{General system theory}
+\nocite{Meadows2008,Jones2015}
+
+\begin{frame}{Basic concepts}
+  \begin{itemize}
+    \item Similar structures and properties are present in all systems.
+    \item Possible behaviour is determined by the structure of a ``whole thing''.
+    \item The structure emerges from the interactions among its ``component parts''.
+    \item If interactions exist, then the contribution of the parts to the behaviour of the ``whole'' depends on the nature of interactions.
+    \item Behaviour of a complex whole cannot be predicted from the behaviour of the parts.
+    \item ``Emergent properties'' appear as a result of the interactions.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Basic concepts}
+  \begin{itemize}
+    \item Systems can be nested in other systems.
+    \item Thus a hierarchy appears.
+    \item A crucial concept is feedback, which can be positive or negative.
+    \item \emph{Thinking in systems} is applicable to engineering, computing, human society, business administration, biology, ecology, medicine, etc.
+    \item Even to managing everyday life by an individual.
+    \item At its simplest, \emph{Thinking in systems} .can be defined as being aware of the ``big picture''.
+  \end{itemize}
+\end{frame}
+
+\section{Hierarchy and scale}
+\nocite{Allen1982}
+\begin{frame}{What is hierarchy? \Discussion 5 + 5 min}
+  \begin{alertblock}{Hierarchies in biology \Discussion}
     \begin{itemize}
       \item Think examples of the application of the concept of \emph{hierarchy} in biology.
     \end{itemize}
@@ -116,13 +134,13 @@ constants} of their behaviour.
 
 \begin{frame}{Hierarchy II}
 \begin{itemize}
-\item<1> Where \textit{time constant} of a response is the length of time
+\item Where \textit{time constant} of a response is the length of time
 between when a response to a stimulus starts to be observable until
 it reaches a certain level close to the maximum that the given
 stimulus will induce. It is a measure of the speed of change of a
 response to an instantaneous stimulus.
 
-\item<2> In contrast \textit{lag} is the delay between the application of
+\item In contrast \textit{lag} is the delay between the application of
 the stimulus and the start of an observable response.
 \end{itemize}
 \end{frame}
@@ -133,7 +151,7 @@ The degree of control, that is the asymmetry of the relationship,
 depends on the time constants of the behaviour.
 
 \vspace{\stretch{1}} \center{\fbox{\parbox{0.8\textwidth}{When we
-study the mechanism of a system at one level, we can ignore what changes more slowly
+study the mechanism of a system at one level, we can ignore what changes much more slowly
 (has a larger time constant).}}} \vspace{\stretch{1}}
 
 \vspace{\stretch{1}} \DExamples\vspace{\stretch{1}}
@@ -172,15 +190,13 @@ Ecosystem $\rightarrow$\\
 
 \end{frame}
 
-\section{Scale}
-
 \begin{frame}{Scale}
     \begin{description}[type=1]
-        \item[Temporal scale]<1> Fast physiological
+        \item[Temporal scale] Fast physiological
         responses, acclimation, and adaptation happen at
         different temporal scales. The processes involved are
         different.
-        \item[Spatial scale]<2> For example when
+        \item[Spatial scale] For example when
         studying transpiration, we can do it at different
         scales: the leaf, the tree crown, the forest, etc.
         The main controlling environmental variables may
@@ -190,73 +206,48 @@ Ecosystem $\rightarrow$\\
 
 \begin{frame}{Mechanism and `reason' (=justification)}
     \begin{itemize}
-        \item<1> We achieve a \emph{mechanistic explanation} for an
+        \item \emph{Upward and downward causation} in biology.
+        \item We achieve a \emph{mechanistic explanation} for an
         observed phenomenon by studying the levels below.
         e.g. We study whole plant growth in two different habitats.
         We build a mechanistic
         explanation from the growth and responses of individual
-        organs: leaves, stems, roots. This mostly answers ``how''
-        questions.
+        organs: leaves, stems, roots.
 
-        \item<2> We build a \emph{narrative explanation} for the phenomenon
+        \item We build a \emph{narrative explanation} for the phenomenon
         by looking at the levels above.
         e.g. In this example we find a reason or justification for
         the differences based on natural selection, but we do not study
-        the evolutionary process itself. This mostly answers ``why''
-        questions.
+        the evolutionary process itself.
 
-        \item<3> Of course we can set the focus at any level in the hierarchy and what is mechanism or narrative explanation will move along.~\DExamples
+        \item Of course we can set the focus at any level in the hierarchy and what is mechanism or narrative explanation will move along.~\DExamples
     \end{itemize}
-\end{frame}
-
-\section{}
-
-\begin{frame}{Examples are just examples I}
-
-  \begin{alertblock}{Understanding vs.\ memorization}
-    \begin{itemize}
-      \item The role of examples (in this course and elsewhere) is to make a concept tangible\ldots
-      \item \ldots easier to grasp than a purely abstract idea.
-      \item When studying focus on the concepts\ldots
-      \item \ldots once you grasp a concept, learn the idea\ldots
-      \item \ldots you will be able to find or make up another suitable example when needed.
-    \end{itemize}
-  \end{alertblock}
-
-\end{frame}
-
-\begin{frame}{Examples are just examples II}
-
-\begin{itemize}
-  \item I will use examples from both wild species and cultivated species. Mostly higher plants from terrestrial environments.
-  \item In recent years physiological research has made frequent use of \emph{Arabidopsis thaliana}.
-  \item \emph{Arabidopsis thaliana} is a useful model, but the variation in the plant kingdom is enormous: in size, shape, function, growth rate, and lifespan.
-  \item This variation is the result, at least in part, of variation in past and current growth environments.
-  \item Natural selection is constrained by evolutionary history.
-  \item Random events also play a role, especially in small populations.
-\end{itemize}
-
 \end{frame}
 
 \section{A video for discussion}
+\nocite{Falik2011,Falik2012,Novoplansky2021}
 
 \begin{frame}{Talk by Ariel Novoplansky \Video}
-  
-  \includegraphics[width=0.25\linewidth]{}
-  
+
+Observation without preconceptions plus theory are important when developing new hypotheses\ldots
+
+\includegraphics[width=0.5\linewidth]{photos/ariel}
+
+ \Video (15 min) \url{https://youtu.be/aClSp71zfro}
+
 \end{frame}
 
 
 \begin{frame}{Next steps \Discussion}
 \begin{itemize}
-  \item By now I expect both you and me to share enough of a language and frame of mind to discuss without misunderstandings.
+  \item By now I expect you and me to share enough of a language and frame of mind to discuss without misunderstandings.
   \item If some ideas remain unclear, do ask at any time.
-  \item I have put in Moodle a Video of a TEDx talk by Prof.\ Ariel Novoplansky (15 min). If we have enough time we will watch today if not please watch it at home. Discuss about it in the corresponding forum before Monday. Remember that discussion can include what implications the phenomena described may have in a question of your interest, how watching the talk may have changed your views about plants, questions about something that you did not understand, or something that you would like to criticize.
+  \item If we had enough time we have watched the video of the TEDx talk by Prof.\ Ariel Novoplansky, but if not please watch it at home. Discuss about it in the corresponding Moodle forum. Remember that discussion can include what implications the phenomena described may have in a question of your own interest, how watching the talk may have changed your views about plants, questions about something that you did not understand, or something that you would like to criticize.
 \end{itemize}
 
 \end{frame}
 
-  \section*{References}
+\section*{References}
   \nocite{Ballare2009}
   \begin{frame}[t,allowframebreaks]
     \frametitle{References}

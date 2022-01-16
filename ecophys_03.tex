@@ -8,452 +8,103 @@ again covered={\opaqueness<1->{40}}}
 
 \hypersetup{colorlinks,linkcolor=black,urlcolor=brown,citecolor=brown}
 
-
-\usepackage{amsmath,amssymb,amsthm}
-\usepackage{unicode-math}
-
-% We set the Lucida OTF fonts as default
-\usepackage{fontspec}
-\setmainfont{Lucida Bright OT}
-\setsansfont{Lucida Sans OT}
-\setmonofont{Lucida Console DK}[Scale=MatchLowercase]
-
-\newfontfamily\typiconsfont{Typicons}[Scale=0.9]
-\newcommand\typicons[1]{{\typiconsfont\symbol{#1}}}
-\newcommand\Attention{\colorbox{yellow}{\textcolor{black}{\typicons{"E136}}}\xspace}
-\newcommand\Advanced{\colorbox{black}{\textcolor{white}{\typicons{"E04E}}}\xspace}
-
-\newfontfamily\webglyphsfont{WebHostingHub-Glyphs}[Scale=0.7]
-\newcommand\webglyphs[1]{{\webglyphsfont\symbol{#1}}}
-\newcommand\Discussion{\colorbox{white}{\textcolor{black}{\webglyphs{"F134}}}\xspace}
-\newcommand\DExamples{\colorbox{black}{\textcolor{white}{\webglyphs{"F134} examples?}}}
-\newcommand\Reading{\colorbox{black}{\textcolor{white}{\webglyphs{"F0C1}}}\xspace}
-
-\newfontfamily\meteoconsfont{Meteocons}
-\newcommand\meteocons[1]{{\meteoconsfont\symbol{#1}}}
-\newcommand\meteosun{\meteocons{"0042}}
-\newcommand\meteosuncloud{\meteocons{"0048}}
-\newcommand\meteorain{\meteocons{"0052}}
-\newcommand\meteosolidsun{\meteocons{"0031}}
-
-\newfontfamily\KRfarmfont{KR Back On The Farm}
-\newcommand\KRfarm[1]{{\KRfarmfont\symbol{#1}}}
-\newcommand\farmplant{\KRfarm{"0049}}
-
-\usepackage{polyglossia}
-\setdefaultlanguage[variant = british, ordinalmonthday = false]{english}
-
-\usepackage[style=authoryear-comp,firstinits,sortcites,maxcitenames=2,%
-    mincitenames=1,maxbibnames=10,minbibnames=10,uniquename=mininit,%
-    uniquelist=minyear,sortfirstinits=true]{biblatex}
-\addbibresource{../references/ecophys.bib}
-%\renewcommand{\bibfont}{\small}
-
-\usepackage{abbrev}
-
-\usepackage{tikz}
-\usetikzlibrary{positioning,fit,arrows}
-
-\tikzset{
- a/.style
-  = {node distance=4em, text width=3.5em, minimum height=4em},
- b/.style
-  = {rectangle, draw, fill=gray!10, node distance=4em, text width=6em,
-     text centered, rounded corners, minimum height=4em, thick},
- c/.style
-  = {circle, draw, dashed, fill=orange!10, inner sep = 0pt, node distance=5em, thick},
- d/.style
-  = {rectangle, draw, dashed, fill=red!10, node distance=4em, text width=6em,
-     text centered, rounded corners, minimum height=4em, thick},
- l/.style
-  = {draw, -latex, thick},
- lr/.style
-  = {draw, latex-latex, thick, red},
- lb/.style
-  = {draw, -latex, thick, blue},
-  lo/.style
-  = {draw, -latex, thick, orange},
-  lg/.style
-  = {draw, -latex, thick, green},
-  mylabel/.style
-  ={text width=6.5em, text centered}
-}
+\include{shared-tex/set-up-fonts-and-icons}
 
 \begin{document}
 
 \title{PBIO-141\\Sensory and Physiological Ecology\\ of  Plants}
 \subtitle{3: Signals, cues, information and evolution}
 \author{Pedro J. Aphalo}
-\date{January-February 2018}
+\date{January--February 2022}
 \institute[Univ.\ of Helsinki]{M.Sc.\ in Plant Biology, University of Helsinki\\[2ex] \url{http://blogs.helsinki.fi/aphalo/}}
-
 
   \begin{frame}
     \maketitle
   \end{frame}
 
-  \begin{frame}[c]
-    \begin{center}
-      \begin{small}
-        \copyright 2006-2018 by Pedro J. Aphalo\\
-       University of Helsinki, Finland.\\
-        \textcolor{blue}{\url{http://blogs.helsinki.fi/aphalo/}}\\[2ex]
-      \end{small}
-
-      \begin{footnotesize}
-        Sensory and Physiological Ecology of  Plants: `3: Signals, cues, information and evolution' by Pedro J. Aphalo is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
-
-        Illustrations and text quoted from copyrighted sources is excluded from this license and their use should respect the original licenses.\\[2ex]
-      \end{footnotesize}
-
-      \includegraphics[width=6em]{../figures/copyright/by-sa}
-    \end{center}
-  \end{frame}
+\include{shared-tex/copyright-frame}
 
   \begin{frame}
     \frametitle{Outline}
     \tableofcontents
   \end{frame}
 
+\section{Experiments and surveys}
 
-\section{The environment and fitness}
+\begin{frame}{Types of experiments (refresher)}
+\begin{small}
+    \begin{description}[type=1]
+        \item[Manipulative experiments.] With manipulative experiments it
+        is possible to \emph{directly} demonstrate cause-effect relationships.
 
-\begin{frame}[t]
-\frametitle{A turmoil of borrowed terms and ideas}
-\framesubtitle{Recent controversial concepts in plant biology}
-\vspace{-5mm}
-\begin{center}
-\includegraphics[width=0.15\textwidth]{../figures/trewavas2014_cover.jpg}\hspace{3mm}
-\includegraphics[width=0.15\textwidth]{../figures/hall2011_cover.jpg}\hspace{3mm}
-\includegraphics[width=0.15\textwidth]{../figures/stevens2013_cover.jpg}\hspace{3mm}
-\includegraphics[width=0.15\textwidth]{../figures/silver2012_cover.jpg}\hspace{3mm}
-\includegraphics[width=0.15\textwidth]{../figures/hamalainen2010_cover.jpg}
-\end{center}
+        \item[Observational experiments.] When manipulative experiments
+        are not possible, direct demonstration of cause-effect
+        relationships can be very difficult.
 
-\nocite{Silver2012,Trewavas2014,Hall2011,Stevens2013,Hamalainen2010}
-\noindent
-\begin{tiny}
-\begin{center}
-2014 (plants), 2011 (culture and plants), 2013 (animals), 2012 (human society), 2010 (human intelligence).
-\end{center}
-\end{tiny}
+        \item[Impossible experiments.] In many situations
+        manipulative experiments are physically or ethically
+        impossible to carry out.
 
+        \item[Simulations.] When we do experiments with models
+        instead of the real system we call them simulations.
+
+        \item[\DExamples]
+
+    \end{description}
+\end{small}
+\end{frame}
+
+\begin{frame}{Experiments and causality}
+\begin{itemize}
+\item Demonstration of causes. In manipulative experiments we (attempt to) keep
+everything equal among treatments except for the experimental
+variable whose effect we want to test.
+
+\item In observational studies we cannot be sure of which things
+are different among the different situations (``treatments''), so we
+can make guesses about causes, but can seldom directly demonstrate them.
+
+\item In observational studies we can use path analysis to indirectly strengthen the evidence for causation (we add an additional dimension, usually time).
+
+\item \DExamples
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Cause vs.\ correlation}
+
+Tight correlation does not demonstrate causality, two responses may
+be dependent on a third variable and be correlated without one being
+the cause of the other. \vspace{5mm} \pause
+
+\emph{Example:} correlation between number of swimmers drowning in
+lakes, and sales of ice cream. Both peak in the summer, but there is
+no cause-effect relationship between them.
+
+\emph{Possible way out:} path analysis. E.g.\ have dead swimmers eaten
+ice cream just before drowning? (more strictly, \ldots more frequently than survivors).
+
+\end{frame}
+
+\begin{frame}{Cause and effect in Biology \Discussion 10 + 5 min}
+
+\begin{centering}
+$\to$ \emph{fitness} $\to$ genome $\to$  epigenome $\to$ phenome $\to$ \emph{fitness} $\to \cdots$
+\vspace{3ex}
+\end{centering}
+
+\begin{description}
+%  \item[time sequence] .
+  \item[\DiscussionI] Which transitions, shown as $\to$, depend directly on the environment?
+  \item[\DiscussionI] ``Evolution determines physiology'' or ``Physiology determines fitness''?
+  \item[\Attention] The course of evolution is not the result of natural selection alone!
+\end{description}
 \pause
-\begin{itemize}
-\item<2,6> Plant communication $\rightarrow$ \textcolor{green}{Mostly accepted}
-\item<3,6> Plant behaviour $\rightarrow$ \textcolor{yellow}{Mild controversy}
-\item<4,6> Plant intelligence $\rightarrow$ \textcolor{orange}{Strong controversy}
-\item<5,6> Plant neurobiology $\rightarrow$ \textcolor{red}{Rejected}
-\end{itemize}
-
+\Attention \emph{Multiple viewpoints are possible, and not necessarily contradictory!}
 \end{frame}
 
-\begin{frame}{Cues, Signals and information}{Definitions}
-I will use the following set of definitions, although different ones are used by some authors and in other related disciplines.
-  \begin{description}
-     \item[cue] Stimuli and information originating from inanimate objects, or from organisms for which being a source of information provides \emph{no} `advantage' in fitness.
-     \item[signal] Stimuli and information emitted by organisms for which being a source of information provides an `advantage' in fitness.
-     \item[communication] Transfer of information between organisms in situations where emission of information is plastic. The transfer of information can be uni- or bidirectional.
-     \item[information] Is that which informs, as well as that from which knowledge can be derived.
-  \end{description}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Acclimation: Definitions}
-  \begin{description}
-    \item[Acclimation, acclimatization] Adjustment by an organism to gradual change in its environment, always within its lifetime.
-    \item[Concurrent acclimation] The adjustment to tolerate/profit-from a change in a variable is triggered by the same change event in the same variable.
-    \item[Preemptive acclimation] The adjustment to tolerate/profit-from a change in a variable is triggered by the change in other variable(s) which provide an `early warning' of a future environmental condition.
-    \item[``Learning''] The adjustment to tolerate/profit-from a change in a variable is triggered by an earlier exposure to a similar change in the same variable.
-  \end{description}
-\end{frame}
-
-\begin{frame}
-\frametitle{Cues, Signals and information \Discussion}
-\begin{block}{A plant in a maize field \Discussion 10 + 5 min}
-  \begin{itemize}
-    \item What cues and signals could a plant use to predict the future?
-    \item What information could the plant extract from these cues and signals?
-    \item What `decisions' could a plant make based on this information?
-    \item Would such decisions affect its success?
-    \item Developmental decisions (timing) and acclimation (function and structure) are based on information (from environmental and metabolic signals).
-   \end{itemize}
-  \end{block}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Information use in preemptive acclimation: A simple model}
-{\sffamily
-\centering
-\footnotesize
-    \resizebox{\linewidth}{!}{%
-  \begin{tikzpicture}[auto]
-    \node [a] (environment) {\Large\meteosun\meteorain};
-    \node [b, right = of environment, fill=blue!10] (history) {Historical correlations};
-    \node [b, right = of history] (stress) {Previous conditions};
-    \node [b, right = of stress] (data) {Current conditions};
-    \node [b, below = of stress] (memory) {Epigenome (memory)};
-    \node [c, right = of memory] (info) {`Forecast'};
-    \node [b, below = of history, fill=blue!10] (genome) {Genome (memory)};
-    \node [a, below = of environment] (plant) {\Huge\farmplant};
-    \node [b, right = of info, fill=orange!10] (acclimation) {Preemptive acclimation};
-    \node [d, right = of acclimation, fill=green!10] (ready) {Ready to cope!};
-    \node [d, above = of ready] (stress2) {Future conditions};
-
-    \path [l] (stress) -- (memory) node[near start,right]{\hspace{0.4em}store};
-    \path [lb] (history) -- (genome) node[near start, right]{\hspace{0.4em}store};
-    \path [l] (data) -- (info) node[near start,right]{\hspace{0.4em}use};
-    \path [l] (memory) -- (info) node[near start,below]{\hspace{2em}retrieve};
-    \path [lb] (genome) edge [bend right=25]  node[near end, right]{\hspace{1em}retrieve} (info);
-    \path [lr] (stress2) -- (data) node[near end,below]{\hspace{7em}environmental correlation};
-    \path [lo, dotted] (info) -- (stress2) node[near end,below,rotate=25]{`infer'};
-    \path [lo] (info) -- (acclimation) node[near start,below]{\hspace{2em}`decide'};
-    \path [lo, dashed] (acclimation) -- (ready);
-\end{tikzpicture}%
-}%
-}
-
-{\footnotesize\sffamily Information use in preemptive acclimation. Arrows represent flows of information: \textcolor{blue}{\textbf{blue}} = retrieved from genome (stored during earlier generations), \textbf{black} = acquired and/or `memorized' during an individual's lifetime, \textcolor{red}{\textbf{red}} = lagged correlation between two environmental variables, \textcolor{orange}{\textbf{orange}} = represents the outcome of `data processing'.  `Conditions' refer to both external environment and plant's internal status.}
-
-\end{frame}
-
-\begin{frame}{Acclimation and developmental plasticity}
-\textbf{Problem-solving or decision-making perspective}
-    \begin{itemize}
-      \item What problems does a plant need to solve through its lifetime?
-      \item Discussion
-      \item Some examples:
-        \begin{itemize}
-          \item Timing and place of germination.
-          \item How to reach the soil surface.
-          \item When to start producing chlorophyll.
-          \item How tall to grow.
-          \item In which direction to grow (both above- and belowground).
-          \item Where to position the leaves and roots.
-          \item How to protect from enemies.
-          \item When to emit signals and which ones.
-          \item When to flower.
-        \end{itemize}
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Environmental correlations and forecasting \Discussion}
-  \begin{itemize}
-    \item Correlations in the environment of a plant
-    \item What information do they carry?
-    \item Can you think examples of their use by plants?
-    \item Can organisms `generate' environmental correlations to their benefit?
-    \item Do organisms cheat? Provide false information to deceive other organisms?
-  \end{itemize}
-\end{frame}
-
-\section{Memory, communication, and intelligence}
-
-\begin{frame}{What is memory?}
-\begin{itemize}
-  \item Memory is storage of information in a way that can be recalled
-  \item Long-term `memory' in organisms is the genome
-  \item Medium-term `memory' is mostly in the epigenome
-  \item Shortest-term `memory' is in cell signalling and metabolic regulation
-  \item This is a useful oversimplification, so be careful!
-  \item The world cannot be described in three shades of grey...
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Plants store information}
-  \begin{itemize}
-    \item It has been shown that plants can `remember' past experiences.
-    \item For example the experience of cold is remembered (this is called vernalization).
-    \item There is also evidence that seeds of equal genotype, but that have formed under different environmental conditions, can produce plants with different phenology.
-    \item There is also some recent evidence of trans-generational memory, by which the environment under which parents have grown affects the behaviour of siblings.
-%    \item The capacity of plants to remember is dependent in many cases on epigenetic gene regulation, but other mechanisms like accumulation of metabolite precursors, or receptor proteins has also been suggested.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Communication within the plant}
-  \begin{itemize}
-    \item There is communication within plants.
-    \item The responses of different parts of an individual plant are coordinated.
-    \item This is not just a question of resource partition.
-    \item In plants there are hormones, small proteins, miRNAs, likely even electrical signals, moving from one place to another and transferring information.
-    \item For example a short time after irradiation of the shoot of a maize plant with ultraviolet radiation, gene expression changes both in the shoots and roots of the plant, and regulated genes are not all the same ones in both parts.
-    \item Soil drying is sensed by roots and plant hormones transfer this information to leaves (and leads to adjustment of stomatal opening).
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Communication outwith the plant I}
-  \begin{itemize}
-    \item There is communication between plants.
-    \item The responses of different plants are to some extent coordinated.
-    \item This is not just a question of resource depletion.
-    \item Plants change the light environment (most likely a cue) allowing the detection of neighbours before competition for light starts.
-    \item Plants can recognize their own roots as different from those of neighbours and use this information to adjust behaviour.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Communication outwith the plant II}
-  \begin{itemize}
-    \item Plants emit volatile metabolites that work as `alarm signals', informing other plants and other parts of the same plant, of for example impending attack by herbivore insects.
-    \item Plants emit volatile metabolites that work as `alarm signals', informing the predators of the herbivores that there are insects to be eaten.
-    \item It has been proposed that plants being eaten by herbivore insects can produce UV-absorbing pigments that `tag' the attacked leaves making them easier for predator birds to find.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Communication outwith the plant III}
-  \begin{itemize}
-    \item There is current research on signaling between roots through the soil: for example closure of stomata in unstressed plants when they partially share the rooting space with salt stressed plants. The phenomenon has been demonstrated, but the mechanism is still under investigation, but release of the plant hormone ABA seems to be involved.
-    \item Research on the synchronization of other responses like flowering has shown that communication through roots is used.
-    \item I am not yet aware of research on the fitness advantages of synchronization, but one can imagine advantages at the population level\ldots
-    \item \ldots on the other hand there are analyses explaining how altruism could have evolved, for example in birds and even in bacteria.
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Are plants intelligent? \Discussion 5 min}
-    \begin{itemize}
-        \item This is very controversial.
-        \item As proposed by \citetitle{Trewavas2014} \autocite{Trewavas2014}, plants could be considered intelligent with a similar definition of intelligence as used for `artificial intelligence' in computer science.
-        \item If they are intelligent, they have a very different implementation of the problem solving capacity.
-        \item If one stretches the definition far enough, I think one could consider every living organism as intelligent.
-        \item But is it necessary to use the word `intelligent' for plants and bacteria? Does it help understanding or makes it more difficult?\\[1ex]
-        \emph{\textbf{What do you think?}} (5 min)
-    \end{itemize}
-\end{frame}
-
-\section{A new paradigm}
-
-\begin{frame}
-\frametitle{A new paradigm is emerging}
-\textbf{An exciting time to study plants!!}
-    \begin{itemize}
-      \item Currently it is a very exciting time to study plants\ldots
-      \item \ldots especially how their molecular biology, evolution and ecology are linked.
-      \item We are in the middle of a paradigm shift\ldots
-      \item \ldots for a long time we have disregarded the sensory and problem-solving abilities of plants.
-      \item However, we should be open minded and use our imagination to understand plant life as it is\ldots
-      \item \ldots rather than to project `human' features and qualities onto plants.
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Preemptive acclimation: What is the evidence?}
-  \begin{itemize}
-    \item Several plant responses can be only explained from the evolutive/fitness
-    point of view as being a `preparation' to tolerate or escape future stress events or
-    take advantage of future favourable conditions.
-    \item Preemptive shade avoidance as a response to reflected far-red light from neighbouring
-    plants.
-    \item Possibly (a hypothesis we are studying) preemptive acclimation to future soil
-    drying in response to high ultraviolet-B irradiance.
-    \item Eavesdropping-on/communicating-with neighbours to preemptively acclimate/prepare
-    for drought, herbivore attacks, even to synchronize flowering among individuals.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Self vs.\ alien recognition: What is the evidence?}
-  \begin{itemize}
-    \item Roots in the soil grow differently when near another root of the same plant than
-    when near roots of a different plant (even if the two plants have the same genotype).
-    \item There is keen recognition by shoots dependent on light perception (plants respond
-    differently depending on the species of the neighbours).
-  \end{itemize}
-\end{frame}
-
-\section{General discussion}
-
-\begin{frame}
-\frametitle{Environmental correlations and forecasting \Discussion}
-
-\textbf{Can plants `predict' the arrival of the cold season?\\
- What sources of information do they use?}
-
-    \centering
-    \includegraphics[height=0.75\textheight]{../photos/winter}
-\end{frame}
-
-\begin{frame}
-\frametitle{Environmental correlations and forecasting \Discussion}
-
-\textbf{Can plants `predict' the arrival of the spring?\\
- What sources of information do they use?}
-
-    \centering
-    \includegraphics[height=0.75\textheight]{../photos/spring}
-\end{frame}
-
-\begin{frame}
-\frametitle{Environmental correlations and forecasting \Discussion}
-
-\textbf{Can plants emit `signals' for their benefit?\\
-What are the signals used to attract pollinators?}
-
-    \centering
-    \includegraphics[height=0.75\textheight]{../photos/bumblebee}
-\end{frame}
-
-\begin{frame}
-\frametitle{Environmental correlations and forecasting \Discussion}
-
-\textbf{Can plants emit `signals' for their benefit?\\
-What are the signals used to enlist ``helpers'' for seed dispersal?}
-
-    \centering
-    \includegraphics[height=0.75\textheight]{../photos/berry_eater}
-\end{frame}
-
-\begin{frame}
-\frametitle{Environmental correlations and forecasting \Discussion}
-
-\textbf{Can plants emit signals to deceive other organisms?\\
-How does mimicry work?}
-
-    \centering
-    \includegraphics[height=0.75\textheight]{../photos/nettle}
-\end{frame}
-
-\begin{frame}
-\frametitle{Environmental correlations and forecasting \Discussion}
-
-\textbf{Can plants `generate' environmental correlations for their benefit?\\
-How does release of organic volatile compounds create a correlation?}
-
-    \centering
-    \includegraphics[height=0.7\textheight]{../photos/aphids}
-\end{frame}
-
-\begin{frame}
-\frametitle{Symbioses: ectomycorrhizas \Discussion}
-
-\textbf{Do symbioses involve communication?}
-
-    \centering
-    \includegraphics[height=0.75\textheight]{../photos/dia3}
-\end{frame}
-
-
-
-%\begin{frame}{Discussion}{One question per pair of students (10 min), whole class (10 min)}
-%  After listening to this lecture, what would you think if someone told you that:
-%  \begin{itemize}
-%    \item plants display behaviour?
-%    \item plants can learn?
-%    \item plants can perceive their environment?
-%    \item plants can solve problems?
-%    \item plants have intelligence?
-%    \item how does this affect crop breeding and management?
-%    \item how could this affect ecosystem response to climate change?
-%  \end{itemize}
-%\end{frame}
 
   \section*{References}
-  \nocite{Ballare2009}
   \begin{frame}[t,allowframebreaks]
     \frametitle{References}
     \printbibliography

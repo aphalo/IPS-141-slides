@@ -49,11 +49,14 @@
 \newcommand\uinsect[1]{{\uinsectfont\symbol{#1}}}
 \newcommand\bug{\uinsect{"006F}}
 
+\usepackage{polyglossia}
+\setdefaultlanguage[variant = british, ordinalmonthday = false]{english}
+
 \usepackage[style=authoryear-comp,firstinits,sortcites,maxcitenames=2,%
     mincitenames=1,maxbibnames=10,minbibnames=10,uniquename=mininit,%
     uniquelist=minyear,sortfirstinits=true]{biblatex}
 \addbibresource{../references/ecophys.bib}
-%\renewcommand{\bibfont}{\small}
+\renewcommand{\bibfont}{\small}
 
 \usepackage{abbrev}
 
