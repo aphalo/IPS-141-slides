@@ -10,51 +10,6 @@ again covered={\opaqueness<1->{40}}}
 
 \include{shared-tex/set-up-fonts-and-icons}
 
-\usepackage{tikz}
-\usetikzlibrary{positioning,fit,arrows}
-
-\tikzset{
- big dot/.style
-  = {circle, draw, inner sep=0pt, minimum size=3mm, fill=teal!50},
- a/.style
-  = {node distance=4em, text width=0.1em, minimum height=4em},
- b/.style
-  = {rectangle, draw, fill=gray!10, node distance=4em, text width=6em,
-     text centered, rounded corners, minimum height=4em, thick},
- c/.style
-  = {circle, draw, dashed, fill=orange!10, inner sep = 0pt, node distance=5em, text width=6em,
-     text centered, thick},
- d/.style
-  = {rectangle, draw, dashed, fill=red!10, node distance=4em, text width=6em,
-     text centered, rounded corners, minimum height=4em, thick},
- l/.style
-  = {draw, -latex, ultra thick},
- lr/.style
-  = {draw, latex-latex, ultra thick, red},
- lb/.style
-  = {draw, -latex, ultra thick, blue},
-  lo/.style
-  = {draw, -latex, ultra thick, orange},
-  lg/.style
-  = {draw, -latex, ultra thick, teal},
-  mylabel/.style
-  ={text width=6.5em, text centered},
- aa/.style
-  = {node distance=4em, text width=0em, minimum height=0.5ex},
- ll/.style
-  = {draw, {open triangle 45} -, thick},
- llb/.style
-  = {draw, - triangle 45, thick, blue},
- llg/.style
-  = {draw, - open triangle 45, thick, green},
-  llt/.style
-  = {draw, - open triangle 45, thick, teal},
- llr/.style
-  = {draw, - triangle 45, thick, purple},
- llo/.style
-  = {draw, - triangle 45, thick, orange}
-}
-
 \begin{document}
 
 \title{IPS-141\\Sensory and Physiological\\Ecology of  Plants}
@@ -168,7 +123,7 @@ again covered={\opaqueness<1->{40}}}
     \\  \vspace{\stretch{1}}
 \end{frame}
 
-\begin{frame}{Physiological ecology/Stress physiology}
+\begin{frame}{Physiological ecology and Stress physiology}
     \nocite{Lambers2008,Lambers2019}
     \begin{itemize}
         \item Viewpoint: plants as ``victims'' of the environment.
@@ -179,21 +134,18 @@ again covered={\opaqueness<1->{40}}}
         \item \emph{Ecophysiologists address ecological questions about
         the controls over growth, reproduction, survival, abundance,
         and geographical distribution of plants as these processes
-        are affected by the ``mass + energy'' exchange between plants and their
-        physical, chemical, and biotic environment.}
+        are affected by the ``mass + energy'' exchange between plants and their physical, chemical, and biotic environment.}
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Sensory ecology}
     \begin{itemize}
         \item Viewpoint: plants as ``navigators'' in the environment.
-        \item Sensory ecology studies the \textbf{mechanisms of information acquisition and emission}
-        that underlie ecological observations.
+        \item Sensory ecology studies the \textbf{mechanisms of information acquisition and emission} that underlie ecological observations.
         \item \emph{Sensory ecologists address ecological questions about
         the controls over growth, reproduction, survival, abundance,
         and geographical distribution of plants as these processes
-        are affected by the ``information'' exchange between plants and their
-        physical, chemical, and biotic environment.}
+        are affected by the ``information'' exchange between plants and their physical, chemical, and biotic environment.}
     \end{itemize}
 \end{frame}
 
@@ -208,7 +160,7 @@ again covered={\opaqueness<1->{40}}}
        These functions include both sensing leading to development ``decisions'' and regulation of metabolism and growth supporting reproduction and/or multiplication, and thus fitness.
 \end{frame}
 
-\begin{frame}{Wild plants vs.\ weeds vs.\ crops \Discussion 10 + 5 min}
+\begin{frame}{\HomeWork Wild plants vs.\ weeds vs.\ crops \Discussion 10 + 5 min}
     \begin{itemize}
 
         \item<1,4> Most \textbf{crops} have been under artificial selection for a
@@ -227,168 +179,65 @@ again covered={\opaqueness<1->{40}}}
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Adaptation vs.\ acclimation}
-\nocite{Aphalo2021a}
-\begin{description}
-\item[Adaptation] Genetic variation + natural selection. It takes place
-over more than one generation. \textit{There is change in the
-genotype}.
+\section{About the course}
 
-\item[Acclimation] Regulation within the lifetime of an individual, it
-involves changes in the phenotype in response to the environment.
-\textit{There is no change in the genotype}.
-\end{description}
-
-\footnotesize
-\resizebox{\linewidth}{!}{%
-  \begin{tikzpicture}[auto]
-    \node [aa, label=left:{\Large\timeforwards~\meteosuncloud~\meteorain~\bug~\grassplant}] (environment) {};
-    \node [aa, below = of environment, label=left:{\Large\timeforwards~\seedling\,\Huge\seedling\,\smallplant\,\floweringplant}] (plant) {};
-    \node [aa, right = of environment, label=above:{$E_{t=0}$}, label=left:{$E\ \ $}] (env_zero) {};
-    \node [aa, right = of env_zero, label=above:{$E_{t=1}$}] (env_one) {};
-    \node [aa, right = of env_one, label=above:{$E_{t=2}$}] (env_two) {};
-    \node [aa, right = of env_two, label=above:{$E_{t=3}$}] (env_three) {};
-    \node [aa, right = of env_three, label=above:{$\cdots$}] (env_four) {};
-    \node [aa, right = of env_four, label=above:{$E_{t=n}$}, label=right:{$E$}] (env_end) {};
-    \node [aa, below = of env_zero, label=below:{$P_{t=0}$}, label=left:{$G\ \ $}] (pheno_zero) {};
-    \node [aa, below = of env_one, label=below:{$P_{t=1}$}] (pheno_one) {};
-    \node [aa, below = of env_two, label=below:{$P_{t=2}$}] (pheno_two) {};
-    \node [aa, below = of env_three, label=below:{$P_{t=3}$}] (pheno_three) {};
-    \node [aa, below = of env_four, label=below:{$\cdots$}] (pheno_four) {};
-    \node [aa, below = of env_end, label=below:{$P_{t=n}$}, label=right:{\ $P(G, E, G \times E)$}] (pheno_end) {};
-
-    \path [llo, below] (env_zero) -- (env_end);
-    \path [llt, above] (pheno_zero) -- (pheno_end);
-
-    \path [llr] (env_zero) edge [bend right=-15] (pheno_zero);
-    \path [ll] (pheno_zero) edge [bend right=-15] (env_zero);
-    \path [llg, above] (pheno_zero) edge [bend right=-40] (pheno_one);
-
-    \path [llr] (env_one) edge [bend right=-15] (pheno_one);
-    \path [ll] (pheno_one) edge [bend right=-15] (env_one);
-    \path [llg, above] (pheno_one) edge [bend right=-40] (pheno_two);
-
-    \path [llr] (env_two) edge [bend right=-15] (pheno_two);
-    \path [ll] (pheno_two) edge [bend right=-15] (env_two);
-    \path [llg, above] (pheno_two) edge [bend right=-40] (pheno_three);
-
-    \path [llr] (env_three) edge [bend right=-15] (pheno_three);
-    \path [ll] (pheno_three) edge [bend right=-15] (env_three);
-    \path [llg, above] (pheno_three) edge [bend right=-40] (pheno_four);
-
-    \path [llr] (env_four) edge [bend right=-15] (pheno_four);
-    \path [ll] (pheno_four) edge [bend right=-15] (env_four);
-    \path [llg, above] (pheno_four) edge [bend right=-40] (pheno_end);
-
-    \path [llr] (env_end) -- (pheno_end);
-
-  \end{tikzpicture}%
-}%
-
-\textrm{\textbf{Figure:} Time course of one realization of the environment ($E$) during the lifetime of an individual of a genotype ($G$) resulting in a phenotype ($P$).}
+\begin{frame}{Learning objectives (in brief)}
+    Are that at the end of this course:
+    \begin{itemize}
+    \item Learn the language of sensory and physiological ecology of plants.
+    \item Learn the basic "workings" of plants and how they have adapted and how they can acclimate to environment.
+    \item Learn concepts and a way of looking at plants based on the current scientific ideas.
+    \item Learn how to find answers to questions about acclimation and adaptation of plants through experiments.
+    \item Learn how to find, interpret and use information to solve problems and answer questions related to plant ecology.
+    \item However, you will \textbf{not} have to memorize detailed information that is available in books, journals or the internet.
+    \end{itemize}
 \end{frame}
 
-\begin{frame}{Adaptation vs.\ acclimation \Discussion 5 min}
+\begin{frame}{Contents of the course}
+More details available in Moodle. All the points listed below are discussed emphasising acclimation and adaptation.
+\begin{itemize}
+   \item Introduction
+   \item The shared environment of plants
+   \item Sensory biology
+   \item Adaptation and acclimation of carbon and energy metabolism
+   \item Adaptation and acclimation of water uptake and loss
+   \item Adaptation and acclimation to mineral nutrient supply
+   \item Adaption and acclimation of morphology and anatomy
+   \item Plasticity in a changing or artificial habitat
+\end{itemize}
+\end{frame}
 
-\textbf{Examples of adaptation}
+\begin{frame}{Understanding vs.\ memorization}
 
-Shade $\rightarrow$ larger and thinner leaves.\\
-Drought $\rightarrow$ larger root:shoot weight ratio.\\
-Hot + dry environment $\rightarrow$ CAM photosynthesis.\\[2ex]
-
-\textbf{Examples of acclimation}
-
-Shade $\rightarrow$ larger and thinner leaves.\\
-Drought $\rightarrow$ larger root:shoot weight ratio.\\
-Hot + dry environment $\rightarrow$ CAM photosynthesis.\\[2ex]
-\pause
-
-\DiscussionI \emph{How is it possible that the examples can be the same? Where is the difference?}
+  \begin{alertblock}{Teaching and learning}
+    \begin{itemize}
+      \item The role of examples (in this course and elsewhere) is to make a concept tangible\ldots
+      \item \ldots easier to grasp than a purely abstract idea.
+      \item When studying focus on the concepts\ldots
+      \item \ldots once you grasp a concept, or learn the idea\ldots
+      \item \ldots you will be able to find or make up another suitable example when needed.
+    \end{itemize}
+  \end{alertblock}
 
 \end{frame}
 
-\begin{frame}{You are a seed in the soil \Discussion 10 + 10 min}
-
-Discuss this topic in groups of 2 or 3 students (10 min). Take notes while discussing and have them ready for general discussion (10 min).
-
-\begin{alertblock}{Thought exercise: when should I germinate?}
-\begin{enumerate}
-  \item Write a list of dangers you are exposed to.
-  \item Write a list of good opportunities you have.
-  \item Write a list of conditions you can perceive around you.
-  \item What information can you obtain?
-  \item How would you use this information to decide to germinate of not?
-\end{enumerate}
-\end{alertblock}
-
-\end{frame}
-
-\section{Plants and animals}
-
-\begin{frame}{Plants $\neq$ animals}
-
-\center
-\begin{tabular}{lll}
-\hline
-& \textbf{Plants} & \textbf{Animals}\\
-\hline
-Mobility & sessile & mobile\\
-Structure & modular & fixed\\
-Growth & indeterminate & determinate\\
-Energy source & light & organic substances\\
-Nervous system & no & yes\\
-\hline
-\end{tabular}
-%\vspace{5mm}
-\end{frame}
-
-\begin{frame}{Plants $\approx$ animals}
-
-\center
-\begin{tabular}{lll}
-\hline
-& \textbf{Plants} & \textbf{Animals}\\
-\hline
-Structure & complex & complex\\
-Function & complex  & complex\\
-Behaviour & complex & complex\\
-Sensing & yes & yes\\
-Communication & `yes' & yes\\
-Memory & `yes' & yes\\
-Problem solving & `yes' & yes\\
-Learning & `yes' & yes\\
-\hline
-\end{tabular}
-\end{frame}
-
-\begin{frame}{Challenges of plant research + \Discussion}
+\begin{frame}{Examples}
 
 \begin{itemize}
-    \item<1-2> We need to recognize very different ways of behaving, communicating, and perceiving compared to our own.
-    \item<1-2> We should avoid projecting our own human image on the behaviour we observe in plants.
-    \item<1-2> We should analyse characteristics and behaviour in relation to life history and fitness.
+  \item I will use examples from both wild species and cultivated species. Mostly higher plants from terrestrial environments.
+  \item In recent years physiological research has made frequent use of \emph{Arabidopsis thaliana}.
+  \item \emph{Arabidopsis thaliana} is a useful model, but the variation in the plant kingdom is enormous: in size, shape, function, growth rate, and lifespan.
+  \item This variation is the result, at least in part, of variation in past and current growth environments.
+  \item Natural selection is constrained by evolutionary history.
+  \item Random events also play a role, especially in small populations.
 \end{itemize}
 
-\begin{alertblock}<2>{Plants' `senses' \DiscussionI 5 + 5 min}
-  \vspace{0.5ex}
-  What features of their environment can plants perceive?\\
-\end{alertblock}
-
-\end{frame}
-
-\begin{frame}{\HomeWork Thought exercise for next class}
-\includegraphics[width=2cm]{figures/icons-svg/noun-plant-1358991.png}
-\begin{enumerate}
-  \item Consider a plant you have at home (or another specific individual plant).
-  \item Write a list of the factors in its environment that vary through the day.
-  \item Consider the environment of roots, leaves and stems of this plant.
-  \item Consider what properties of these factors are most and least important to the growth of your plant.
-\end{enumerate}
 \end{frame}
 
 \nocite{Chamovitz2017,Denison2012,Karban2015,Keddy2017,Manetas2012}
 \nocite{Sadras2021,Sadras2014a}
 \section*{References}
+
   \begin{frame}[t,allowframebreaks]
     \frametitle{References}
     \printbibliography
