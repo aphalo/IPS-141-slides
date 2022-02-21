@@ -8,86 +8,21 @@ again covered={\opaqueness<1->{40}}}
 
 \hypersetup{colorlinks,linkcolor=black,urlcolor=brown,citecolor=brown}
 
-\usepackage{amsmath,amssymb,amsthm}
-\usepackage{unicode-math}
+\include{shared-tex/set-up-fonts-and-icons}
 
-% We set the Lucida OTF fonts as default
-\usepackage{fontspec}
-\setmainfont{Lucida Bright OT}
-\setsansfont{Lucida Sans OT}
-\setmonofont{Lucida Console DK}[Scale=MatchLowercase]
-
-\newfontfamily\typiconsfont{Typicons}[Scale=0.9]
-\newcommand\typicons[1]{{\typiconsfont\symbol{#1}}}
-\newcommand\Attention{\colorbox{yellow}{\textcolor{black}{\typicons{"E136}}}\xspace}
-\newcommand\Advanced{\colorbox{black}{\textcolor{white}{\typicons{"E04E}}}\xspace}
-
-\newfontfamily\webglyphsfont{WebHostingHub-Glyphs}[Scale=0.7]
-\newcommand\webglyphs[1]{{\webglyphsfont\symbol{#1}}}
-\newcommand\Discussion{\colorbox{white}{\textcolor{black}{\webglyphs{"F134}}}\xspace}
-\newcommand\DExamples{\colorbox{black}{\textcolor{white}{\webglyphs{"F134} examples?}}}
-\newcommand\Reading{\colorbox{black}{\textcolor{white}{\webglyphs{"F0C1}}}\xspace}
-
-\newfontfamily\meteoconsfont{Meteocons}
-\newcommand\meteocons[1]{{\meteoconsfont\symbol{#1}}}
-\newcommand\meteosun{\meteocons{"0042}}
-\newcommand\meteosuncloud{\meteocons{"0048}}
-\newcommand\meteorain{\meteocons{"0052}}
-\newcommand\meteosolidsun{\meteocons{"0031}}
-
-\newfontfamily\KRfarmfont{KR Back On The Farm}
-\newcommand\KRfarm[1]{{\KRfarmfont\symbol{#1}}}
-\newcommand\farmplant{\KRfarm{"0049}}
-
-\usepackage{polyglossia}
-\setdefaultlanguage[variant = british, ordinalmonthday = false]{english}
-
-\usepackage[style=authoryear-comp,firstinits,sortcites,maxcitenames=2,%
-    mincitenames=1,maxbibnames=10,minbibnames=10,uniquename=mininit,%
-    uniquelist=minyear,sortfirstinits=true]{biblatex}
-\addbibresource{../references/ecophys.bib}
-%\renewcommand{\bibfont}{\small}
-
-\usepackage{abbrev}
-\DeclareGraphicsExtensions{.png,.jpg,.jpeg,.eps,.pdf}
-
-
-\title{Physiological Plant Ecology\\
-       Lecture 13: Water Relations}
+\title{PBIO-141\\Sensory and Physiological Ecology\\ of  Plants}
+\subtitle{9. Radiation and energy balances}
 \author{Pedro J. Aphalo}
-\date{September--October 2013}
-
-\begin{document}
-
-
-\title{PBIO-141\\Sensory and Physiological Ecology of  Plants}
-\subtitle{14: Energy balance}
-\author{Pedro J. Aphalo}
-\date{January-February 2018}
+\date{January--February 2022}
 \institute[Univ.\ of Helsinki]{M.Sc.\ in Plant Biology, University of Helsinki\\[2ex] \url{http://blogs.helsinki.fi/aphalo/}}
 
+\begin{document}
 
   \begin{frame}
     \maketitle
   \end{frame}
 
-  \begin{frame}[c]
-    \begin{center}
-      \begin{small}
-        \copyright 2006-2018 by Pedro J. Aphalo\\
-       University of Helsinki, Finland.\\
-        \textcolor{blue}{\url{http://blogs.helsinki.fi/aphalo/}}\\[2ex]
-      \end{small}
-
-      \begin{footnotesize}
-        Sensory and Physiological Ecology of  Plants: `14: Energy balance' by Pedro J. Aphalo is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
-
-        Illustrations and text quoted from copyrighted sources is excluded from this license and their use should respect the original licenses.\\[2ex]
-      \end{footnotesize}
-
-      \centering\centering\includegraphics[width=6em]{../figures/copyright/by-sa}
-    \end{center}
-  \end{frame}
+\include{shared-tex/copyright-frame}
 
   \begin{frame}
     \frametitle{Outline}
@@ -149,19 +84,19 @@ again covered={\opaqueness<1->{40}}}
 \end{frame}
 
 \begin{frame}{Spectrum}
-    \centering\includegraphics[height=0.7\textheight]{figures/Grace2.1LeafSpectrum.eps}\\
+    \centering\includegraphics[height=0.7\textheight]{figures/Grace2.1LeafSpectrum}\\
     {\small \autocite[from][]{Grace1983}.}
 \end{frame}
 
 \begin{frame}{Radiation balance of a leaf}
-    \centering\includegraphics[height=0.75\textheight]{figures/Grace2.2EnergyLeaf.eps}\\
+    \centering\includegraphics[height=0.75\textheight]{figures/Grace2.2EnergyLeaf}\\
     {\footnotesize the equation in panel (b) of the figure should read\\
     Net gain $=0+0-98+11=-87$}\\
      {\small \autocite[from][]{Grace1983}.}
 \end{frame}
 
 \begin{frame}{Radiation profile}
-    \centering\includegraphics[width=0.95\textwidth]{figures/Grace2.4RadiationProfileCanopy.eps}\\
+    \centering\includegraphics[width=0.95\textwidth]{figures/Grace2.4RadiationProfileCanopy}\\
     {\small \autocite[from][]{Grace1983}.}
 \end{frame}
 
@@ -186,7 +121,7 @@ again covered={\opaqueness<1->{40}}}
 \end{frame}
 
 \begin{frame}{Leaf temperature}
-    \centering\includegraphics[width=0.9\textwidth]{figures/Tomato_IR_Valoya-.eps}
+    \centering\includegraphics[width=0.9\textwidth]{figures/Tomato_IR_Valoya-}
 \end{frame}
 
 \section{Adaptation and acclimation}
@@ -207,23 +142,23 @@ again covered={\opaqueness<1->{40}}}
 \end{frame}
 
 \begin{frame}{Encelia farinosa}
-    \centering\includegraphics[height=0.7\textheight]{figures/Encelia_farinosa.eps}\\
+    \centering\includegraphics[height=0.7\textheight]{photos/Encelia_farinosa.jpg}\\
     {\tiny FDL (from \url{http://en.wikipedia.org/wiki/Image:Encelia_farinosa_form.jpg}.}
 \end{frame}
 
 \begin{frame}{Pubescence and temperature}
-    \centering\includegraphics[height=0.7\textheight]{figures/Lambers4Encelia.eps}\\
+    \centering\includegraphics[height=0.7\textheight]{figures/Lambers4Encelia}\\
     {\small \autocite[from][]{LambersEtAl1998}.}
 \end{frame}
 
 \begin{frame}{Leaf size}
-    \centering\includegraphics[width=0.45\textwidth]{figures/Sterlitzia.eps}%
-    \includegraphics[width=0.45\textwidth]{figures/Palm.eps}\\
+    \centering\includegraphics[width=0.45\textwidth]{photos/Sterlitzia}%
+    \includegraphics[width=0.45\textwidth]{photos/Palm}\\
 \end{frame}
 
 \begin{frame}{Leaf size}
-    \centering\includegraphics[width=0.47\textwidth]{figures/Mimosoidea.eps}%
-    \includegraphics[width=0.47\textwidth]{figures/SmallLeaves.eps}
+    \centering\includegraphics[width=0.47\textwidth]{photos/Mimosoidea}%
+    \includegraphics[width=0.47\textwidth]{photos/SmallLeaves}
 \end{frame}
 
 \begin{frame}{Leaf size}
@@ -257,7 +192,7 @@ again covered={\opaqueness<1->{40}}}
 \end{frame}
 
 \begin{frame}{}
-    \centering\includegraphics[height=0.95\textheight]{figures/Crawley2.7LeafSizeEnergyBalance.eps}\\
+    \centering\includegraphics[height=0.95\textheight]{figures/Crawley2.7LeafSizeEnergyBalance}\\
     {\small \autocite[from][]{Crawley1997}.}
 \end{frame}
 
@@ -275,7 +210,7 @@ again covered={\opaqueness<1->{40}}}
 \end{frame}
 
 \begin{frame}{Evaporative cooling}
-    \centering\includegraphics[width=\textwidth]{figures/Crawley2.9LeafLethalTemperature.eps}\\
+    \centering\includegraphics[width=\textwidth]{figures/Crawley2.9LeafLethalTemperature}\\
     {\small \autocite[from][]{Crawley1997}.}
 \end{frame}
 
@@ -305,37 +240,37 @@ again covered={\opaqueness<1->{40}}}
 \end{frame}
 
 \begin{frame}{Nictinasty}
-    \centering\includegraphics[width=0.33\textwidth]{figures/Cassia_1.eps}%
-    \includegraphics[width=0.33\textwidth]{figures/Cassia_2.eps}%
-    \includegraphics[width=0.33\textwidth]{figures/Cassia_3.eps}\\
+    \centering\includegraphics[width=0.33\textwidth]{photos/Cassia_1}%
+    \includegraphics[width=0.33\textwidth]{photos/Cassia_2}%
+    \includegraphics[width=0.33\textwidth]{photos/Cassia_3}\\
     \textit{Cassia bicapsularis}.
 \end{frame}
 
 \begin{frame}{Leaf display and heliotropism}
-    \centering\includegraphics[height=0.7\textheight]{figures/Lambers3HeliotropicIrradiance.eps}\\
+    \centering\includegraphics[height=0.7\textheight]{figures/Lambers3HeliotropicIrradiance}\\
     {\small \autocite[from][]{LambersEtAl1998}.}
 \end{frame}
 
 \begin{frame}{Leaf rolling}
-    \fbox{\includegraphics[height=0.7\textheight]{figures/Maize_0_small.eps}}%
-    \fbox{\includegraphics[height=0.7\textheight]{figures/Maize_2_small.eps}}\\
+    \fbox{\includegraphics[height=0.7\textheight]{photos/Maize_0_small}}%
+    \fbox{\includegraphics[height=0.7\textheight]{photos/Maize_2_small}}\\
     Maize, left: well watered, right: not watered.
 \end{frame}
 
 \section{Boundary layer and canopies}
 
 \begin{frame}{Boundary layer of a leaf}
-    \centering\includegraphics[width=\textwidth]{figures/Lambers7BoundaryLayer.eps}\\
+    \centering\includegraphics[width=\textwidth]{figures/Lambers7BoundaryLayer}\\
     {\small \autocite[from][]{LambersEtAl1998}.}
 \end{frame}
 
 \begin{frame}{Wind speed profiles}
-    \centering\includegraphics[height=0.70\textheight]{figures/Grace3.9WindProfile.eps}\\
+    \centering\includegraphics[height=0.70\textheight]{figures/Grace3.9WindProfile}\\
     {\small \autocite[from][]{Grace1983}.}
 \end{frame}
 
 \begin{frame}{Water and temperature profiles}
-    \centering\includegraphics[width=\textwidth]{figures/Grace5.5WaterTempProfileCanopies.eps}\\
+    \centering\includegraphics[width=\textwidth]{figures/Grace5.5WaterTempProfileCanopies}\\
     {\small \autocite[from][]{Grace1983}.}
 \end{frame}
 

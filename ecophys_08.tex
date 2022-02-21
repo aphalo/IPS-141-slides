@@ -11,44 +11,7 @@ again covered={\opaqueness<1->{40}}}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{unicode-math}
 
-% We set the Lucida OTF fonts as default
-\usepackage{fontspec}
-\setmainfont{Lucida Bright OT}
-\setsansfont{Lucida Sans OT}
-\setmonofont{Lucida Console DK}[Scale=MatchLowercase]
-
-\newfontfamily\typiconsfont{Typicons}[Scale=0.9]
-\newcommand\typicons[1]{{\typiconsfont\symbol{#1}}}
-\newcommand\Attention{\colorbox{yellow}{\textcolor{black}{\typicons{"E136}}}\xspace}
-\newcommand\Advanced{\colorbox{black}{\textcolor{white}{\typicons{"E04E}}}\xspace}
-
-\newfontfamily\webglyphsfont{WebHostingHub-Glyphs}[Scale=0.7]
-\newcommand\webglyphs[1]{{\webglyphsfont\symbol{#1}}}
-\newcommand\Discussion{\colorbox{white}{\textcolor{black}{\webglyphs{"F134}}}\xspace}
-\newcommand\DExamples{\colorbox{black}{\textcolor{white}{\webglyphs{"F134} examples?}}}
-\newcommand\Reading{\colorbox{black}{\textcolor{white}{\webglyphs{"F0C1}}}\xspace}
-
-\newfontfamily\meteoconsfont{Meteocons}
-\newcommand\meteocons[1]{{\meteoconsfont\symbol{#1}}}
-\newcommand\meteosun{\meteocons{"0042}}
-\newcommand\meteosuncloud{\meteocons{"0048}}
-\newcommand\meteorain{\meteocons{"0052}}
-\newcommand\meteosolidsun{\meteocons{"0031}}
-
-\newfontfamily\KRfarmfont{KR Back On The Farm}
-\newcommand\KRfarm[1]{{\KRfarmfont\symbol{#1}}}
-\newcommand\farmplant{\KRfarm{"0049}}
-
-\usepackage{polyglossia}
-\setdefaultlanguage[variant = british, ordinalmonthday = false]{english}
-
-\usepackage[style=authoryear-comp,firstinits,sortcites,maxcitenames=2,%
-    mincitenames=1,maxbibnames=10,minbibnames=10,uniquename=mininit,%
-    uniquelist=minyear,sortfirstinits=true]{biblatex}
-\addbibresource{../references/ecophys.bib}
-%\renewcommand{\bibfont}{\small}
-
-\usepackage{abbrev}
+\include{shared-tex/set-up-fonts-and-icons}
 
 \usepackage{tikz}
 \usetikzlibrary{positioning,fit,arrows}
@@ -94,10 +57,10 @@ again covered={\opaqueness<1->{40}}}
 
 \begin{document}
 
-\title{PBIO-141\\Sensory and Physiological Ecology of  Plants}
+\title{IPS-141\\Sensory and Physiological Ecology of  Plants}
 \subtitle{8: Phenology}
 \author{Pedro J. Aphalo}
-\date{January-February 2018}
+\date{January--February 2022}
 \institute[Univ.\ of Helsinki]{M.Sc.\ in Plant Biology, University of Helsinki\\[2ex] \url{http://blogs.helsinki.fi/aphalo/}}
 
 
@@ -105,23 +68,7 @@ again covered={\opaqueness<1->{40}}}
     \maketitle
   \end{frame}
 
-  \begin{frame}[c]
-    \begin{center}
-      \begin{small}
-        \copyright 2006-2018 by Pedro J. Aphalo\\
-       University of Helsinki, Finland.\\
-        \textcolor{blue}{\url{http://blogs.helsinki.fi/aphalo/}}\\[2ex]
-      \end{small}
-
-      \begin{footnotesize}
-        Sensory and Physiological Ecology of  Plants: `8: Phenology' by Pedro J. Aphalo is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
-
-        Illustrations and text quoted from copyrighted sources is excluded from this license and their use should respect the original licenses.\\[2ex]
-      \end{footnotesize}
-
-      \includegraphics[width=6em]{../figures/copyright/by-sa}
-    \end{center}
-  \end{frame}
+\include{shared-tex/copyright-frame}
 
   \begin{frame}
     \frametitle{Outline}

@@ -8,74 +8,51 @@ again covered={\opaqueness<1->{40}}}
 
 \hypersetup{colorlinks,linkcolor=black,urlcolor=brown,citecolor=brown}
 
-\usepackage{amsmath,amssymb,amsthm}
-\usepackage{unicode-math}
-
-% We set the Lucida OTF fonts as default
-\usepackage{fontspec}
-\setmainfont{Lucida Bright OT}
-\setsansfont{Lucida Sans OT}
-\setmonofont{Lucida Console DK}[Scale=MatchLowercase]
-
-\newfontfamily\typiconsfont{Typicons}[Scale=0.9]
-\newcommand\typicons[1]{{\typiconsfont\symbol{#1}}}
-\newcommand\Attention{\colorbox{yellow}{\textcolor{black}{\typicons{"E136}}}\xspace}
-\newcommand\Advanced{\colorbox{black}{\textcolor{white}{\typicons{"E04E}}}\xspace}
-
-\newfontfamily\webglyphsfont{WebHostingHub-Glyphs}[Scale=0.7]
-\newcommand\webglyphs[1]{{\webglyphsfont\symbol{#1}}}
-\newcommand\Discussion{\colorbox{white}{\textcolor{black}{\webglyphs{"F134}}}\xspace}
-\newcommand\DExamples{\colorbox{black}{\textcolor{white}{\webglyphs{"F134} examples?}}}
-\newcommand\Reading{\colorbox{black}{\textcolor{white}{\webglyphs{"F0C1}}}\xspace}
-
-\newfontfamily\meteoconsfont{Meteocons}
-\newcommand\meteocons[1]{{\meteoconsfont\symbol{#1}}}
-\newcommand\meteosun{\meteocons{"0042}}
-\newcommand\meteosuncloud{\meteocons{"0048}}
-\newcommand\meteorain{\meteocons{"0052}}
-\newcommand\meteosolidsun{\meteocons{"0031}}
-
-\newfontfamily\KRfarmfont{KR Back On The Farm}
-\newcommand\KRfarm[1]{{\KRfarmfont\symbol{#1}}}
-\newcommand\farmplant{\KRfarm{"0049}}
-
-\usepackage{polyglossia}
-\setdefaultlanguage[variant = british, ordinalmonthday = false]{english}
-
-\usepackage[style=authoryear-comp,firstinits,sortcites,maxcitenames=2,%
-    mincitenames=1,maxbibnames=10,minbibnames=10,uniquename=mininit,%
-    uniquelist=minyear,sortfirstinits=true]{biblatex}
-\addbibresource{../references/ecophys.bib}
-%\renewcommand{\bibfont}{\small}
-
-\usepackage{abbrev}
+\include{shared-tex/set-up-fonts-and-icons}
 
 \usepackage{tikz}
 \usetikzlibrary{positioning,fit,arrows}
 
 \tikzset{
+ big dot/.style
+  = {circle, draw, inner sep=0pt, minimum size=3mm, fill=teal!50},
  a/.style
-  = {node distance=4em, text width=3.5em, minimum height=4em},
+  = {node distance=4em, text width=0.1em, minimum height=4em},
  b/.style
   = {rectangle, draw, fill=gray!10, node distance=4em, text width=6em,
      text centered, rounded corners, minimum height=4em, thick},
  c/.style
-  = {circle, draw, dashed, fill=orange!10, inner sep = 0pt, node distance=5em, thick},
+  = {circle, draw, dashed, fill=orange!10, inner sep = 0pt, node distance=5em, text width=6em,
+     text centered, thick},
  d/.style
   = {rectangle, draw, dashed, fill=red!10, node distance=4em, text width=6em,
      text centered, rounded corners, minimum height=4em, thick},
  l/.style
-  = {draw, -latex, thick},
+  = {draw, -latex, ultra thick},
  lr/.style
-  = {draw, latex-latex, thick, red},
+  = {draw, latex-latex, ultra thick, red},
  lb/.style
-  = {draw, -latex, thick, blue},
+  = {draw, -latex, ultra thick, blue},
   lo/.style
-  = {draw, -latex, thick, orange},
+  = {draw, -latex, ultra thick, orange},
   lg/.style
-  = {draw, -latex, thick, green},
+  = {draw, -latex, ultra thick, teal},
   mylabel/.style
-  ={text width=6.5em, text centered}
+  ={text width=6.5em, text centered},
+ aa/.style
+  = {node distance=4em, text width=0em, minimum height=0.5ex},
+ ll/.style
+  = {draw, {open triangle 45} -, thick},
+ llb/.style
+  = {draw, - triangle 45, thick, blue},
+ llg/.style
+  = {draw, - open triangle 45, thick, green},
+  llt/.style
+  = {draw, - open triangle 45, thick, teal},
+ llr/.style
+  = {draw, - triangle 45, thick, purple},
+ llo/.style
+  = {draw, - triangle 45, thick, orange}
 }
 
 \newcommand*{\Px}{\ensuremath{\mathrm{P}}\xspace}
@@ -120,9 +97,9 @@ library(photobiologyPlants)
 @
 
 \title{PBIO-141\\Sensory and Physiological Ecology\\of  Plants}
-\subtitle{7: Sensory Ecology II}
+\subtitle{7: Light sensing}
 \author{Pedro J. Aphalo}
-\date{January-February 2018}
+\date{January--February 2022}
 \institute[Univ.\ of Helsinki]{M.Sc.\ in Plant Biology, University of Helsinki\\[2ex] \url{http://blogs.helsinki.fi/aphalo/}}
 
 
@@ -130,30 +107,99 @@ library(photobiologyPlants)
     \maketitle
   \end{frame}
 
-  \begin{frame}[c]
-    \begin{center}
-      \begin{small}
-        \copyright 2006-2018 by Pedro J. Aphalo\\
-       University of Helsinki, Finland.\\
-        \textcolor{blue}{\url{http://blogs.helsinki.fi/aphalo/}}\\[2ex]
-      \end{small}
-
-      \begin{footnotesize}
-        Sensory and Physiological Ecology of  Plants: `7: Sensory Ecology II' by Pedro J. Aphalo is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
-
-        Illustrations and text quoted from copyrighted sources is excluded from this license and their use should respect the original licenses.\\[2ex]
-      \end{footnotesize}
-
-      \includegraphics[width=6em]{../figures/copyright/by-sa}
-    \end{center}
-  \end{frame}
+\include{shared-tex/copyright-frame}
 
   \begin{frame}
     \frametitle{Outline}
     \tableofcontents
   \end{frame}
 
+\section{Responses to shade (cont.)}
+
+\begin{frame}{Timing of shade}{}
+    {\footnotesize  \textit{Arabidopsis} seedlings \autocite[from][]{Sellaro2012}.\\}
+    \includegraphics[height=0.85\textheight]{../figures/Sellaro2012-afternoon-shade}
+\end{frame}
+
+\begin{frame}{Sunflecks, UVR8, CRY1}{}
+    {\footnotesize \textit{Arabidopsis} seedlings \autocite[from][]{Moriconi2018}. In A \mmol should read \umol.\\}
+    \includegraphics[width=0.9\textwidth]{../figures/Moriconi2018-UVR8-sunflecks}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Preemptive acclimation: shade}
+
+\footnotesize
+\resizebox{\linewidth}{!}{%
+  \begin{tikzpicture}[auto]
+    \node [a] (environment) {\Large\meteosun\bush};
+    \node [b, right = of environment, fill=blue!10] (history) {Past spectrum + shade};
+    \node [b, right = of history] (stress) {Recent spectrum};
+    \node [b, right = of stress, fill=teal!10] (data) {Current spectrum};
+    \node [b, below = of history, fill=blue!10] (genome) {Genome};
+    \node [big dot, right = of genome] (valve1) {};
+    \node [b, below = of stress] (memory) {Epigenome};
+    \node [big dot, right = of memory] (valve2) {};
+    \node [b, right = of memory, fill=teal!10] (info) {Phenome};
+    \node [a, below = of environment] (plant) {\Large\smallplant\,\smallplant\,\smallplant};
+    \node [c, right = of info, fill=orange!10] (acclimation) {Shade-avoiding phenotype};
+    \node [d, right = of acclimation, fill=green!10] (ready) {Shading mitigated};
+    \node [d, above = of ready] (stress2) {Future shade};
+
+    \path [l] (stress) -- (memory) node[near start,right]{\hspace{0.3em}store};
+    \path [lb] (history) -- (genome) node[near start, right]{\hspace{0.3em}store};
+    \path [lg] (data) -- (info) node[near start,right]{\hspace{0.3em}sense};
+    \path [lb] (genome) -- (memory) node[near start,below]{\hspace{0.8em}flow};
+    \path [l] (memory) -- (info) node[near start,below]{\hspace{0.8em}flow};
+    \path [lr] (stress2) -- (data) node[near end,above]{\hspace{8em}spectrum $\times$ shade correlation};
+    \path [lo, dotted] (info) -- (stress2) node[near end,below,rotate=25]{`infer'};
+    \path [lo] (info) -- (acclimation) node[near start,below]{\hspace{2em}`decide'};
+    \path [lo, dashed] (acclimation) -- (ready);
+    \path [lg] (info) edge [bend left=100]  node[midway, below]{\hspace{1em}regulate} (valve1);
+    \path [lg] (info) edge [bend left=95]  node[midway, below]{regulate\hspace{5em}} (valve2);
+\end{tikzpicture}%
+}%
+
+{\tiny Flow of information in preemptive acclimation to shade by perception of radiation changes. Arrows represent flows of information: \textcolor{blue}{\textbf{blue}} = retrieved from genome (stored during earlier generations), \textbf{black} = acquired and/or `memorized' during an individual's or its progenitor's lifetime, \textcolor{teal}{\textbf{teal}} = regulation of gene expression by phenome or downward causation, \textcolor{red}{\textbf{red}} = lagged correlation between early changes in spectral irradiance and future low PAR irradiance, \textcolor{orange}{\textbf{orange}} = outcome of information processing: a `decision', based on an `implicit forecast of impending shade', leading to developmental adjustments that would increase the probability of higher fitness in the presence of neighbours in comparison with phenotypes lacking preemptive acclimation. \textcolor{green}{\textbf{green}} = `Shading mitigated' compared, in probabilistic terms, to no acclimation. Dashed boxes and arrows represent the likely or forecasted future.}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Preemptive acclimation: What is the evidence?}
+  \begin{itemize}
+    \item Several plant responses can be only explained from the evolutive/fitness point of view as being a `preparation' to tolerate or escape future stress events or take advantage of future favourable conditions.
+    \item Preemptive shade avoidance as a response to reflected far-red light from neighbouring plants.
+    \item Winter hardening and dehardening, timing of bud burst, timing of flowering, etc.
+    \item \emph{Anticipatory responses} and \emph{future perception} are terms also used in this context.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Acclimation vs.\ rapid/reversible responses \Discussion 5 min}{}
+    {\footnotesize \autocite[from][]{Casal2013a}. What about the balance between light reactions and carbon reactions of photosynthesis?\\}
+    \includegraphics[width=0.98\textwidth]{../figures/Casal2013a-Fig3}
+\end{frame}
+
 \section{The photoreceptors}
+
+\begin{frame}{Role of photoreceptors in responses to shade}{}
+    {\footnotesize \autocite[from][]{Casal2013a}.\\}
+    \includegraphics[width=0.98\textwidth]{../figures/Casal2013a-Fig2a}
+\end{frame}
+
+\begin{frame}{Photoreceptors: Chromophores}
+  \begin{itemize}
+    \item Photoreceptors are proteins, like enzymes
+    \item Except for UVR8 (UVB photoreceptor) the light is not absorbed by the protein
+    \item A different type of molecule coupled to the protein absorbs the photons
+    \item The type of chromophore is the main determinant of what wavelengths are absorbed
+    \item The protein transfers the energy through different mechanisms to a signalling pathway
+    \item In most cases changes in gene expression are triggered
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Photoreceptors vs.\ wavelength}{}
+    {\footnotesize Several variations on this figure exist \autocite[from][]{Rai2020}.\\}
+    \includegraphics[width=0.98\textwidth]{../figures/photoreceptors-wlength-Rai}
+\end{frame}
 
 \begin{frame}{Photoreceptors}
     \begin{itemize}
@@ -174,54 +220,82 @@ PHY.spct <- data.frame(w.length = rep(300:800, 2),
                        Sigma = c(Phy_Sigma_R(300:800), Phy_Sigma_FR(300:800)))
 
 ggplot(PHY.spct, aes(w.length, Sigma /1000, color = Phy)) +
-geom_line() + xlim(260,800) + ylim(NA, 6.4) +
+geom_vline(xintercept = 293, linetype = "dashed") +
+geom_line() + ylim(NA, 6.4) +
 stat_peaks(geom = "text_repel", ignore_threshold = 0.1, span = 21) +
 stat_peaks(geom = "point", ignore_threshold = 0.1, span = 21) +
 stat_wl_strip(ymin = -0.2, ymax = -0.05, color = NA) +
 stat_wb_label(geom = "rect", ymin = 6, ymax = 6.4, color = "white", w.band = Plant_bands()[-1]) + stat_wb_label(geom = "text", ypos.fixed = 6.2, color = "white", w.band = Plant_bands()[-1]) +
-scale_fill_identity()
+scale_fill_identity() +
+scale_x_wl_continuous(limits = c(250, 800)) +
+theme_bw() + theme(legend.position = "bottom")
 @
 \end{frame}
 
 \begin{frame}{Photoreceptors: Cry2 (in vitro)}
 <<echo=FALSE>>=
-ggplot(rbindspct(CRY2.mspct), plot.qty = "absorbance") +
-aes(color = spct.idx) + geom_line() + xlim(260,800) +
+ggplot(rbindspct(CRYs.mspct[c("CRY2_dark", "CRY2_light")], idfactor = "Condition"), plot.qty = "absorbance") +
+aes(color = Condition) +
+geom_vline(xintercept = 293, linetype = "dashed") +
+geom_line() +
 stat_peaks(geom = "text_repel", ignore_threshold = 0.33, span = 21) +
 stat_peaks(geom = "point", ignore_threshold = 0.33, span = 21) +
-stat_wl_strip(ymin = -0.004, ymax = -0.001, color = NA) +
-stat_wb_label(geom = "rect", ymin = 0.125, ymax = 0.133, color = "white", w.band = Plant_bands()[-1]) + stat_wb_label(geom = "text", ypos.fixed = 0.129, color = "white", w.band = Plant_bands()[-1]) +
-scale_fill_identity()
+stat_wl_strip(ymin = -0.04, ymax = -0.01, color = NA) +
+stat_wb_label(geom = "rect", ymin = 1.07, ymax = 1.13, color = "white", w.band = Plant_bands()[-1]) + stat_wb_label(geom = "text", ypos.fixed = 1.1, color = "white", w.band = Plant_bands()[-1]) +
+scale_fill_identity() +
+scale_x_wl_continuous(limits = c(250, 800)) +
+scale_y_A_internal_continuous(scaled = TRUE) +
+theme_bw() + theme(legend.position = "bottom")
+@
+\end{frame}
+
+\begin{frame}{Photoreceptor (?): Cry3 (in vitro)}
+<<echo=FALSE>>=
+ggplot(CRYs.mspct["CRY3_dark"], plot.qty = "absorbance") +
+geom_vline(xintercept = 293, linetype = "dashed") +
+geom_line() +
+stat_peaks(geom = "text_repel", ignore_threshold = 0.33, span = 21) +
+stat_peaks(geom = "point", ignore_threshold = 0.33, span = 21) +
+stat_wl_strip(ymin = -0.04, ymax = -0.01, color = NA) +
+stat_wb_label(geom = "rect", ymin = 1.07, ymax = 1.13, color = "white", w.band = Plant_bands()[-1]) + stat_wb_label(geom = "text", ypos.fixed = 1.1, color = "white", w.band = Plant_bands()[-1]) +
+scale_fill_identity() +
+scale_x_wl_continuous(limits = c(250, 800)) +
+scale_y_A_internal_continuous(scaled = TRUE) +
+theme_bw() + theme(legend.position = "bottom")
+@
+\end{frame}
+
+\begin{frame}{Photoreceptors: Phot1 (in vitro)}
+<<echo=FALSE>>=
+ggplot(rbindspct(PHOTs.mspct[c("PHOT1_dark", "PHOT1_light")], idfactor = "Condition"), plot.qty = "absorbance") +
+aes(color = Condition) +
+geom_vline(xintercept = 293, linetype = "dashed") +
+geom_line() +
+stat_peaks(geom = "text_repel", ignore_threshold = 0.33, span = 21) +
+stat_peaks(geom = "point", ignore_threshold = 0.33, span = 21) +
+stat_wl_strip(ymin = -0.04, ymax = -0.01, color = NA) +
+stat_wb_label(geom = "rect", ymin = 1.07, ymax = 1.13, color = "white", w.band = Plant_bands()[-1]) + stat_wb_label(geom = "text", ypos.fixed = 1.1, color = "white", w.band = Plant_bands()[-1]) +
+scale_fill_identity() +
+scale_x_wl_continuous(limits = c(250, 800)) +
+scale_y_A_internal_continuous(scaled = TRUE) +
+theme_bw() + theme(legend.position = "bottom")
 @
 \end{frame}
 
 \begin{frame}{Photoreceptors: UVR8 (in vitro)}
 <<echo=FALSE, warning=FALSE>>=
-ggplot(UVR8_Glasgow.spct, plot.qty = "absorbance") +
-geom_line(color = "purple") + xlim(260,800) + ylim(NA, 0.54) +
+ggplot(UVR8s.mspct$UVR8.abs.Orebro, plot.qty = "absorbance") +
+geom_vline(xintercept = 293, linetype = "dashed") +
+geom_line(color = "purple") + # ylim(NA, 0.54) +
 stat_peaks(geom = "text_repel", ignore_threshold = 0.33, span = 21) +
 stat_peaks(geom = "point", ignore_threshold = 0.33, span = 21) +
-stat_wl_strip(ymin = -0.015, ymax = -0.003, color = NA) +
-stat_wb_label(geom = "rect", ymin = 0.5, ymax = 0.54, color = "white", w.band = UVB()) +
-stat_wb_label(geom = "text", ypos.fixed = 0.52, color = "white", w.band = UVB()) +
-scale_fill_identity()
+stat_wl_strip(ymin = -0.04, ymax = -0.01, color = NA) +
+stat_wb_label(geom = "rect", ymin = 1.07, ymax = 1.13, color = "white", w.band = Plant_bands()[-1]) + stat_wb_label(geom = "text", ypos.fixed = 1.1, color = "white", w.band = Plant_bands()) +
+scale_fill_identity() +
+scale_x_wl_continuous(limits = c(250, 800)) +
+scale_y_A_internal_continuous(scaled = TRUE) +
+theme_bw() + theme(legend.position = "bottom")
 @
-\end{frame}
-
-%\begin{frame}{Photoreceptors}{Spectral sensitivity}
-%\centering
-%    \includegraphics[width=0.95\textwidth]{../figures/fig_photoreceptors}
-%\end{frame}
-
-\begin{frame}{Photoreceptors: Chromophores}
-  \begin{itemize}
-    \item Photoreceptors are proteins, like enzymes
-    \item Except for UVR8 (UVB photoreceptor) the light is not absorbed by the protein
-    \item A different type of molecule coupled to the protein absorbs the photons
-    \item The type of chromophore is the main determinant of what wavelengths are absorbed
-    \item The protein transfers the energy through different mechanisms to a signalling pathway
-    \item In most cases changes in gene expression are triggered
-  \end{itemize}
 \end{frame}
 
 \begin{frame}{Photoreceptors: Phytochromes}
@@ -252,303 +326,9 @@ scale_fill_identity()
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Phytochromes: Molecular configuration}
-    \centering
-    \includegraphics[width=0.9\textwidth]{../figures/P_structure_colour}\\
-    {\small Left: P$_\mathrm{r}$, right: P$_\mathrm{fr}$ \autocite[from][]{Mohr1995}.}
-\end{frame}
+\section*{References}
 
-\begin{frame}{Phytochromes: Modes of action}
-    \centering
-    \includegraphics[height=0.85\textheight]{../figures/phytochrome_effects_c}
-%    {\small Modes of action of phytochrome.}
-\end{frame}
-
-\begin{frame}{Photoreceptors: Typographical convention}
-    \begin{description}
-        \item Holoprotein (apoprotein + chromophore) $\rightarrow$ phyA
-        \item Apoprotein $\rightarrow$ PHYA
-        \item Gene $\rightarrow$ \textsl{PHYA}
-        \item Mutant $\rightarrow$ \textsl{phyA}
-    \end{description}
-\end{frame}
-
-\begin{frame}{Phytochromes: In different plant species}
-    \begin{description}
-      \item[Arabidopsis:] PHYA, PHYB, PHYC, PHYD, PHYE
-      \item[Tomato:] PHYA, PHYB1, PHYB2, PHYE, PHYF
-      \item[Cottonwood:] PHYA, PHYB\textsl{1}, PHYB\textsl{2}
-      \item[Norway spruce:] at least 5 PHY genes
-    \end{description}
-\end{frame}
-
-\begin{frame}{Phytochromes: Apoprotein lineages in angiosperms}
-    Phytochrome apoproteins can be grouped according to sequence similarity,
-    assumed to relate to evolution.
-    \begin{enumerate}
-      \item PHYA
-      \item PHYB, PHYD, PHYE
-      \item PHYC, PHYF
-    \end{enumerate}
-\end{frame}
-
-\begin{frame}{Phytochromes: Phylogeny}
-    \centering
-    \includegraphics[height=0.9\textheight]{../figures/phy_phylogeny1}\\
-    {\footnotesize \autocite[Fig.\ 1 in][]{Li2015}.}
-\end{frame}
-
-\begin{frame}{Phytochromes: Diversity and evolution of phytochrome}
-    \centering
-    \includegraphics[height=0.8\textheight]{../figures/phy_phylogeny}\\
-    {\footnotesize \autocite[Fig.\ 2 in][]{Li2015}.}
-\end{frame}
-
-\begin{frame}{Phytochromes}{Spectral tuning in algae}
-    \centering
-    \includegraphics[height=0.7\textheight]{../figures/Rockwell2014_tuning6}\\
-    {\footnotesize \autocite[Fig.\ 6 in][]{Rockwell2014}.}
-\end{frame}
-
-\begin{frame}{The photoreceptors: Blue/UV-A}
-    \begin{itemize}
-        \item Flavoproteins
-        \begin{itemize}
-            \item CRY1, CRY2 (FAD, flavin adenine dinucleotide + MTHF, methenyltetrahydrofolate)
-            \item PHOT1, PHOT2, ZTL (FMN, flavin mononucleotide)
-        \end{itemize}
-        \item Carotenoid chromophore
-        \begin{itemize}
-            \item ? (zeaxanthin)
-        \end{itemize}
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Cryptochromes vs.\ phototropins}
-    \begin{description}
-        \item[Cryptochromes] `Slow responses to blue light': many responses.
-        \item[Phototropins] `Movements': phototropism, stomatal opening, chloroplast movements.
-        \item[Cryptochromes] plants, bacteria, fungi, animals, humans.
-        \item[Phototropins] plants (also ferns, mosses, green algae)
-        \item[Neochrome] Adiantum (fern). Phototropin fused to phy photosensory domain.
-        \item[LOV proteins] plants, fungi, bacteria. Arabidopsis: ZTL/ADO family of blue photoreceptors.
-    \end{description}
-\end{frame}
-
-\begin{frame}{The photoreceptors: UV-B}
-    \begin{itemize}
-        \item Photoreceptor: UVR8
-        \item Responses:
-        \begin{itemize}
-            \item \textsl{CHS}: induction
-            \item \textsl{Rbc S} (Rubisco small subunit): repression
-            \item anthocyanin synthesis: \pEff
-            \item some flavonoids: \pEff
-            \item other flavonoids: \mEff $|$ \nEff
-            \item stem elongation and other morphological effects
-        \end{itemize}
-    \end{itemize}
-
-    Also damage is caused by UV-B, because it is absorbed
-    by DNA and proteins.
-\end{frame}
-
-\section{Transduction}
-
-\begin{frame}{Cellular transduction chains}
-    Cellular responses
-    \begin{itemize}
-        \item Gene transcription (up- or down regulation)
-        \item Post-transcriptional regulation (e.g.\ enzyme activity)
-        \item Membrane permeability (e.g.\ opening/closing of ion channels)
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Cellular transduction chains}
-    Transduction chains
-    \begin{itemize}
-        \item Complex interactions
-        \item More like \textsl{webs} than \textsl{chains}
-        \item<3-> Different for:
-        \begin{itemize}
-            \item different photoreceptors (even within families)
-            \item different modes of action
-            \item different end responses
-            \item different tissues and developmental stages
-        \end{itemize}
-    \end{itemize}
-
-    This complexity implies many possibilities for evolution and natural
-    selection.
-\end{frame}
-
-\begin{frame}{Schematic model for phyA signalling}
-    \centering
-    \includegraphics[height=0.85\textheight]{../figures/Sheerin2017-phyA-signalling-fig-only.jpg}\\
-    {\footnotesize \autocite[Fig.\ 2 in][]{Sheerin2017}.}
-\end{frame}
-
-\begin{frame}{PIF siganlling}
-    \centering
-    \includegraphics[height=0.85\textheight]{../figures/Fraser2016-PIF-signalling.png}\\
-    {\footnotesize \autocite[Fig.\ 6 in][]{Fraser2016}.}
-\end{frame}
-
-\begin{frame}{Photosynthetic capacity: Transcription factor interaction network}
-    \centering
-    \includegraphics[height=0.8\textheight]{../figures/Wang2017b-fig2-b.png}\\
-    {\footnotesize \autocite[Fig.\ 2 in][]{Wang2017b}.}
-\end{frame}
-
-\section{Whole plant responses to light cues}
-
-\begin{frame}{Whole plant responses to light}
-    \begin{itemize}
-        \item Seed germination
-        \item Size and shape of leaves
-        \item Stem elongation in sparse canopies
-        \item Regulation of metabolism of phenolics
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Germination: Phytochrome-mediated responses}
-    \begin{itemize}
-        \item VLFR, LFR, HIR
-        \item Embryo, other tissues
-        \item LFR, normally FR: \mEff, R: \pEff
-        \item VLFR, in buried seeds (tillage)
-        \item HIR, continuous FR: \mEff
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Leaf area expansion: Phytochrome-mediated responses}
-    \begin{itemize}
-        \item End-of-day light treatment
-        \item Interaction with other responses affecting allocation
-        \item Size
-        \item Shape
-        \item Number
-        \item Consequences:
-        \begin{itemize}
-            \item light `harvesting' efficiency
-            \item gas and energy exchange
-        \end{itemize}
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Leaf size, petiole length: Phytochrome-mediated responses}    \vspace{-0.04\textheight}
-\centering
-    \includegraphics[width=0.8\textwidth]{../figures/petunia_c}\\
-    {\small Effect of end-of-day irradiation with red or far-red light (10 min each day), on
-    \species{Petunia axilaris}.}
-    {\small \autocite[from][]{Casal1987}.}
-\end{frame}
-
-\begin{frame}{Leaf size, angles: Phytochrome-mediated responses}
-\centering
-    \includegraphics[width=0.65\textwidth]{../figures/fuchsia}\\
-    {\small Effect of end-of-day irradiation with red or far-red light (10 min each day),
-    high (HL) and low (LL) irradiance during the day in \species{Fuchsia magellanica}.}
-    {\small \autocite[Drawing unpublished, but experiment reported by][]{AphaloEtAl1991}.}
-\end{frame}
-
-\begin{frame}{Stem elongation: Phytochrome-mediated responses}
-    \begin{itemize}
-        \item In sparse canopies `horizontal' light flux is important for sensing of
-        neighbours.
-        \item Growing internodes are site of perception.
-        \item Fast response.
-        \item Other environmental changes also involved.
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Stem elongation: Phytochrome-mediated responses}
-\centering
-    \includegraphics[height=0.65\textheight]{../figures/LEDs_photo}\\
-    {\small Irradiation with red or far-red light from LEDs at the growing internode,
-    \species{Betula pendula} seedlings.}
-    {\small \autocite[from][]{Aphalo2006}.}
-\end{frame}
-
-\begin{frame}{Stem alongation: Phytochrome-mediated responses}
-\centering
-    \includegraphics[height=0.65\textheight]{../figures/LEDs_c}\\
-    {\small Effect of irradiation with red or far-red light at the growing internode (whole photoperiod),
-    \species{Betula pendula}.}
-    {\small \autocite[from][]{Aphalo2006}.}
-\end{frame}
-
-\begin{frame}{Phenolics: Anthocyanins}
-\textbf{PHY-, CRY-, UVR8-mediated responses}
-    \begin{itemize}
-        \item Much studied: anthocyanin synthesis
-        \item Induced by UV and VIS radiation
-        \item Coarse regulation by induction of gene transcription
-        \item Fine regulation by post-translational control
-        \item Phytochrome could be the main effector
-        \item Further regulation by blue/UV-A or UV-B
-        \item Role of different photoreceptors is different in different species
-        \item Further control by development stage or plant size
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Phenolics: Flavonoids}
-\textbf{PHY-, CRY-, UVR8-mediated responses}
-    \begin{itemize}
-        \item Multiple roles: UV-screens, anti-oxidants, biotic interactions
-        \item Flavonoids frequently measured as absorbance at 300 nm in a crude extract
-        \item Effect of UV-B is compound specific
-        \item Secondary chemistry is very variable between individuals in a population
-        \item Secondary chemistry is very variable among species
-        \item Maximum absorbance at $\approx$ 360 to 375 nm.
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Phenolics: Sinapates and other hydroxy-cinnamic acid derivatives}
-    \begin{itemize}
-        \item Possible multiple roles: UV-screens, anti-oxidants, biotic interactions
-        \item Flavonoids frequently measured as absorbance at 300 nm in a crude extract
-        \item Effect of UV-B is probably compound specific
-        \item Secondary chemistry is very variable between individuals in a population
-        \item Secondary chemistry is very variable among species
-        \item Maximum absorbance in the UVB region.
-    \end{itemize}
-\end{frame}
-
-%\begin{frame}{Albedo of vegetation}
-%%    \vspace{-0.04\textheight}
-%    \includegraphics[width=\textwidth]{figures/Grace2.3Albedo.eps}\\
-%    \vspace{-0.01\textheight}
-%    {\small \citep[from][]{Grace1983}.}
-%\end{frame}
-
-%\begin{frame}{}
-%    \vspace{-0.04\textheight}
-%    \includegraphics[height=0.7\textheight]{figures/Willmer.eps}\\
-%    \vspace{-0.01\textheight}
-%    {\small \citep[from][]{WilFri1996}.}
-%\end{frame}
-
-%\begin{frame}{}
-%    \vspace{-0.04\textheight}
-%    \includegraphics[height=0.7\textheight]{figures/Taiz9.2CosineLaw.eps}\\
-%    \vspace{-0.01\textheight}
-%    {\small .}
-%\end{frame}
-
-
-
-%\begin{frame}{Cosine law}
-%    \vspace{-0.07\textheight}
-%    \twocolumn[lcolwidth=0.57\linewidth,rcolwidth=0.37\linewidth]{
-%    \includegraphics[height=0.8\textheight]{figures/Taiz9.2CosineLaw.eps}}{%
-%    \raggedright
-%    \vspace{0.1\textheight}
-%    {\small Irradiance on a surface depends on the angle of incidence
-%    \citep[from][]{TaiZei2006}.}}
-%\end{frame}
-
-  \section*{References}
+\nocite{Rai2020,Mancinelli1994,Christie2002,Christie2015,Banerjee2007,Song2006a,Zeugner2005,Aphalo2021a}
   \begin{frame}[t,allowframebreaks]
     \frametitle{References}
     \printbibliography
@@ -556,158 +336,3 @@ scale_fill_identity()
 
 \end{document}
 
-\section{Light cues and plant populations}
-
-\begin{frame}{Light cues and populations:}
-    \begin{itemize}
-        \item Timing and location
-        \item Searching for light
-        \item Light, roots and mineral nutrients
-        \item Being good neighbours
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Light cues and populations: Timing and location}
-    \begin{itemize}
-        \item Hardening and de-hardening
-        \item Flowering
-        \item Germination
-        \item De-etiolation
-    \end{itemize}
-
-    \begin{itemize}
-        \item Synchronization of endogenous clock
-        \item Phytochrome and cryptochrome
-        \item Temperature
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Light cues and populations: Searching for light}
-    \begin{itemize}
-        \item Phototropism
-        \item Neighbour avoidance
-        \item phyB, phyA, phototropins
-        \item Other related responses
-        \begin{itemize}
-            \item branch/tiller angle
-            \item leaf blade angle
-            \item leaf patterning
-            \item elongation of stems and petioles
-        \end{itemize}
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Light cues and populations: Roots and nutrients}
-    \begin{itemize}
-        \item Growth of roots, root:shoot dry weight ratio
-        \item Positioning of roots (neighbour avoidance?)
-        \item Induction (and regulation?) of enzymes of nitrogen metabolism
-        \item Nodulation in legumes
-        \item Mycorrhizas
-        \item Concentrations and contents of mineral nutrients
-        \item Interactions in the control of other responses
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Light cues and populations: Growing density}
-    \begin{itemize}
-        \item The spacing between plants (inversely related to
-        growing density) affects the light environment (irradiance
-        and spectrum).
-        \item Also wind speed, air humidity and soil temperature
-        are altered.
-        \item Photomorphogenesis is an important, but not the only
-        component, of morphological responses to growth density.
-        \item High density $\rightarrow$ tall, slender plants.
-        \item Low density $\rightarrow$ short, sturdy plants.
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Light cues and populations: Growth density}
-\centering
-    \includegraphics[height=0.6\textheight]{../figures/nelder_birch-2PS}\\
-    {\small Nelder ``plots'' of varying density used to study effects of
-    spacing, in this case with equal soil volume in
-    \species{Betula pendula} seedlings.}
-    {\small \autocite[from][]{Aphalo2006}.}
-\end{frame}
-
-\begin{frame}{Light cues and populations: Growth density}
-\centering
-    \includegraphics[height=0.65\textheight]{../figures/fig_1993h2_c}\\
-    {\small Growth of birch seedlings in Nelder "plots", density changes at equal soil volume.}
-    {\small \autocite[from][]{Aphalo2006}.}
-\end{frame}
-
-\begin{frame}{Light signals and plant populations}{Being good neighbours}
-    \begin{itemize}
-
-        \item \mbox{}[In monospecific canopies] higher canopy-level productivity is
-        associated with reduced size inequality among neighbours.
-
-        \item Apparently, for high population-level reproductive
-        output at high densities it is not as important that the population is
-        composed of individuals with the ``right'' phenotype for shade conditions as
-        it is that the population is composed of individuals able to dynamically
-        adjust their phenotype as the canopy develops.
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Light signals and plant populations}{Being good neighbours}
-    \begin{itemize}
-
-        \item Shade avoidance by shorter individuals \textbf{decreases}
-        the relative competitive advantage of the taller ones.
-
-        \item Shade avoidance by shorter individuals tends to stabilize
-        the size structure of a canopy (i.e.\ decreases variation in height, dry mass
-        and reproductive output among individuals).
-
-        \item Phytochrome plays a very important role, but other factors
-        such as light other than red and far-red, wind, temperature, and
-        `transpiration demand' may be also important in stabilizing plant size
-        inequalities in the field.
-
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Light cues and populations: Photoreceptor mutants}
-\centering
-    \includegraphics[height=0.65\textheight]{../figures/carlos_cv_mutants}\\
-    {\footnotesize Coefficient of variability(CV = $s/\bar{x}$) for different photoreceptor
-    mutants and wild type (WT) of \species{Arabidopsis} }
-    {\footnotesize \autocite[redrawn from][]{Ballare1997}.}
-\end{frame}
-
-\begin{frame}{Light cues and populations: Photoreceptor over-expressers}
-\centering
-    \includegraphics[height=0.65\textheight]{../figures/carlos_cv_overexp}\\
-    {\small Phytochrome-overexpressing and wild type (WT) tobacco plants.
-     \autocite[redrawn from][]{Ballare1994}. \nocite{Aphalo1995,Aphalo1999}}
-\end{frame}
-
-\section{The future}
-
-\begin{frame}{Light cues and populations: How much do we not know about function?}
-    \begin{itemize}
-        \item Most of what we know at molecular level is for a handful of species,
-        with most information for the herb \textit{Arabidopsis}
-        \item Little is known about other growth forms such as trees
-        \item Other families such as grasses and conifers have been little studied
-        \item There is some information on ferns, mosses, and fungi
-        \item For progress in plant sensory ecology we badly need to have photoreceptor mutants available in more species
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Light cues and populations: How much do we not know?}
-    \begin{itemize}
-        \item The role of the different photoreceptors on the competitive ability of
-        plants growing in mono-specific canopies is almost unknown
-        \item The role of the different photoreceptors on the competitive ability of
-        plants growing in the wild is almost totally unknown
-        \item At the moment generalizations of our current plant sensory ecology knowledge to other species is almost
-        impossible, or at least very risky
-        \item There exist many plant species, further research could yield new
-        exciting discoveries in addition to recent advances in the description of the phylogeny of photoreceptor molecules (e.g.\ new photoreceptors)
-    \end{itemize}
-\end{frame}

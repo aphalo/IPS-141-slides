@@ -1,0 +1,235 @@
+% -*- TeX:RNW:UK -*-
+\documentclass[10pt]{beamer}
+\usetheme{metropolis}
+%\useinnertheme{rectangles}
+\setbeamercovered{%
+still covered={\opaqueness<1->{15}},
+again covered={\opaqueness<1->{40}}}
+
+\hypersetup{colorlinks,linkcolor=black,urlcolor=brown,citecolor=brown}
+
+\include{shared-tex/set-up-fonts-and-icons}
+
+\begin{document}
+
+<<setup, include=FALSE, cache=FALSE>>=
+library(knitr)
+opts_chunk$set(fig.path='figure/pos-', fig.align='center', fig.show='hold', size="tiny",            fig.width=7, fig.height=4.2, out.width='0.97\\textwidth', dev='cairo_pdf')
+
+knit_hooks$set(wrapper = function(before, options, grown) {
+sprintf('\\begin{alltt}%s\n\\end{alltt}',
+if (before) sprintf('<<%s>>=', options$params.src) else '@')
+})
+@
+
+<<packages, include=FALSE, cache=FALSE>>=
+library(ggplot2)
+library(lubridate)
+library(photobiology)
+library(photobiologyInOut)
+library(photobiologySun)
+library(photobiologyFilters)
+library(photobiologyWavebands)
+library(ggspectra)
+library(photobiologyPlants)
+@
+
+\title{IPS-141\\Sensory and Physiological Ecology of  Plants}
+\subtitle{x: Stomata and gas-exchange}
+\author{Pedro J. Aphalo}
+\date{January--February 2022}
+\institute[Univ.\ of Helsinki]{M.Sc.\ in Plant Biology, University of Helsinki\\[2ex] \url{http://blogs.helsinki.fi/aphalo/}}
+
+  \begin{frame}
+    \maketitle
+  \end{frame}
+
+\include{shared-tex/copyright-frame}
+
+
+  \begin{frame}
+    \frametitle{Outline}
+    \tableofcontents
+  \end{frame}
+
+\section{Stomata}
+
+\begin{frame}{Stomata on the abaxial epidermis (\emph{Hedera helix} L.)}
+ \centering
+    \includegraphics[width=0.95\textwidth]{photos/ivy-leaf-abax-epidermis-lowres}
+\end{frame}
+
+\begin{frame}{Cross-section of a juvenile leaf (\emph{Hedera helix} L.)}
+ \centering
+    \includegraphics[width=0.95\textwidth]{photos/Ivy-leaf-section}
+\end{frame}
+
+\begin{frame}{Cross-section of a stoma (\emph{Hedera helix} L.)}
+ \centering
+    \includegraphics[width=0.95\textwidth]{photos/ivy-guard-cell-section}
+\end{frame}
+
+\section{Stomata, responses to light}
+
+\begin{frame}{Time course of \gs (\emph{A. thalina})}
+\begin{itemize}
+  \item Experiment with \emph{phot1} \emph{phot2} and \emph{cry1} \emph{cry2} mutants plus two WTs.
+  \item Growth under photoperiod 12 h, 200 \umol PAR from white light.
+  \item Gas-exchange measured continuously for 23~h in whole rosettes (1 rosette at a time).
+  \item Measurements in same photoperiod, 200 \umol PAR from red, green or blue light from LEDs, and in darkness.
+  \item \autocite[See][for details]{Wang2020}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Time course of \gs (\emph{A. thalina})}
+ \centering
+    \includegraphics[width=0.85\textwidth]{figures/Wang-A-gs-time-course-dark}
+\end{frame}
+
+\begin{frame}{Time course of \gs (\emph{A. thalina})}
+ \centering
+    \includegraphics[width=0.95\textwidth]{figures/Wang-gs-1st-hour-light-dark}
+\end{frame}
+
+\begin{frame}{Time course of \gs (\emph{A. thalina})}
+ \centering
+    \includegraphics[width=0.85\textwidth]{figures/Wang-A-gs-time-course-light}
+\end{frame}
+
+\begin{frame}{Time course of \gs (\emph{A. thalina})}
+ \centering
+    \includegraphics[width=0.95\textwidth]{figures/Wang-CiCa-time-course-light-dark}
+\end{frame}
+
+\begin{frame}{Blue component of sunlight}
+ \centering
+    \includegraphics[width=0.95\textwidth]{figures/blue-hour-plot}
+\end{frame}
+
+\section{Measurement of leaf conductance}
+
+\begin{frame}{Transient porometer}
+     \href{https://youtu.be/kA7yS8JJsLE}{Video describing the AP4 porometer} from \href{https://delta-t.co.uk/product/ap4/}{Delta-T}
+\end{frame}
+
+\section{Thermography and non-contact sensors}
+
+\begin{frame}{Thermal camera}
+ \centering
+    \includegraphics[width=0.65\textwidth]{photos/OPTPI4XXi}
+     from \href{https://www.optris.co.uk/thermal-imager-optris-pi400-pi450}{Optris}
+\end{frame}
+
+\section{Measurement of spectral irradiance}
+
+\begin{frame}{Spectroradiometer}
+     \href{https://youtu.be/OI3pIvLhVcc}{Video describing a spectrometer} from \href{https://www.oceaninsight.com/}{Ocean Insight}
+\end{frame}
+
+\section{Measurement of gas-exchange}
+
+\begin{frame}{Open gas-exchange system}
+\begin{footnotesize}
+\begin{center}
+\makebox[2cm]{{\sf%
+air, \COtwo}%
+\rightarrowfill}
+\fbox{\parbox{2.3cm}{\sf%
+AIR\\ CONDITIONING}}%
+$\makebox[3.1cm]{\rightarrowfill} \atop
+\makebox[3.1cm]{%
+\rightarrowfill
+\fbox{\parbox{2.1cm}{\sf%
+LEAF CHAMBER}}%
+\rightarrowfill}$
+\fbox{\parbox{1.8cm}{\sf%
+MEASURING\\ EQUIPMENT}}%
+\end{center}
+\end{footnotesize}
+    \begin{itemize}
+        \item Most current gas-exchange systems used for measuring photosynthesis
+        are open systems in which air flows at a constant rate through a chamber
+        where a leaf in enclosed.
+
+        \item The flow rates and the differences in concentration of \COtwo and
+        water vapour between the air entering the chamber and that coming
+        out of the chamber are used to calculate the flows in or out of the leaf.
+
+        \item From the flows of \COtwo and water in or out of the leaf, and the enclosed leaf area, the
+        \COtwo and water fluxes per unit leaf area can be calculated.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Open vs.\ closed systems}
+    \begin{description}
+        \item[Open system:] Environmental conditions in the chamber do not
+        vary during measurement.
+        \item[Closed system:] Environmental conditions in the chamber change during measurement.
+        With transpiration humidity increases, with photosynthesis \COtwo
+        concentration decreases.
+    \end{description}
+\end{frame}
+
+\begin{frame}{Units}
+    \begin{itemize}
+        \item Modern: using moles
+            \begin{description}
+                \item[\COtwo] \umol
+                \item[Water vapour] \mmol
+            \end{description}
+        \item Old: mass
+            \begin{description}
+                \item[\COtwo] mg cm$^{-2}$ min$^{-1}$ etc.
+                \item[Water vapour] g cm$^{-2}$ min$^{-1}$ etc.
+            \end{description}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Gas-exchange system}
+    \centering
+    \includegraphics[height=0.7\textheight]{photos/WalzGFS-3000}\\
+    {\small GFS-3000 (Walz, Germany) (\url{http://www.walz.com/}).}
+\end{frame}
+
+\begin{frame}{Measuring}
+    \centering
+    \includegraphics[height=0.7\textheight]{photos/GFS-3000_1big}\\
+    {\small from \url{http://www.walz.com/}.}
+\end{frame}
+
+\begin{frame}{Measuring}
+    \centering
+    \includegraphics[height=0.7\textheight]{photos/GFS-3000_6big}\\
+    {\small from \url{http://www.walz.com/}.}
+\end{frame}
+
+\begin{frame}{Chamber}
+    \centering
+    \includegraphics[height=0.7\textheight]{photos/GFS-3000_3big}\\
+    {\small from \url{http://www.walz.com/}.}
+\end{frame}
+
+\begin{frame}{Chamber (measuring)}
+    \centering
+    \includegraphics[height=0.7\textheight]{photos/gFS-3000_4big}\\
+    {\small from \url{http://www.walz.com/}.}
+\end{frame}
+
+\begin{frame}{Standard and conifer chambers}
+    \centering
+    \includegraphics[height=0.5\textheight]{photos/LI-6400-standard}%
+    \includegraphics[height=0.5\textheight]{photos/LI-6400-conifer}\\
+    {\small Standard chamber (for flat leaves) and conifer chamber (for twigs)
+     for the LI-6400 gas-exchange system\\
+     (Li-Cor, USA) (from \url{http://www.licor.com/}).}
+\end{frame}
+
+
+\section*{References}
+  \nocite{Kotilainen2020}
+  \begin{frame}[t,allowframebreaks]
+    \frametitle{References}
+    \printbibliography
+  \end{frame}
+
+\end{document}

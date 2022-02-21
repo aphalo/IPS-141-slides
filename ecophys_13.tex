@@ -8,62 +8,15 @@ again covered={\opaqueness<1->{40}}}
 
 \hypersetup{colorlinks,linkcolor=black,urlcolor=brown,citecolor=brown}
 
-\usepackage{amsmath,amssymb,amsthm}
-\usepackage{unicode-math}
+\include{shared-tex/set-up-fonts-and-icons}
 
-% We set the Lucida OTF fonts as default
-\usepackage{fontspec}
-\setmainfont{Lucida Bright OT}
-\setsansfont{Lucida Sans OT}
-\setmonofont{Lucida Console DK}[Scale=MatchLowercase]
-
-\newfontfamily\typiconsfont{Typicons}[Scale=0.9]
-\newcommand\typicons[1]{{\typiconsfont\symbol{#1}}}
-\newcommand\Attention{\colorbox{yellow}{\textcolor{black}{\typicons{"E136}}}\xspace}
-\newcommand\Advanced{\colorbox{black}{\textcolor{white}{\typicons{"E04E}}}\xspace}
-
-\newfontfamily\webglyphsfont{WebHostingHub-Glyphs}[Scale=0.7]
-\newcommand\webglyphs[1]{{\webglyphsfont\symbol{#1}}}
-\newcommand\Discussion{\colorbox{white}{\textcolor{black}{\webglyphs{"F134}}}\xspace}
-\newcommand\DExamples{\colorbox{black}{\textcolor{white}{\webglyphs{"F134} examples?}}}
-\newcommand\Reading{\colorbox{black}{\textcolor{white}{\webglyphs{"F0C1}}}\xspace}
-
-\newfontfamily\meteoconsfont{Meteocons}
-\newcommand\meteocons[1]{{\meteoconsfont\symbol{#1}}}
-\newcommand\meteosun{\meteocons{"0042}}
-\newcommand\meteosuncloud{\meteocons{"0048}}
-\newcommand\meteorain{\meteocons{"0052}}
-\newcommand\meteosolidsun{\meteocons{"0031}}
-
-\newfontfamily\KRfarmfont{KR Back On The Farm}
-\newcommand\KRfarm[1]{{\KRfarmfont\symbol{#1}}}
-\newcommand\farmplant{\KRfarm{"0049}}
-
-\usepackage{polyglossia}
-\setdefaultlanguage[variant = british, ordinalmonthday = false]{english}
-
-\usepackage[style=authoryear-comp,firstinits,sortcites,maxcitenames=2,%
-    mincitenames=1,maxbibnames=10,minbibnames=10,uniquename=mininit,%
-    uniquelist=minyear,sortfirstinits=true]{biblatex}
-\addbibresource{../references/ecophys.bib}
-%\renewcommand{\bibfont}{\small}
-
-\usepackage{abbrev}
-\DeclareGraphicsExtensions{.png,.jpg,.jpeg,.eps,.pdf}
-
-
-\title{Physiological Plant Ecology\\
-       Lecture 13: Water Relations}
-\author{Pedro J. Aphalo}
-\date{September--October 2013}
 
 \begin{document}
 
-
-\title{PBIO-141\\Sensory and Physiological Ecology of  Plants}
-\subtitle{13: Water Relations}
+\title{IPS-141\\Sensory and Physiological Ecology of  Plants}
+\subtitle{X: Water Relations}
 \author{Pedro J. Aphalo}
-\date{January-February 2018}
+\date{January--February 2022}
 \institute[Univ.\ of Helsinki]{M.Sc.\ in Plant Biology, University of Helsinki\\[2ex] \url{http://blogs.helsinki.fi/aphalo/}}
 
 
@@ -71,37 +24,12 @@ again covered={\opaqueness<1->{40}}}
     \maketitle
   \end{frame}
 
-  \begin{frame}[c]
-    \begin{center}
-      \begin{small}
-        \copyright 2006-2018 by Pedro J. Aphalo\\
-       University of Helsinki, Finland.\\
-        \textcolor{blue}{\url{http://blogs.helsinki.fi/aphalo/}}\\[2ex]
-      \end{small}
-
-      \begin{footnotesize}
-        Sensory and Physiological Ecology of  Plants: `13: Water Relations' by Pedro J. Aphalo is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
-
-        Illustrations and text quoted from copyrighted sources is excluded from this license and their use should respect the original licenses.\\[2ex]
-      \end{footnotesize}
-
-      \centering\includegraphics[width=6em]{../figures/copyright/by-sa}
-    \end{center}
-  \end{frame}
+\include{shared-tex/copyright-frame}
 
   \begin{frame}
     \frametitle{Outline}
     \tableofcontents
   \end{frame}
-
-
-%\section{Stable isotopes of C}
-%
-%\begin{frame}{Carbon isotope ratio and $C_i$}
-%    \twocolumn[lcolwidth=0.57\linewidth,rcolwidth=0.37\linewidth]{
-%    \centering\includegraphics[height=0.75\textheight]{figures/Ehleringer13.7delta13CCi}}{%
-%    {\small \autocite[from][]{EhlOsm1991}.}}
-%\end{frame}
 
 \section{Water and plants}
 
@@ -201,7 +129,7 @@ again covered={\opaqueness<1->{40}}}
         \item Water potential is defined as free energy per unit volume of water.
 
         \item The potential of pure water at standard conditions is
-        zero. ($\Wpot^0 = 0$, the zero as superscript means standard conditions: 25\textcelsius\ and atmospheric pressure)
+        zero. ($\Wpot^0 = 0$, the zero as superscript means standard conditions: 25~C and atmospheric pressure)
 
         \item It is expressed in pressure units (MPa, mega-Pascals; 1 MPa = 10 bar).
     \end{itemize}
@@ -260,7 +188,7 @@ again covered={\opaqueness<1->{40}}}
 \end{frame}
 
 \begin{frame}{Water potential changes}
-    \centering\includegraphics[height=0.8\textheight]{figures/Larcher4.3Hoffler.eps}\\
+    \centering\includegraphics[height=0.8\textheight]{figures/Larcher4.3Hoffler.pdf}\\
     {\small \autocite[from][]{Larcher2003}.}
 \end{frame}
 
@@ -325,12 +253,12 @@ again covered={\opaqueness<1->{40}}}
 \end{frame}
 
 \begin{frame}{Water path out of leaf}
-   \centering\includegraphics[height=0.85\textheight]{figures/Taiz4.11LeafCrossSection.eps}\\
+   \centering\includegraphics[height=0.85\textheight]{figures/Taiz4.11LeafCrossSection.pdf}\\
     {\small \autocite[from][]{TaiZei2006}.}
 \end{frame}
 
 \begin{frame}{Stoma}
-    \centering\includegraphics[height=0.85\textheight]{figures/Taiz18.8Stoma.eps}\\
+    \centering\includegraphics[height=0.85\textheight]{figures/Taiz18.8Stoma.pdf}\\
     {\small \autocite[from][]{TaiZei2006}.}
 \end{frame}
 
@@ -352,12 +280,12 @@ again covered={\opaqueness<1->{40}}}
 \end{frame}
 
 \begin{frame}{Water path in root}
-    \centering\includegraphics[height=0.85\textheight]{figures/Taiz4.4RootCrossSection.eps}\\
+    \centering\includegraphics[height=0.85\textheight]{figures/Taiz4.4RootCrossSection.pdf}\\
     {\small \autocite[from][]{TaiZei2006}.}
 \end{frame}
 
 \begin{frame}{Water path in ectomycorrhiza}
-    \centering\includegraphics[height=0.85\textheight]{figures/Mykowater_Lehto.eps}\\
+    \centering\includegraphics[height=0.85\textheight]{figures/Mykowater_Lehto.pdf}\\
     {\small \autocite[from][]{Lehto2011}.}
 \end{frame}
 
@@ -379,12 +307,12 @@ again covered={\opaqueness<1->{40}}}
 \end{frame}
 
 \begin{frame}{Water potential profiles}
-    \centering\includegraphics[height=0.85\textheight]{figures/Larcher4.11WaterPotentialProfiles.eps}\\
+    \centering\includegraphics[height=0.85\textheight]{figures/Larcher4.11WaterPotentialProfiles.pdf}\\
     {\small \autocite[from][]{Larcher2003}.}
 \end{frame}
 
 \begin{frame}{As soil dries\ldots}
-    \centering\includegraphics[width=\textwidth]{figures/Larcher4.26SchematicSlatyer.eps}\\
+    \centering\includegraphics[width=\textwidth]{figures/Larcher4.26SchematicSlatyer.pdf}\\
     {\small \autocite[from][]{Larcher2003}.}
 \end{frame}
 
@@ -426,12 +354,12 @@ again covered={\opaqueness<1->{40}}}
 \end{frame}
 
 \begin{frame}{Water content in soils}
-    \centering\includegraphics[height=0.8\textheight]{figures/Kozlowski6.1SoilWaterContent.eps}\\
+    \centering\includegraphics[height=0.8\textheight]{figures/Kozlowski6.1SoilWaterContent.pdf}\\
     {\small Water available and unavailable to plants in different types of soils \autocite[from][]{Kozlowski1991}.}
 \end{frame}
 
 \begin{frame}{Water potential in soils}
-    \centering\includegraphics[height=0.75\textheight]{figures/Larcher4.6SoilWaterPotential.eps}\\
+    \centering\includegraphics[height=0.75\textheight]{figures/Larcher4.6SoilWaterPotential.pdf}\\
     {\small Water potential in two different types of soils \autocite[from][]{Larcher2003}.}
 \end{frame}
 
@@ -475,45 +403,11 @@ again covered={\opaqueness<1->{40}}}
 \end{frame}
 
 \begin{frame}{Driving forces}
-    \centering\includegraphics[height=0.8\textheight]{figures/Taiz4.1DrivingForces.eps}\\
+    \centering\includegraphics[height=0.8\textheight]{figures/Taiz4.1DrivingForces.pdf}\\
     {\small Driving forces for water movement in different parts of
     the soil-plant-atmosphere continum
     \autocite[from][]{TaiZei2006}.}
 \end{frame}
-
-%\section{Measuring water potential}
-%
-%\begin{frame}{Measurements}
-%    \begin{itemize}
-%        \item Water potential can be measured in plant tissues.
-%        \item In the xylem.
-%        \item In solutions.
-%        \item In the soil.
-%        \item I have put in WebCT a link to a description of methods
-%        for measuring water potential in plants. It is a complement
-%        to the book of \citet{TaiZei2006}.
-%    \end{itemize}
-%\end{frame}
-%
-%\begin{frame}{Pressure chamber}
-%    \centering\includegraphics[height=0.55\textheight]{figures/PMS1000}\\
-%    {\small PMS1000 pressure `bomb' (\emph{painekammiolaite})(PMS Instruments, USA) (from \url{http://pmsinstrument.com/}).}
-%\end{frame}
-%
-%\begin{frame}{}
-%    \centering\includegraphics[height=0.8\textheight]{figures/Taiz9.2CosineLaw}\\
-%    {\small .}
-%\end{frame}
-
-
-
-%\begin{frame}{Cosine law}
-%    \twocolumn[lcolwidth=0.57\linewidth,rcolwidth=0.37\linewidth]{
-%    \centering\includegraphics[height=0.8\textheight]{figures/Taiz9.2CosineLaw}}{%
-%    \raggedright
-%    {\small Irradiance on a surface depends on the angle of incidence
-%    \autocite[from][]{TaiZei2006}.}}
-%\end{frame}
 
   \section*{References}
   \begin{frame}[t,allowframebreaks]
